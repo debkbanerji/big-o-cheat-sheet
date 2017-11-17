@@ -26,6 +26,13 @@ export class HomeComponent implements OnInit {
     ];
     public linkedListType = this.linkedListTypes[0];
 
+    // Stack
+    public stackBackingStructures = [
+        'Linked List',
+        'Array'
+    ];
+    public stackBackingStructure = this.stackBackingStructures[0];
+
     constructor() {
     }
 

@@ -99,6 +99,11 @@
                             <td *ngIf="!arrayListSizeStored"><span class="big-o">O(log(n))</span></td>
                         </tr>
                         <tr>
+                            <td>Checking if the list is empty</td>
+                            <td><span class="big-o">O(1)</span></td>
+                            <td><span class="big-o">O(1)</span></td>
+                        </tr>
+                        <tr>
                             <td>
                                 Finding <em>K</em>th largest/smallest element
                                 <br>
@@ -151,7 +156,7 @@
                     <mat-checkbox [(ngModel)]="linkedListCircular">Circular</mat-checkbox>
                     <br>
                     <mat-form-field [(hidden)]="arrayListSorted">
-                        <mat-select [placeholder]="'Linked List Type'"
+                        <mat-select placeholder="Linked List Type"
                                     [(ngModel)]="linkedListType">
                             <mat-option *ngFor="let type of linkedListTypes" [value]="type">
                                 {{type}}
@@ -235,6 +240,71 @@
                             <td *ngIf="linkedListSizeStored"><span class="big-o">O(1)</span></td>
                             <td *ngIf="!linkedListSizeStored"><span class="big-o">O(n)</span></td>
                             <td *ngIf="!linkedListSizeStored"><span class="big-o">O(n)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Checking if the list is empty</td>
+                            <td><span class="big-o">O(1)</span></td>
+                            <td><span class="big-o">O(1)</span></td>
+                        </tr>
+                    </table>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-12">
+        <div class="table-section">
+            <mat-card>
+                <mat-card-title>
+                    <span>Stack</span>
+                </mat-card-title>
+                <mat-card-content>
+                    <mat-form-field>
+                        <mat-select placeholder="Backing Structure"
+                                    [(ngModel)]="stackBackingStructure">
+                            <mat-option *ngFor="let structure of stackBackingStructures" [value]="structure">
+                                {{structure}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <br>
+                    <p class="complexity-type">Space Complexity</p>
+                    <table>
+                        <tr>
+                            <th>Average Case</th>
+                            <th>Worst Case</th>
+                        </tr>
+                        <tr>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n)</span></td>
+                        </tr>
+                    </table>
+                    <p class="complexity-type">Time Complexity</p>
+                    <table>
+                        <tr>
+                            <th>Operation</th>
+                            <th>Average Case</th>
+                            <th>Worst Case</th>
+                        </tr>
+                        <tr>
+                            <td>Pushing to the stack</td>
+                            <td *ngIf="stackBackingStructure === stackBackingStructures[0]"><span
+                                class="big-o">O(1)</span></td>
+                            <td *ngIf="stackBackingStructure === stackBackingStructures[0]"><span
+                                class="big-o">O(1)</span></td>
+                            <td *ngIf="!(stackBackingStructure === stackBackingStructures[0])">Amortized <span
+                                class="big-o">O(1)</span></td>
+                            <td *ngIf="!(stackBackingStructure === stackBackingStructures[0])">Amortized <span
+                                class="big-o">O(1)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Popping from the stack</td>
+                            <td><span class="big-o">O(1)</span></td>
+                            <td><span class="big-o">O(1)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Checking if the stack is empty</td>
+                            <td><span class="big-o">O(1)</span></td>
+                            <td><span class="big-o">O(1)</span></td>
                         </tr>
                     </table>
                 </mat-card-content>
