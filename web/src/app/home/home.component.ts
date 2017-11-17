@@ -10,7 +10,7 @@ export class HomeComponent implements OnInit {
     public arrayListSorted = false;
     public arrayListSizeStored = true;
     public kthSelectionAlgorithms = [
-        'Quick Select',
+        'Random',
         'Median of Medians'
     ];
 

@@ -28,7 +28,7 @@
                     <mat-checkbox [(ngModel)]="arrayListSorted">Sorted</mat-checkbox>
                     <br>
                     <mat-form-field [(hidden)]="arrayListSorted">
-                        <mat-select [placeholder]="'Kth Selection Algorithm'"
+                        <mat-select [placeholder]="'Pivot Selection Method'"
                                     [(ngModel)]="kthSelectionAlgorithm">
                             <mat-option *ngFor="let algorithm of kthSelectionAlgorithms" [value]="algorithm">
                                 {{algorithm}}
