@@ -23,9 +23,18 @@
                     <span>Array List</span>
                 </mat-card-title>
                 <mat-card-content>
+                    <mat-checkbox [(ngModel)]="arrayListSizeStored">Size Stored in Variable</mat-checkbox>
+                    <br>
                     <mat-checkbox [(ngModel)]="arrayListSorted">Sorted</mat-checkbox>
                     <br>
-                    <mat-checkbox [(ngModel)]="arrayListSizeStored">Size Stored in Variable</mat-checkbox>
+                    <mat-form-field [(hidden)]="arrayListSorted">
+                        <mat-select [placeholder]="'Kth Selection Algorithm'"
+                                    [(ngModel)]="kthSelectionAlgorithm">
+                            <mat-option *ngFor="let algorithm of kthSelectionAlgorithms" [value]="algorithm">
+                                {{algorithm}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
                     <br>
                     <p class="complexity-type">Space Complexity</p>
                     <table>
@@ -97,6 +106,26 @@
                             <td *ngIf="arrayListSizeStored"><span class="big-o">O(1)</span></td>
                             <td *ngIf="!arrayListSizeStored"><span class="big-o">O(log(n))</span></td>
                             <td *ngIf="!arrayListSizeStored"><span class="big-o">O(log(n))</span></td>
+                        </tr>
+                        <tr>
+                            <td>Finding <em>K</em>th largest/smallest element</td>
+                            <td *ngIf="arrayListSorted"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="arrayListSorted"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="!arrayListSorted"><span class="big-o">O(n)</span></td>
+                            <td *ngIf="!arrayListSorted && kthSelectionAlgorithm === kthSelectionAlgorithms[0]"><span
+                                class="big-o">O(n<sup>2</sup>)</span></td>
+                            <td *ngIf="!arrayListSorted && kthSelectionAlgorithm === kthSelectionAlgorithms[1]"><span
+                                class="big-o">O(n)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Finding median (using <em>K</em>th selection)</td>
+                            <td *ngIf="arrayListSorted"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="arrayListSorted"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="!arrayListSorted"><span class="big-o">O(n)</span></td>
+                            <td *ngIf="!arrayListSorted && kthSelectionAlgorithm === kthSelectionAlgorithms[0]"><span
+                                class="big-o">O(n<sup>2</sup>)</span></td>
+                            <td *ngIf="!arrayListSorted && kthSelectionAlgorithm === kthSelectionAlgorithms[1]"><span
+                                class="big-o">O(n)</span></td>
                         </tr>
                     </table>
                 </mat-card-content>

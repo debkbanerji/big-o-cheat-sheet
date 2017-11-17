@@ -9,6 +9,12 @@ export class HomeComponent implements OnInit {
 
     public arrayListSorted = false;
     public arrayListSizeStored = true;
+    public kthSelectionAlgorithms = [
+        'Quick Select',
+        'Median of Medians'
+    ];
+
+    public kthSelectionAlgorithm = this.kthSelectionAlgorithms[0];
 
     constructor() {
     }
