@@ -27,15 +27,6 @@
                     <br>
                     <mat-checkbox [(ngModel)]="arrayListSorted">Sorted</mat-checkbox>
                     <br>
-                    <mat-form-field [(hidden)]="arrayListSorted">
-                        <mat-select [placeholder]="'Pivot Selection Method'"
-                                    [(ngModel)]="kthSelectionAlgorithm">
-                            <mat-option *ngFor="let algorithm of kthSelectionAlgorithms" [value]="algorithm">
-                                {{algorithm}}
-                            </mat-option>
-                        </mat-select>
-                        <br>
-                    </mat-form-field>
                     <p class="complexity-type">Space Complexity</p>
                     <table>
                         <tr>
@@ -67,23 +58,6 @@
                             <td><span class="big-o">O(1)</span></td>
                         </tr>
                         <tr>
-                            <td>Deleting an element at an arbitrary index</td>
-                            <td><span class="big-o">O(n)</span></td>
-                            <td><span class="big-o">O(n)</span></td>
-                        </tr>
-                        <tr>
-                            <td>Deleting first element</td>
-                            <td><span class="big-o">O(n)</span></td>
-                            <td><span class="big-o">O(n)</span></td>
-                        </tr>
-                        <tr>
-                            <td>Deleting last element</td>
-                            <td *ngIf="arrayListSizeStored"><span class="big-o">O(1)</span></td>
-                            <td *ngIf="arrayListSizeStored"><span class="big-o">O(1)</span></td>
-                            <td *ngIf="!arrayListSizeStored"><span class="big-o">O(log(n))</span></td>
-                            <td *ngIf="!arrayListSizeStored"><span class="big-o">O(log(n))</span></td>
-                        </tr>
-                        <tr>
                             <td>Adding an element at an arbitrary index</td>
                             <td><span class="big-o">O(n)</span></td>
                             <td><span class="big-o">O(n)</span></td>
@@ -101,6 +75,23 @@
                             <td *ngIf="!arrayListSizeStored">Amortized <span class="big-o">O(log(n))</span></td>
                         </tr>
                         <tr>
+                            <td>Deleting an element at an arbitrary index</td>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Deleting first element</td>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Deleting last element</td>
+                            <td *ngIf="arrayListSizeStored"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="arrayListSizeStored"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="!arrayListSizeStored"><span class="big-o">O(log(n))</span></td>
+                            <td *ngIf="!arrayListSizeStored"><span class="big-o">O(log(n))</span></td>
+                        </tr>
+                        <tr>
                             <td>Finding Size</td>
                             <td *ngIf="arrayListSizeStored"><span class="big-o">O(1)</span></td>
                             <td *ngIf="arrayListSizeStored"><span class="big-o">O(1)</span></td>
@@ -108,7 +99,21 @@
                             <td *ngIf="!arrayListSizeStored"><span class="big-o">O(log(n))</span></td>
                         </tr>
                         <tr>
-                            <td>Finding <em>K</em>th largest/smallest element</td>
+                            <td>
+                                Finding <em>K</em>th largest/smallest element
+                                <br>
+                                <br>
+                                <mat-form-field [(hidden)]="arrayListSorted">
+                                    <mat-select [placeholder]="'Pivot Selection Method'"
+                                                [(ngModel)]="kthSelectionAlgorithm">
+                                        <mat-option *ngFor="let algorithm of kthSelectionAlgorithms"
+                                                    [value]="algorithm">
+                                            {{algorithm}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <!--<br>-->
+                                </mat-form-field>
+                            </td>
                             <td *ngIf="arrayListSorted"><span class="big-o">O(1)</span></td>
                             <td *ngIf="arrayListSorted"><span class="big-o">O(1)</span></td>
                             <td *ngIf="!arrayListSorted"><span class="big-o">O(n)</span></td>
@@ -126,6 +131,111 @@
                                 class="big-o">O(n<sup>2</sup>)</span></td>
                             <td *ngIf="!arrayListSorted && kthSelectionAlgorithm === kthSelectionAlgorithms[1]"><span
                                 class="big-o">O(n)</span></td>
+                        </tr>
+                    </table>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-12">
+        <div class="table-section">
+            <mat-card>
+                <mat-card-title>
+                    <span>Linked List</span>
+                    <!--TODO: add circularness-->
+                </mat-card-title>
+                <mat-card-content>
+                    <mat-checkbox [(ngModel)]="linkedListSizeStored">Size Stored in Variable</mat-checkbox>
+                    <br>
+                    <mat-checkbox [(ngModel)]="linkedListHasTailPointer">Tail Pointer</mat-checkbox>
+                    <br>
+                    <mat-checkbox [(ngModel)]="linkedListCircular">Circular</mat-checkbox>
+                    <br>
+                    <mat-form-field [(hidden)]="arrayListSorted">
+                        <mat-select [placeholder]="'Linked List Type'"
+                                    [(ngModel)]="linkedListType">
+                            <mat-option *ngFor="let type of linkedListTypes" [value]="type">
+                                {{type}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <br>
+                    <p class="complexity-type">Space Complexity</p>
+                    <table>
+                        <tr>
+                            <th>Average Case</th>
+                            <th>Worst Case</th>
+                        </tr>
+                        <tr>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n)</span></td>
+                        </tr>
+                    </table>
+                    <p class="complexity-type">Time Complexity</p>
+                    <table>
+                        <tr>
+                            <th>Operation</th>
+                            <th>Average Case</th>
+                            <th>Worst Case</th>
+                        </tr>
+                        <tr>
+                            <td>Finding an element</td>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Accessing an element at a known index</td>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Adding an element at an arbitrary index</td>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Adding to front</td>
+                            <td><span class="big-o">O(1)</span></td>
+                            <td><span class="big-o">O(1)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Adding to back</td>
+                            <td *ngIf="(linkedListHasTailPointer || linkedListCircular)"><span class="big-o">O(1)</span>
+                            </td>
+                            <td *ngIf="(linkedListHasTailPointer || linkedListCircular)"><span class="big-o">O(1)</span>
+                            </td>
+                            <td *ngIf="!(linkedListHasTailPointer || linkedListCircular)"><span
+                                class="big-o">O(n)</span></td>
+                            <td *ngIf="!(linkedListHasTailPointer || linkedListCircular)"><span
+                                class="big-o">O(n)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Deleting an element at an arbitrary index</td>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Deleting first element</td>
+                            <td><span class="big-o">O(1)</span></td>
+                            <td><span class="big-o">O(1)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Deleting last element</td>
+                            <td *ngIf="!(linkedListType === linkedListTypes[1] && linkedListHasTailPointer || linkedListType === linkedListTypes[1] && linkedListCircular)"><span
+                                class="big-o">O(n)</span></td>
+                            <td *ngIf="!(linkedListType === linkedListTypes[1] && linkedListHasTailPointer || linkedListType === linkedListTypes[1] && linkedListCircular)"><span
+                                class="big-o">O(n)</span></td>
+                            <td *ngIf="(linkedListType === linkedListTypes[1] && linkedListHasTailPointer || linkedListType === linkedListTypes[1] && linkedListCircular)"><span
+                                class="big-o">O(1)</span></td>
+                            <td *ngIf="(linkedListType === linkedListTypes[1] && linkedListHasTailPointer || linkedListType === linkedListTypes[1] && linkedListCircular)"><span
+                                class="big-o">O(1)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Finding Size</td>
+                            <td *ngIf="linkedListSizeStored"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="linkedListSizeStored"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="!linkedListSizeStored"><span class="big-o">O(n)</span></td>
+                            <td *ngIf="!linkedListSizeStored"><span class="big-o">O(n)</span></td>
                         </tr>
                     </table>
                 </mat-card-content>
