@@ -6,9 +6,10 @@ import {HomeComponent} from './home/home.component';
 
 import {RouterModule, Routes} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FormsModule} from '@angular/forms';
 
-import {MatCheckboxModule} from '@angular/material';
 
+import {MatCheckboxModule, MatCardModule} from '@angular/material';
 
 
 const routes: Routes = [ // Array of all routes - modify when adding routes
@@ -21,8 +22,10 @@ const routes: Routes = [ // Array of all routes - modify when adding routes
         HomeComponent
     ],
     imports: [
+        FormsModule,
         BrowserModule,
         BrowserAnimationsModule,
+        MatCardModule,
         MatCheckboxModule,
         RouterModule.forRoot(routes)
     ],

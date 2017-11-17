@@ -1,4 +1,51 @@
 .main-title-container {
     text-align: center;
     width: 100%;
+    padding-top: 10px;
+}
+
+.section-header {
+    margin-left: 25px;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+/*table tr:nth-child(even) {*/
+    /*background-color: #f2f2f2;*/
+/*}*/
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #f2f2f2;
+    color: black;
+}
+
+.table-section {
+    margin: 10px;
+}
+
+.complexity-type {
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+.big-o {
+    font-style: italic;
+    font-weight: 600;
 }
