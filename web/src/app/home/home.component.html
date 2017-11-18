@@ -53,14 +53,19 @@
                             <td *ngIf="arrayListSorted"><span class="big-o">O(log(n))</span></td>
                         </tr>
                         <tr>
-                            <td>Accessing an element at a known index</td>
+                            <td>Accessing first element</td>
                             <td><span class="big-o">O(1)</span></td>
                             <td><span class="big-o">O(1)</span></td>
                         </tr>
                         <tr>
-                            <td>Adding an element at an arbitrary index</td>
-                            <td><span class="big-o">O(n)</span></td>
-                            <td><span class="big-o">O(n)</span></td>
+                            <td>Accessing last element</td>
+                            <td><span class="big-o">O(1)</span></td>
+                            <td><span class="big-o">O(1)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Accessing an element at an arbitrary index</td>
+                            <td><span class="big-o">O(1)</span></td>
+                            <td><span class="big-o">O(1)</span></td>
                         </tr>
                         <tr>
                             <td>Adding to front</td>
@@ -75,21 +80,26 @@
                             <td *ngIf="!arrayListSizeStored">Amortized <span class="big-o">O(log(n))</span></td>
                         </tr>
                         <tr>
-                            <td>Deleting an element at an arbitrary index</td>
+                            <td>Adding at an arbitrary index</td>
                             <td><span class="big-o">O(n)</span></td>
                             <td><span class="big-o">O(n)</span></td>
                         </tr>
                         <tr>
-                            <td>Deleting first element</td>
+                            <td>Removing from front</td>
                             <td><span class="big-o">O(n)</span></td>
                             <td><span class="big-o">O(n)</span></td>
                         </tr>
                         <tr>
-                            <td>Deleting last element</td>
+                            <td>Removing from back</td>
                             <td *ngIf="arrayListSizeStored"><span class="big-o">O(1)</span></td>
                             <td *ngIf="arrayListSizeStored"><span class="big-o">O(1)</span></td>
                             <td *ngIf="!arrayListSizeStored"><span class="big-o">O(log(n))</span></td>
                             <td *ngIf="!arrayListSizeStored"><span class="big-o">O(log(n))</span></td>
+                        </tr>
+                        <tr>
+                            <td>Removing from an arbitrary index</td>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n)</span></td>
                         </tr>
                         <tr>
                             <td>Finding Size</td>
@@ -188,12 +198,23 @@
                             <td><span class="big-o">O(n)</span></td>
                         </tr>
                         <tr>
-                            <td>Accessing an element at a known index</td>
-                            <td><span class="big-o">O(n)</span></td>
-                            <td><span class="big-o">O(n)</span></td>
+                            <td>Accessing first element</td>
+                            <td><span class="big-o">O(1)</span></td>
+                            <td><span class="big-o">O(1)</span></td>
                         </tr>
                         <tr>
-                            <td>Adding an element at an arbitrary index</td>
+                            <td>Accessing last element</td>
+                            <td *ngIf="!(linkedListHasTailPointer || linkedListType === linkedListTypes[1] && linkedListCircular)"><span
+                                class="big-o">O(n)</span></td>
+                            <td *ngIf="!(linkedListHasTailPointer || linkedListType === linkedListTypes[1] && linkedListCircular)"><span
+                                class="big-o">O(n)</span></td>
+                            <td *ngIf="(linkedListHasTailPointer || linkedListType === linkedListTypes[1] && linkedListCircular)"><span
+                                class="big-o">O(1)</span></td>
+                            <td *ngIf="(linkedListHasTailPointer || linkedListType === linkedListTypes[1] && linkedListCircular)"><span
+                                class="big-o">O(1)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Accessing an element at an arbitrary index</td>
                             <td><span class="big-o">O(n)</span></td>
                             <td><span class="big-o">O(n)</span></td>
                         </tr>
@@ -214,17 +235,17 @@
                                 class="big-o">O(n)</span></td>
                         </tr>
                         <tr>
-                            <td>Deleting an element at an arbitrary index</td>
+                            <td>Adding at an arbitrary index</td>
                             <td><span class="big-o">O(n)</span></td>
                             <td><span class="big-o">O(n)</span></td>
                         </tr>
                         <tr>
-                            <td>Deleting first element</td>
+                            <td>Removing from front</td>
                             <td><span class="big-o">O(1)</span></td>
                             <td><span class="big-o">O(1)</span></td>
                         </tr>
                         <tr>
-                            <td>Deleting last element</td>
+                            <td>Removing from back</td>
                             <td *ngIf="!(linkedListType === linkedListTypes[1] && linkedListHasTailPointer || linkedListType === linkedListTypes[1] && linkedListCircular)"><span
                                 class="big-o">O(n)</span></td>
                             <td *ngIf="!(linkedListType === linkedListTypes[1] && linkedListHasTailPointer || linkedListType === linkedListTypes[1] && linkedListCircular)"><span
@@ -233,6 +254,11 @@
                                 class="big-o">O(1)</span></td>
                             <td *ngIf="(linkedListType === linkedListTypes[1] && linkedListHasTailPointer || linkedListType === linkedListTypes[1] && linkedListCircular)"><span
                                 class="big-o">O(1)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Removing from an arbitrary index</td>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n)</span></td>
                         </tr>
                         <tr>
                             <td>Finding Size</td>
