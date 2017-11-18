@@ -286,7 +286,7 @@
                             <th>Worst Case</th>
                         </tr>
                         <tr>
-                            <td>Pushing to the stack</td>
+                            <td>Push</td>
                             <td *ngIf="stackBackingStructure === stackBackingStructures[0]"><span
                                 class="big-o">O(1)</span></td>
                             <td *ngIf="stackBackingStructure === stackBackingStructures[0]"><span
@@ -297,12 +297,72 @@
                                 class="big-o">O(1)</span></td>
                         </tr>
                         <tr>
-                            <td>Popping from the stack</td>
+                            <td>Pop</td>
                             <td><span class="big-o">O(1)</span></td>
                             <td><span class="big-o">O(1)</span></td>
                         </tr>
                         <tr>
                             <td>Checking if the stack is empty</td>
+                            <td><span class="big-o">O(1)</span></td>
+                            <td><span class="big-o">O(1)</span></td>
+                        </tr>
+                    </table>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-12">
+        <div class="table-section">
+            <mat-card>
+                <mat-card-title>
+                    <span>Queue</span>
+                </mat-card-title>
+                <mat-card-content>
+                    <mat-form-field>
+                        <mat-select placeholder="Backing Structure"
+                                    [(ngModel)]="queueBackingStructure">
+                            <mat-option *ngFor="let structure of queueBackingStructures" [value]="structure">
+                                {{structure}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <br>
+                    <p class="complexity-type">Space Complexity</p>
+                    <table>
+                        <tr>
+                            <th>Average Case</th>
+                            <th>Worst Case</th>
+                        </tr>
+                        <tr>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n)</span></td>
+                        </tr>
+                    </table>
+                    <p class="complexity-type">Time Complexity</p>
+                    <table>
+                        <tr>
+                            <th>Operation</th>
+                            <th>Average Case</th>
+                            <th>Worst Case</th>
+                        </tr>
+                        <tr>
+                            <td>Enque</td>
+                            <td *ngIf="queueBackingStructure === queueBackingStructures[0]"><span
+                                class="big-o">O(1)</span></td>
+                            <td *ngIf="queueBackingStructure === queueBackingStructures[0]"><span
+                                class="big-o">O(1)</span></td>
+                            <td *ngIf="!(queueBackingStructure === queueBackingStructures[0])">Amortized <span
+                                class="big-o">O(1)</span></td>
+                            <td *ngIf="!(queueBackingStructure === queueBackingStructures[0])">Amortized <span
+                                class="big-o">O(1)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Dequeue</td>
+                            <td><span class="big-o">O(1)</span></td>
+                            <td><span class="big-o">O(1)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Checking if the queue is empty</td>
                             <td><span class="big-o">O(1)</span></td>
                             <td><span class="big-o">O(1)</span></td>
                         </tr>

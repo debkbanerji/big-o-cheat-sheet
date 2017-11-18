@@ -33,6 +33,13 @@ export class HomeComponent implements OnInit {
     ];
     public stackBackingStructure = this.stackBackingStructures[0];
 
+    // Queue
+    public queueBackingStructures = [
+        'Linked List',
+        'Array (Circular)'
+    ];
+    public queueBackingStructure = this.queueBackingStructures[0];
+
     constructor() {
     }
 
