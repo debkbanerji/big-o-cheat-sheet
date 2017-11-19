@@ -9,6 +9,10 @@
     margin: 0 auto;
 }
 
+a {
+    color: #ff4081;
+}
+
 .section-header {
     margin-left: 25px;
 }
