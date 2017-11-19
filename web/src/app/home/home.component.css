@@ -13,6 +13,10 @@
     margin-left: 25px;
 }
 
+.subsection-label {
+    font-size: 1.25rem;
+}
+
 .row {
     margin-left: 0;
     margin-right: 0;

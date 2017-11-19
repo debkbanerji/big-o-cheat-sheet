@@ -12,8 +12,10 @@
                 </mat-panel-title>
             </mat-expansion-panel-header>
             <p>This is an electronic version of my Big-O Cheat Sheet for some common data structures and algorithms</p>
-            <p>The source code can be found <a href="https://github.com/debkbanerji/big-o-cheat-sheet" target="_blank">here</a></p>
-            <p>If you find an error, or think there's something I should add, please <a href="mailto:debkbanerji@gmail.com">let me know</a></p>
+            <p>The source code can be found <a href="https://github.com/debkbanerji/big-o-cheat-sheet" target="_blank">here</a>
+            </p>
+            <p>If you find an error, or think there's something I should add, please <a
+                href="mailto:debkbanerji@gmail.com">let me know</a></p>
             <em>Version 2017.11.18</em>
         </mat-expansion-panel>
     </div>
@@ -33,11 +35,11 @@
 <div class="row">
     <div class="col-xs-12 col-md-12">
         <div class="table-section">
-            <mat-card>
-                <mat-card-title>
-                    <span>Array List</span>
-                </mat-card-title>
-                <mat-card-content>
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <span class="subsection-label">Array List</span>
+                    </mat-expansion-panel-header>
                     <mat-checkbox [(ngModel)]="arrayListSizeStored">Size Stored in Variable</mat-checkbox>
                     <br>
                     <mat-checkbox [(ngModel)]="arrayListSorted">Sorted</mat-checkbox>
@@ -162,17 +164,11 @@
                                 class="big-o">O(n)</span></td>
                         </tr>
                     </table>
-                </mat-card-content>
-            </mat-card>
-        </div>
-    </div>
-    <div class="col-xs-12 col-md-12">
-        <div class="table-section">
-            <mat-card>
-                <mat-card-title>
-                    <span>Linked List</span>
-                </mat-card-title>
-                <mat-card-content>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <span class="subsection-label">Linked List</span>
+                    </mat-expansion-panel-header>
                     <mat-checkbox [(ngModel)]="linkedListSizeStored">Size Stored in Variable</mat-checkbox>
                     <br>
                     <mat-checkbox [(ngModel)]="linkedListHasTailPointer">Tail Pointer</mat-checkbox>
@@ -238,9 +234,11 @@
                         </tr>
                         <tr>
                             <td>Adding to back</td>
-                            <td *ngIf="(linkedListHasTailPointer || linkedListCircular)"><span class="big-o">O(1)</span>
+                            <td *ngIf="(linkedListHasTailPointer || linkedListCircular)"><span
+                                class="big-o">O(1)</span>
                             </td>
-                            <td *ngIf="(linkedListHasTailPointer || linkedListCircular)"><span class="big-o">O(1)</span>
+                            <td *ngIf="(linkedListHasTailPointer || linkedListCircular)"><span
+                                class="big-o">O(1)</span>
                             </td>
                             <td *ngIf="!(linkedListHasTailPointer || linkedListCircular)"><span
                                 class="big-o">O(n)</span></td>
@@ -286,17 +284,11 @@
                             <td><span class="big-o">O(1)</span></td>
                         </tr>
                     </table>
-                </mat-card-content>
-            </mat-card>
-        </div>
-    </div>
-    <div class="col-xs-12 col-md-12">
-        <div class="table-section">
-            <mat-card>
-                <mat-card-title>
-                    <span>Stack</span>
-                </mat-card-title>
-                <mat-card-content>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <span class="subsection-label">Stack</span>
+                    </mat-expansion-panel-header>
                     <mat-form-field>
                         <mat-select placeholder="Backing Structure"
                                     [(ngModel)]="stackBackingStructure">
@@ -345,17 +337,11 @@
                             <td><span class="big-o">O(1)</span></td>
                         </tr>
                     </table>
-                </mat-card-content>
-            </mat-card>
-        </div>
-    </div>
-    <div class="col-xs-12 col-md-12">
-        <div class="table-section">
-            <mat-card>
-                <mat-card-title>
-                    <span>Queue</span>
-                </mat-card-title>
-                <mat-card-content>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <span class="subsection-label">Queue</span>
+                    </mat-expansion-panel-header>
                     <mat-form-field>
                         <mat-select placeholder="Backing Structure"
                                     [(ngModel)]="queueBackingStructure">
@@ -404,17 +390,11 @@
                             <td><span class="big-o">O(1)</span></td>
                         </tr>
                     </table>
-                </mat-card-content>
-            </mat-card>
-        </div>
-    </div>
-    <div class="col-xs-12 col-md-12">
-        <div class="table-section">
-            <mat-card>
-                <mat-card-title>
-                    <span>Binary Tree</span>
-                </mat-card-title>
-                <mat-card-content>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <span class="subsection-label">Binary Tree</span>
+                    </mat-expansion-panel-header>
                     <mat-checkbox [(ngModel)]="isBinarySearchTree">Binary Search Tree</mat-checkbox>
                     <br>
                     <mat-form-field *ngIf="isBinarySearchTree">
@@ -496,7 +476,9 @@
                             <td>{{operation}}</td>
                             <td><span class="big-o">O(log(n))</span></td>
                             <td *ngIf="bstType === bstTypes[0]"><span class="big-o">O(n)</span></td>
-                            <td *ngIf="bstType === bstTypes[1] || bstType === bstTypes[2]"><span class="big-o">O(log(n))</span></td>
+                            <td *ngIf="bstType === bstTypes[1] || bstType === bstTypes[2]"><span
+                                class="big-o">O(log(n))</span>
+                            </td>
                             <td *ngIf="bstType === bstTypes[3]">Amortized <span class="big-o">O(log(n))</span></td>
                         </tr>
                         <tr *ngIf="bstType === bstTypes[3]">
@@ -515,13 +497,17 @@
                             <td>Finding height</td>
                             <td *ngIf="(binaryTreeNodeHeightStored)"><span class="big-o">O(1)</span></td>
                             <td *ngIf="(binaryTreeNodeHeightStored)"><span class="big-o">O(1)</span></td>
-                            <td *ngIf="(!binaryTreeNodeHeightStored && bstType !== bstTypes[1])"><span class="big-o">O(n)</span>
+                            <td *ngIf="(!binaryTreeNodeHeightStored && bstType !== bstTypes[1])"><span
+                                class="big-o">O(n)</span>
                             </td>
-                            <td *ngIf="(!binaryTreeNodeHeightStored && bstType !== bstTypes[1])"><span class="big-o">O(n)</span>
+                            <td *ngIf="(!binaryTreeNodeHeightStored && bstType !== bstTypes[1])"><span
+                                class="big-o">O(n)</span>
                             </td>
-                            <td *ngIf="(!binaryTreeNodeHeightStored && bstType === bstTypes[1])"><span class="big-o">O(log(n))</span>
+                            <td *ngIf="(!binaryTreeNodeHeightStored && bstType === bstTypes[1])"><span
+                                class="big-o">O(log(n))</span>
                             </td>
-                            <td *ngIf="(!binaryTreeNodeHeightStored && bstType === bstTypes[1])"><span class="big-o">O(log(n))</span>
+                            <td *ngIf="(!binaryTreeNodeHeightStored && bstType === bstTypes[1])"><span
+                                class="big-o">O(log(n))</span>
                             </td>
                         </tr>
                         <tr>
@@ -532,8 +518,8 @@
                             <td><span class="big-o">O(n)</span></td>
                         </tr>
                     </table>
-                </mat-card-content>
-            </mat-card>
+                </mat-expansion-panel>
+            </mat-accordion>
         </div>
     </div>
 </div>
