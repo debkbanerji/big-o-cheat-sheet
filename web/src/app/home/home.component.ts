@@ -7,6 +7,12 @@ import {Component, OnInit} from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+    public commonSetOperations = [
+        'Accessing an element',
+        'Inserting an element',
+        'Removing an element'
+    ];
+
     // Array List
     public arrayListSorted = false;
     public arrayListSizeStored = true;

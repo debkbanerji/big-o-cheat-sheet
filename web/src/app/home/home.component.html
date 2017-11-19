@@ -430,19 +430,10 @@
                             <th>Average Case</th>
                             <th>Worst Case</th>
                         </tr>
-                        <tr>
-                            <td>Accessing an element</td>
-                            <td><span class="big-o">O(n)</span></td>
-                            <td><span class="big-o">O(n)</span></td>
-                        </tr>
-                        <tr>
-                            <td>Inserting an element</td>
-                            <td><span class="big-o">O(log(n))</span></td>
-                            <td><span class="big-o">O(n)</span></td>
-                        </tr>
-                        <tr>
-                            <td>Removing an element</td>
-                            <td><span class="big-o">O(n)</span></td>
+                        <tr *ngFor="let operation of commonSetOperations">
+                            <td>{{operation}}</td>
+                            <td *ngIf="operation !== commonSetOperations[1]"><span class="big-o">O(n)</span></td>
+                            <td *ngIf="operation === commonSetOperations[1]"><span class="big-o">O(log(n))</span></td>
                             <td><span class="big-o">O(n)</span></td>
                         </tr>
                         <tr>
@@ -473,7 +464,7 @@
                             <th>Average Case</th>
                             <th>Worst Case</th>
                         </tr>
-                        <tr *ngFor="let operation of ['Accessing an element', 'Inserting an element', 'Removing an element']">
+                        <tr *ngFor="let operation of commonSetOperations">
                             <td>{{operation}}</td>
                             <td><span class="big-o">O(log(n))</span></td>
                             <td *ngIf="bstType === bstTypes[0]"><span class="big-o">O(n)</span></td>
@@ -567,14 +558,14 @@
                             <th>Average Case</th>
                             <th>Worst Case</th>
                         </tr>
-                        <tr *ngFor="let operation of ['Accessing an element', 'Inserting an element', 'Removing an element']">
+                        <tr *ngFor="let operation of commonSetOperations">
                             <td>{{operation}}</td>
                             <td><span class="big-o">O(1)</span></td>
                             <td *ngIf="!(collisionResolutionMethod === collisionResolutionMethods[0] && comparableHashTableData && hashTableExternalStructure !== hashTableExternalStructures[0])">
-                                <span *ngIf="operation === 'Inserting an element'">Amortized </span><span class="big-o">O(n)</span>
+                                <span *ngIf="operation === commonSetOperations[1]">Amortized </span><span class="big-o">O(n)</span>
                             </td>
                             <td *ngIf="(collisionResolutionMethod === collisionResolutionMethods[0] && comparableHashTableData && hashTableExternalStructure !== hashTableExternalStructures[0])">
-                                <span *ngIf="operation === 'Inserting an element'">Amortized </span><span class="big-o">O(log(n))</span>
+                                <span *ngIf="operation === commonSetOperations[1]">Amortized </span><span class="big-o">O(log(n))</span>
                             </td>
                         </tr>
                         <tr>
