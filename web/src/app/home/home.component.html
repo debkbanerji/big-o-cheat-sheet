@@ -26,7 +26,6 @@
                     <mat-checkbox [(ngModel)]="arrayListSizeStored">Size Stored in Variable</mat-checkbox>
                     <br>
                     <mat-checkbox [(ngModel)]="arrayListSorted">Sorted</mat-checkbox>
-                    <br>
                     <p class="complexity-type">Space Complexity</p>
                     <table>
                         <tr>
@@ -74,9 +73,9 @@
                         </tr>
                         <tr>
                             <td>Adding to back</td>
+                            <td *ngIf="arrayListSizeStored"><span class="big-o">O(1)</span></td>
                             <td *ngIf="arrayListSizeStored">Amortized <span class="big-o">O(1)</span></td>
-                            <td *ngIf="arrayListSizeStored">Amortized <span class="big-o">O(1)</span></td>
-                            <td *ngIf="!arrayListSizeStored">Amortized <span class="big-o">O(log(n))</span></td>
+                            <td *ngIf="!arrayListSizeStored"><span class="big-o">O(log(n))</span></td>
                             <td *ngIf="!arrayListSizeStored">Amortized <span class="big-o">O(log(n))</span></td>
                         </tr>
                         <tr>
@@ -102,7 +101,7 @@
                             <td><span class="big-o">O(n)</span></td>
                         </tr>
                         <tr>
-                            <td>Finding Size</td>
+                            <td>Finding size</td>
                             <td *ngIf="arrayListSizeStored"><span class="big-o">O(1)</span></td>
                             <td *ngIf="arrayListSizeStored"><span class="big-o">O(1)</span></td>
                             <td *ngIf="!arrayListSizeStored"><span class="big-o">O(log(n))</span></td>
@@ -173,7 +172,6 @@
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
-                    <br>
                     <p class="complexity-type">Space Complexity</p>
                     <table>
                         <tr>
@@ -261,7 +259,7 @@
                             <td><span class="big-o">O(n)</span></td>
                         </tr>
                         <tr>
-                            <td>Finding Size</td>
+                            <td>Finding size</td>
                             <td *ngIf="linkedListSizeStored"><span class="big-o">O(1)</span></td>
                             <td *ngIf="linkedListSizeStored"><span class="big-o">O(1)</span></td>
                             <td *ngIf="!linkedListSizeStored"><span class="big-o">O(n)</span></td>
@@ -292,7 +290,6 @@
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
-                    <br>
                     <p class="complexity-type">Space Complexity</p>
                     <table>
                         <tr>
@@ -317,7 +314,7 @@
                                 class="big-o">O(1)</span></td>
                             <td *ngIf="stackBackingStructure === stackBackingStructures[0]"><span
                                 class="big-o">O(1)</span></td>
-                            <td *ngIf="!(stackBackingStructure === stackBackingStructures[0])">Amortized <span
+                            <td *ngIf="!(stackBackingStructure === stackBackingStructures[0])"><span
                                 class="big-o">O(1)</span></td>
                             <td *ngIf="!(stackBackingStructure === stackBackingStructures[0])">Amortized <span
                                 class="big-o">O(1)</span></td>
@@ -352,7 +349,6 @@
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
-                    <br>
                     <p class="complexity-type">Space Complexity</p>
                     <table>
                         <tr>
@@ -377,7 +373,7 @@
                                 class="big-o">O(1)</span></td>
                             <td *ngIf="queueBackingStructure === queueBackingStructures[0]"><span
                                 class="big-o">O(1)</span></td>
-                            <td *ngIf="!(queueBackingStructure === queueBackingStructures[0])">Amortized <span
+                            <td *ngIf="!(queueBackingStructure === queueBackingStructures[0])"><span
                                 class="big-o">O(1)</span></td>
                             <td *ngIf="!(queueBackingStructure === queueBackingStructures[0])">Amortized <span
                                 class="big-o">O(1)</span></td>
@@ -391,6 +387,134 @@
                             <td>Checking if the queue is empty</td>
                             <td><span class="big-o">O(1)</span></td>
                             <td><span class="big-o">O(1)</span></td>
+                        </tr>
+                    </table>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-12">
+        <div class="table-section">
+            <mat-card>
+                <mat-card-title>
+                    <span>Binary Tree</span>
+                </mat-card-title>
+                <mat-card-content>
+                    <mat-checkbox [(ngModel)]="isBinarySearchTree">Binary Search Tree</mat-checkbox>
+                    <br>
+                    <mat-form-field *ngIf="isBinarySearchTree">
+                        <mat-select placeholder="Type of BST"
+                                    [(ngModel)]="bstType">
+                            <mat-option *ngFor="let type of bstTypes" [value]="type">
+                                {{type}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <br *ngIf="isBinarySearchTree">
+                    <mat-checkbox [(ngModel)]="binaryTreeSizeStored">Size Stored in Variable</mat-checkbox>
+                    <br>
+                    <mat-checkbox [(ngModel)]="binaryTreeNodeHeightStored">Heights of
+                        Nodes Stored
+                    </mat-checkbox>
+                    <p class="complexity-type">Space Complexity</p>
+                    <table>
+                        <tr>
+                            <th>Average Case</th>
+                            <th>Worst Case</th>
+                        </tr>
+                        <tr>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n)</span></td>
+                        </tr>
+                    </table>
+                    <p class="complexity-type">Time Complexity</p>
+                    <table *ngIf="!isBinarySearchTree">
+                        <tr>
+                            <th>Operation</th>
+                            <th>Average Case</th>
+                            <th>Worst Case</th>
+                        </tr>
+                        <tr>
+                            <td>Accessing an element</td>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Inserting an element</td>
+                            <td><span class="big-o">O(log(n))</span></td>
+                            <td><span class="big-o">O(n)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Removing an element</td>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Finding size</td>
+                            <td *ngIf="binaryTreeSizeStored"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="binaryTreeSizeStored"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="!binaryTreeSizeStored"><span class="big-o">O(n)</span></td>
+                            <td *ngIf="!binaryTreeSizeStored"><span class="big-o">O(n)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Finding height</td>
+                            <td *ngIf="binaryTreeNodeHeightStored"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="binaryTreeNodeHeightStored"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="!binaryTreeNodeHeightStored"><span class="big-o">O(n)</span></td>
+                            <td *ngIf="!binaryTreeNodeHeightStored"><span class="big-o">O(n)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Traversal (In-order, Pre-order, Post-order or
+                                Level-order)
+                            </td>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n)</span></td>
+                        </tr>
+                    </table>
+                    <table *ngIf="isBinarySearchTree">
+                        <tr>
+                            <th>Operation</th>
+                            <th>Average Case</th>
+                            <th>Worst Case</th>
+                        </tr>
+                        <tr *ngFor="let operation of ['Accessing an element', 'Inserting an element', 'Removing an element']">
+                            <td>{{operation}}</td>
+                            <td><span class="big-o">O(log(n))</span></td>
+                            <td *ngIf="bstType === bstTypes[0]"><span class="big-o">O(n)</span></td>
+                            <td *ngIf="bstType === bstTypes[1] || bstType === bstTypes[2]"><span class="big-o">O(log(n))</span></td>
+                            <td *ngIf="bstType === bstTypes[3]">Amortized <span class="big-o">O(log(n))</span></td>
+                        </tr>
+                        <tr *ngIf="bstType === bstTypes[3]">
+                            <td>Accessing last accessed/added element</td>
+                            <td><span class="big-o">O(1)</span></td>
+                            <td><span class="big-o">O(1)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Finding size</td>
+                            <td *ngIf="binaryTreeSizeStored"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="binaryTreeSizeStored"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="!binaryTreeSizeStored"><span class="big-o">O(n)</span></td>
+                            <td *ngIf="!binaryTreeSizeStored"><span class="big-o">O(n)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Finding height</td>
+                            <td *ngIf="(binaryTreeNodeHeightStored)"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="(binaryTreeNodeHeightStored)"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="(!binaryTreeNodeHeightStored && bstType !== bstTypes[1])"><span class="big-o">O(n)</span>
+                            </td>
+                            <td *ngIf="(!binaryTreeNodeHeightStored && bstType !== bstTypes[1])"><span class="big-o">O(n)</span>
+                            </td>
+                            <td *ngIf="(!binaryTreeNodeHeightStored && bstType === bstTypes[1])"><span class="big-o">O(log(n))</span>
+                            </td>
+                            <td *ngIf="(!binaryTreeNodeHeightStored && bstType === bstTypes[1])"><span class="big-o">O(log(n))</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Traversal (in-order, pre-order, post-order or
+                                level-order)
+                            </td>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n)</span></td>
                         </tr>
                     </table>
                 </mat-card-content>

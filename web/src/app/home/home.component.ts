@@ -40,6 +40,18 @@ export class HomeComponent implements OnInit {
     ];
     public queueBackingStructure = this.queueBackingStructures[0];
 
+    // Binary Tree
+    public isBinarySearchTree = true;
+    public bstTypes = [
+        'Regular BST',
+        'AVL Tree',
+        'Red-Black Tree',
+        'Splay Tree'
+    ];
+    public bstType = this.bstTypes[0];
+    public binaryTreeSizeStored = true;
+    public binaryTreeNodeHeightStored = false;
+
     constructor() {
     }
 
