@@ -4,6 +4,11 @@
     padding-top: 10px;
 }
 
+.about-container {
+    align-items: center;
+    margin: 0 auto;
+}
+
 .section-header {
     margin-left: 25px;
 }

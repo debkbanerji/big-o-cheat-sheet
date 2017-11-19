@@ -9,7 +9,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
 
 
-import {MatCheckboxModule, MatCardModule, MatSelectModule} from '@angular/material';
+import {MatCheckboxModule, MatCardModule, MatSelectModule, MatExpansionModule} from '@angular/material';
 
 
 const routes: Routes = [ // Array of all routes - modify when adding routes
@@ -26,6 +26,7 @@ const routes: Routes = [ // Array of all routes - modify when adding routes
         BrowserModule,
         BrowserAnimationsModule,
         MatCardModule,
+        MatExpansionModule,
         MatCheckboxModule,
         MatSelectModule,
         RouterModule.forRoot(routes)
