@@ -398,7 +398,7 @@
                     <p>Number of elements: <span class="big-o">n</span></p>
                     <mat-checkbox [(ngModel)]="isBinarySearchTree">Binary Search Tree</mat-checkbox>
                     <br>
-                    <mat-form-field *ngIf="isBinarySearchTree">
+                    <mat-form-field [(hidden)]="!isBinarySearchTree">
                         <mat-select placeholder="Type of BST"
                                     [(ngModel)]="bstType">
                             <mat-option *ngFor="let type of bstTypes" [value]="type">
@@ -514,6 +514,78 @@
                         <tr>
                             <td>Traversal (in-order, pre-order, post-order or
                                 level-order)
+                            </td>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n)</span></td>
+                        </tr>
+                    </table>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <span class="subsection-label">Hash Table</span>
+                    </mat-expansion-panel-header>
+                    <p>Number of elements: <span class="big-o">n</span></p>
+                    <mat-form-field>
+                        <mat-select placeholder="Collision Resolution Method"
+                                    [(ngModel)]="collisionResolutionMethod">
+                            <mat-option *ngFor="let method of collisionResolutionMethods" [value]="method">
+                                {{method}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <br>
+                    <mat-checkbox [(ngModel)]="comparableHashTableData">Comparable Data
+                    </mat-checkbox>
+                    <br>
+                    <mat-form-field
+                        [hidden]="!(collisionResolutionMethod === collisionResolutionMethods[0] && comparableHashTableData)">
+                        <mat-select placeholder="External Chaining Method"
+                                    [(ngModel)]="hashTableExternalStructure">
+                            <mat-option *ngFor="let structure of hashTableExternalStructures" [value]="structure">
+                                {{structure}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <br *ngIf="collisionResolutionMethod === collisionResolutionMethods[0] && comparableHashTableData">
+                    <mat-checkbox [(ngModel)]="hashTableSizeStored">Size Stored in Variable</mat-checkbox>
+                    <br>
+                    <p class="complexity-type">Space Complexity</p>
+                    <table>
+                        <tr>
+                            <th>Average Case</th>
+                            <th>Worst Case</th>
+                        </tr>
+                        <tr>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n)</span></td>
+                        </tr>
+                    </table>
+                    <p class="complexity-type">Time Complexity</p>
+                    <table>
+                        <tr>
+                            <th>Operation</th>
+                            <th>Average Case</th>
+                            <th>Worst Case</th>
+                        </tr>
+                        <tr *ngFor="let operation of ['Accessing an element', 'Inserting an element', 'Removing an element']">
+                            <td>{{operation}}</td>
+                            <td><span class="big-o">O(1)</span></td>
+                            <td *ngIf="!(collisionResolutionMethod === collisionResolutionMethods[0] && comparableHashTableData && hashTableExternalStructure !== hashTableExternalStructures[0])">
+                                <span *ngIf="operation === 'Inserting an element'">Amortized </span><span class="big-o">O(n)</span>
+                            </td>
+                            <td *ngIf="(collisionResolutionMethod === collisionResolutionMethods[0] && comparableHashTableData && hashTableExternalStructure !== hashTableExternalStructures[0])">
+                                <span *ngIf="operation === 'Inserting an element'">Amortized </span><span class="big-o">O(log(n))</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Finding size</td>
+                            <td *ngIf="hashTableSizeStored"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="hashTableSizeStored"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="!hashTableSizeStored"><span class="big-o">O(n)</span></td>
+                            <td *ngIf="!hashTableSizeStored"><span class="big-o">O(n)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Obtaining all elements
                             </td>
                             <td><span class="big-o">O(n)</span></td>
                             <td><span class="big-o">O(n)</span></td>

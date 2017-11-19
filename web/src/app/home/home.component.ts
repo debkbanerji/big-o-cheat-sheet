@@ -52,6 +52,21 @@ export class HomeComponent implements OnInit {
     public binaryTreeSizeStored = true;
     public binaryTreeNodeHeightStored = false;
 
+    // Hash Table
+    public collisionResolutionMethods = [
+        'External Chaining',
+        'Probing'
+    ];
+    public collisionResolutionMethod = this.collisionResolutionMethods[0];
+    public hashTableExternalStructures = [
+        'Linked List',
+        'AVL Tree',
+        'Red-Black Tree'
+    ];
+    public hashTableExternalStructure = this.hashTableExternalStructures[0];
+    public comparableHashTableData = false;
+    public hashTableSizeStored = true;
+
     constructor() {
     }
 
