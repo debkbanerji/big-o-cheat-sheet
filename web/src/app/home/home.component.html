@@ -513,6 +513,61 @@
                 </mat-expansion-panel>
                 <mat-expansion-panel>
                     <mat-expansion-panel-header>
+                        <span class="subsection-label">B-Tree</span>
+                    </mat-expansion-panel-header>
+                    <p>Number of elements: <span class="big-o">n</span></p>
+                    <p class="complexity-type">Space Complexity</p>
+                    <mat-checkbox [(ngModel)]="bTreeSizeStored">Size Stored in Variable</mat-checkbox>
+                    <br>
+                    <mat-checkbox [(ngModel)]="bTreeNodeHeightStored">Heights of
+                        Nodes Stored
+                    </mat-checkbox>
+                    <table>
+                        <tr>
+                            <th>Average Case</th>
+                            <th>Worst Case</th>
+                        </tr>
+                        <tr>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n)</span></td>
+                        </tr>
+                    </table>
+                    <p class="complexity-type">Time Complexity</p>
+                    <table>
+                        <tr>
+                            <th>Operation</th>
+                            <th>Average Case</th>
+                            <th>Worst Case</th>
+                        </tr>
+                        <tr *ngFor="let operation of commonSetOperations">
+                            <td>{{operation}}</td>
+                            <td><span class="big-o">O(log(n))</span></td>
+                            <td><span class="big-o">O(log(n))</span></td>
+                        </tr>
+                        <tr>
+                            <td>Finding size</td>
+                            <td *ngIf="bTreeSizeStored"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="bTreeSizeStored"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="!bTreeSizeStored"><span class="big-o">O(n)</span></td>
+                            <td *ngIf="!bTreeSizeStored"><span class="big-o">O(n)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Finding height</td>
+                            <td *ngIf="bTreeNodeHeightStored"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="bTreeNodeHeightStored"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="!bTreeNodeHeightStored"><span class="big-o">O(log(n))</span></td>
+                            <td *ngIf="!bTreeNodeHeightStored"><span class="big-o">O(log(n))</span></td>
+                        </tr>
+                        <tr>
+                            <td>Obtaining ordered list of elements
+                            </td>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n)</span></td>
+                        </tr>
+                    </table>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
                         <span class="subsection-label">Hash Table</span>
                     </mat-expansion-panel-header>
                     <p>Number of elements: <span class="big-o">n</span></p>

@@ -58,6 +58,11 @@ export class HomeComponent implements OnInit {
     public binaryTreeSizeStored = true;
     public binaryTreeNodeHeightStored = false;
 
+    // B Tree
+    // No specific Variables
+    public bTreeSizeStored = true;
+    public bTreeNodeHeightStored = false;
+
     // Hash Table
     public collisionResolutionMethods = [
         'External Chaining',
