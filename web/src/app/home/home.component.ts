@@ -78,6 +78,15 @@ export class HomeComponent implements OnInit {
     public comparableHashTableData = false;
     public hashTableSizeStored = true;
 
+    // Skip List
+    public skipListHeights = [
+        'h',
+        'n',
+        'log(n)'
+    ];
+    public skipListHeight = this.skipListHeights[0];
+    public skipListSizeStored = true;
+
     constructor() {
     }
 

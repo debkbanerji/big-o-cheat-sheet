@@ -516,12 +516,12 @@
                         <span class="subsection-label">B-Tree</span>
                     </mat-expansion-panel-header>
                     <p>Number of elements: <span class="big-o">n</span></p>
-                    <p class="complexity-type">Space Complexity</p>
                     <mat-checkbox [(ngModel)]="bTreeSizeStored">Size Stored in Variable</mat-checkbox>
                     <br>
                     <mat-checkbox [(ngModel)]="bTreeNodeHeightStored">Heights of
                         Nodes Stored
                     </mat-checkbox>
+                    <p class="complexity-type">Space Complexity</p>
                     <table>
                         <tr>
                             <th>Average Case</th>
@@ -632,6 +632,60 @@
                         </tr>
                         <tr>
                             <td>Obtaining all elements
+                            </td>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n)</span></td>
+                        </tr>
+                    </table>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <span class="subsection-label">Skip List</span>
+                    </mat-expansion-panel-header>
+                    <p>Number of elements: <span class="big-o">n</span></p>
+                    <mat-form-field>
+                        <mat-select placeholder="Maximum Height"
+                                    [(ngModel)]="skipListHeight">
+                            <mat-option *ngFor="let height of skipListHeights" [value]="height">
+                                {{height}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <br>
+                    <mat-checkbox [(ngModel)]="skipListSizeStored">Size Stored in Variable</mat-checkbox>
+                    <br>
+                    <p class="complexity-type">Space Complexity</p>
+                    <table>
+                        <tr>
+                            <th>Average Case</th>
+                            <th>Worst Case</th>
+                        </tr>
+                        <tr>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n<span *ngIf="skipListHeight === skipListHeights[0]">*h</span><span *ngIf="skipListHeight === skipListHeights[1]"><sup>2</sup></span><span *ngIf="skipListHeight === skipListHeights[2]">*log(n)</span>)</span></td>
+                        </tr>
+                    </table>
+                    <p class="complexity-type">Time Complexity</p>
+                    <table>
+                        <tr>
+                            <th>Operation</th>
+                            <th>Average Case</th>
+                            <th>Worst Case</th>
+                        </tr>
+                        <tr *ngFor="let operation of commonSetOperations">
+                            <td>{{operation}}</td>
+                            <td><span class="big-o">O(log(n))</span></td>
+                            <td><span class="big-o">O(n)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Finding size</td>
+                            <td *ngIf="skipListSizeStored"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="skipListSizeStored"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="!skipListSizeStored"><span class="big-o">O(n)</span></td>
+                            <td *ngIf="!skipListSizeStored"><span class="big-o">O(n)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Obtaining ordered list of elements
                             </td>
                             <td><span class="big-o">O(n)</span></td>
                             <td><span class="big-o">O(n)</span></td>
