@@ -662,7 +662,10 @@
                         </tr>
                         <tr>
                             <td><span class="big-o">O(n)</span></td>
-                            <td><span class="big-o">O(n<span *ngIf="skipListHeight === skipListHeights[0]">*h</span><span *ngIf="skipListHeight === skipListHeights[1]"><sup>2</sup></span><span *ngIf="skipListHeight === skipListHeights[2]">*log(n)</span>)</span></td>
+                            <td><span class="big-o">O(n<span
+                                *ngIf="skipListHeight === skipListHeights[0]">*h</span><span
+                                *ngIf="skipListHeight === skipListHeights[1]"><sup>2</sup></span><span
+                                *ngIf="skipListHeight === skipListHeights[2]">*log(n)</span>)</span></td>
                         </tr>
                     </table>
                     <p class="complexity-type">Time Complexity</p>
@@ -691,6 +694,116 @@
                             <td><span class="big-o">O(n)</span></td>
                         </tr>
                     </table>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <span class="subsection-label">Heap</span>
+                    </mat-expansion-panel-header>
+                    <p>Number of elements: <span class="big-o">n</span></p>
+                    <mat-form-field>
+                        <mat-select placeholder="Heap Type"
+                                    [(ngModel)]="heapType">
+                            <mat-option *ngFor="let type of heapTypes" [value]="type">
+                                {{type}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <br>
+                    <mat-checkbox *ngIf="heapType === heapTypes[0] || heapType === heapTypes[1]"
+                                  [(ngModel)]="heapArrayBacked">Array Backed
+                    </mat-checkbox>
+                    <br *ngIf="heapType === heapTypes[0] || heapType === heapTypes[1]">
+                    <mat-form-field>
+                        <mat-select placeholder="Ordering"
+                                    [(ngModel)]="heapOrdering">
+                            <mat-option *ngFor="let ordering of heapOrderings" [value]="ordering">
+                                {{ordering}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <br>
+                    <mat-checkbox [(ngModel)]="heapSizeStored">Size Stored in Variable</mat-checkbox>
+                    <br>
+                    <p class="complexity-type">Space Complexity</p>
+                    <table>
+                        <tr>
+                            <th>Average Case</th>
+                            <th>Worst Case</th>
+                        </tr>
+                        <tr>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n)</span></td>
+                        </tr>
+                    </table>
+                    <p class="complexity-type">Time Complexity</p>
+                    <table>
+                        <tr>
+                            <th>Operation</th>
+                            <th>Average Case</th>
+                            <th>Worst Case</th>
+                        </tr>
+                        <tr>
+                            <td>Inserting an element</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Accessing {{heapOrdering === heapOrderings[0] ? 'smallest' : 'largest'}} element</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Removing {{heapOrdering === heapOrderings[0] ? 'smallest' : 'largest'}} element</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>{{heapOrdering === heapOrderings[0] ? 'Decreasing' : 'Increasing'}} the key of an
+                                element*
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Accessing {{heapOrdering !== heapOrderings[0] ? 'smallest' : 'largest'}} element</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Removing {{heapOrdering !== heapOrderings[0] ? 'smallest' : 'largest'}} element</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>{{heapOrdering !== heapOrderings[0] ? 'Decreasing' : 'Increasing'}} the key of an
+                                element*
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Deleting an arbitrary element*</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Finding size</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Determining if the heap is empty</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Merging two heaps</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <small>*Assuming the location of the element is known. This can be determined in constant time by
+                        maintaining a map from elements to their locations.</small>
                 </mat-expansion-panel>
             </mat-accordion>
         </div>

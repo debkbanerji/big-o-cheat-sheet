@@ -87,6 +87,23 @@ export class HomeComponent implements OnInit {
     public skipListHeight = this.skipListHeights[0];
     public skipListSizeStored = true;
 
+    // Heap
+    public heapTypes = [
+        'Binary',
+        'd-ary',
+        'Binomial',
+        'Fibonacci'
+    ];
+    public heapType = this.heapTypes[0];
+    public heapArrayBacked = true;
+    public heapOrderings = [
+        'Min Heap',
+        'Max Heap'
+    ];
+    public heapOrdering = this.heapOrderings[0];
+    public heapSizeStored = true;
+
+
     constructor() {
     }
 
