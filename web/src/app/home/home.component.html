@@ -761,7 +761,7 @@
                                 </span>
                             </td>
                             <td *ngIf="heapType === heapTypes[3]">
-                                Amortized <span class="big-o">O(1)</span>
+                                <span class="big-o">O(1)</span>
                             </td>
                         </tr>
                         <tr>
@@ -801,45 +801,74 @@
                         </tr>
                         <tr>
                             <td>Accessing {{heapOrdering !== heapOrderings[0] ? 'smallest' : 'largest'}} element</td>
-                            <td></td>
-                            <td></td>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n)</span></td>
                         </tr>
                         <tr>
                             <td>Removing {{heapOrdering !== heapOrderings[0] ? 'smallest' : 'largest'}} element</td>
-                            <td></td>
-                            <td></td>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n)</span></td>
                         </tr>
                         <tr>
                             <td>{{heapOrdering !== heapOrderings[0] ? 'Decreasing' : 'Increasing'}} the key of an
                                 element*
                             </td>
-                            <td></td>
-                            <td></td>
+                            <td *ngIf="!(heapType === heapTypes[1])">
+                                <span class="big-o">O(log(n))</span>
+                            </td>
+                            <td *ngIf="!(heapType === heapTypes[1])">
+                                <span class="big-o">O(log(n))</span>
+                            </td>
+                            <td *ngIf="(heapType === heapTypes[1])">
+                                <span class="big-o">O(d*log(n)/log(d))</span></td>
+                            <td *ngIf="(heapType === heapTypes[1])">
+                                <span class="big-o">
+                                    <span *ngIf="heapType === heapTypes[3]">Amortized </span>O(d*log(n)/log(d))</span>
+                            </td>
                         </tr>
                         <tr>
                             <td>Deleting an arbitrary element*</td>
-                            <td></td>
-                            <td></td>
+                            <td *ngIf="!(heapType === heapTypes[1])">
+                                <span class="big-o">O(log(n))</span>
+                            </td>
+                            <td *ngIf="(heapType === heapTypes[1])">
+                                <span class="big-o">O(d*log(n)/log(d))</span>
+                            </td>
+                            <td *ngIf="!(heapType === heapTypes[1])">
+                                <span *ngIf="heapType === heapTypes[3]">Amortized </span>
+                                <span class="big-o">O(log(n))</span>
+                            </td>
+                            <td *ngIf="(heapType === heapTypes[1])">
+                                <span class="big-o">O(d*log(n)/log(d))</span>
+                            </td>
                         </tr>
                         <tr>
                             <td>Finding size</td>
-                            <td></td>
-                            <td></td>
+                            <td *ngIf="(heapSizeStored || heapType === heapTypes[0] || heapType === heapTypes[1])"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="(heapSizeStored || heapType === heapTypes[0] || heapType === heapTypes[1])"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="!(heapSizeStored || heapType === heapTypes[0] || heapType === heapTypes[1])"><span class="big-o">O(n)</span></td>
+                            <td *ngIf="!(heapSizeStored || heapType === heapTypes[0] || heapType === heapTypes[1])"><span class="big-o">O(n)</span></td>
                         </tr>
                         <tr>
                             <td>Determining if the heap is empty</td>
-                            <td></td>
-                            <td></td>
+                            <td><span class="big-o">O(1)</span></td>
+                            <td><span class="big-o">O(1)</span></td>
                         </tr>
                         <tr>
                             <td>Builing a heap from <em>n</em> elements</td>
-                            <td></td>
-                            <td></td>
+                            <td *ngIf="!(heapType === heapTypes[2])"><span class="big-o">O(n)</span></td>
+                            <td *ngIf="!(heapType === heapTypes[2])"><span class="big-o">O(n)</span></td>
+                            <td *ngIf="(heapType === heapTypes[2])"><span class="big-o">O(n*log(n))</span></td>
+                            <td *ngIf="(heapType === heapTypes[2])"><span class="big-o">O(n*log(n))</span></td>
                         </tr>
                         <tr>
                             <td>Merging two heaps</td>
-                            <td></td>
-                            <td></td>
+                            <td *ngIf="(heapType === heapTypes[0] || heapType === heapTypes[1])"><span class="big-o">O(n)</span></td>
+                            <td *ngIf="(heapType === heapTypes[0] || heapType === heapTypes[1])"><span class="big-o">O(n)</span></td>
+                            <td *ngIf="(heapType === heapTypes[2])"><span class="big-o">O(log(n))</span></td>
+                            <td *ngIf="(heapType === heapTypes[2])"><span class="big-o">O(log(n))</span></td>
+                            <td *ngIf="(heapType === heapTypes[3])"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="(heapType === heapTypes[3])"><span class="big-o">O(1)</span></td>
                         </tr>
                     </table>
                     <small>*Assuming the location of the element is known. This can be determined in constant time by
