@@ -784,8 +784,20 @@
                             <td>{{heapOrdering === heapOrderings[0] ? 'Decreasing' : 'Increasing'}} the key of an
                                 element*
                             </td>
-                            <td></td>
-                            <td></td>
+                            <td>
+                                <span class="big-o">O(1)</span>
+                            </td>
+                            <td *ngIf="!(heapType === heapTypes[3])">
+                                <span class="big-o" *ngIf="heapType !== heapTypes[1]">
+                                    O(log(n))
+                                </span>
+                                <span class="big-o" *ngIf="heapType === heapTypes[1]">
+                                    O(log(n)/log(d))
+                                </span>
+                            </td>
+                            <td *ngIf="heapType === heapTypes[3]">
+                                Amortized <span class="big-o">O(1)</span>
+                            </td>
                         </tr>
                         <tr>
                             <td>Accessing {{heapOrdering !== heapOrderings[0] ? 'smallest' : 'largest'}} element</td>
