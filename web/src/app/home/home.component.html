@@ -700,6 +700,8 @@
                         <span class="subsection-label">Heap</span>
                     </mat-expansion-panel-header>
                     <p>Number of elements: <span class="big-o">n</span></p>
+                    <p *ngIf="heapType === heapTypes[1]">Maximum number of children per node: <span
+                        class="big-o">d</span></p>
                     <mat-form-field>
                         <mat-select placeholder="Heap Type"
                                     [(ngModel)]="heapType">
@@ -709,10 +711,11 @@
                         </mat-select>
                     </mat-form-field>
                     <br>
-                    <mat-checkbox *ngIf="heapType === heapTypes[0] || heapType === heapTypes[1]"
-                                  [(ngModel)]="heapArrayBacked">Array Backed
+                    <mat-checkbox *ngIf="(heapType === heapTypes[2] || heapType === heapTypes[3])"
+                                  [(ngModel)]="heapSizeStored">
+                        Size Stored in Variable
                     </mat-checkbox>
-                    <br *ngIf="heapType === heapTypes[0] || heapType === heapTypes[1]">
+                    <br *ngIf="(heapType === heapTypes[2] || heapType === heapTypes[3])">
                     <mat-form-field>
                         <mat-select placeholder="Ordering"
                                     [(ngModel)]="heapOrdering">
@@ -721,8 +724,6 @@
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
-                    <br>
-                    <mat-checkbox [(ngModel)]="heapSizeStored">Size Stored in Variable</mat-checkbox>
                     <br>
                     <p class="complexity-type">Space Complexity</p>
                     <table>
@@ -744,18 +745,40 @@
                         </tr>
                         <tr>
                             <td>Inserting an element</td>
-                            <td></td>
-                            <td></td>
+                            <td>
+                                <span class="big-o">O(1)</span>
+                            </td>
+                            <td *ngIf="!(heapType === heapTypes[3])">
+                                <span
+                                    *ngIf="(heapType === heapTypes[0] || heapType === heapTypes[1])">
+                                Amortized
+                                </span>
+                                <span class="big-o" *ngIf="heapType !== heapTypes[1]">
+                                    O(log(n))
+                                </span>
+                                <span class="big-o" *ngIf="heapType === heapTypes[1]">
+                                    O(log(n)/log(d))
+                                </span>
+                            </td>
+                            <td *ngIf="heapType === heapTypes[3]">
+                                Amortized <span class="big-o">O(1)</span>
+                            </td>
                         </tr>
                         <tr>
                             <td>Accessing {{heapOrdering === heapOrderings[0] ? 'smallest' : 'largest'}} element</td>
-                            <td></td>
-                            <td></td>
+                            <td *ngIf="!(heapType === heapTypes[2])"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="!(heapType === heapTypes[2])"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="(heapType === heapTypes[2])"><span class="big-o">O(log(n))</span></td>
+                            <td *ngIf="(heapType === heapTypes[2])"><span class="big-o">O(log(n))</span></td>
                         </tr>
                         <tr>
                             <td>Removing {{heapOrdering === heapOrderings[0] ? 'smallest' : 'largest'}} element</td>
-                            <td></td>
-                            <td></td>
+                            <td *ngIf="!(heapType === heapTypes[1])"><span class="big-o">O(log(n))</span></td>
+                            <td *ngIf="(heapType === heapTypes[1])"><span class="big-o">O(d*log(n)/log(d))</span></td>
+                            <td *ngIf="!(heapType === heapTypes[1])"><span
+                                *ngIf="heapType === heapTypes[3]">Amortized </span><span class="big-o">O(log(n))</span>
+                            </td>
+                            <td *ngIf="(heapType === heapTypes[1])"><span class="big-o">O(d*log(n)/log(d))</span></td>
                         </tr>
                         <tr>
                             <td>{{heapOrdering === heapOrderings[0] ? 'Decreasing' : 'Increasing'}} the key of an
@@ -808,7 +831,8 @@
                         </tr>
                     </table>
                     <small>*Assuming the location of the element is known. This can be determined in constant time by
-                        maintaining a map from elements to their locations.</small>
+                        maintaining a map from elements to their locations.
+                    </small>
                 </mat-expansion-panel>
             </mat-accordion>
         </div>

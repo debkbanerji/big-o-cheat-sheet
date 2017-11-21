@@ -89,13 +89,12 @@ export class HomeComponent implements OnInit {
 
     // Heap
     public heapTypes = [
-        'Binary',
-        'd-ary',
+        'Binary (Array Backed)',
+        'd-ary (Array Backed)',
         'Binomial',
         'Fibonacci'
     ];
     public heapType = this.heapTypes[0];
-    public heapArrayBacked = true;
     public heapOrderings = [
         'Min Heap',
         'Max Heap'
