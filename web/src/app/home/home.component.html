@@ -14,7 +14,7 @@
             <p>This is an electronic version of my Big-O Cheat Sheet</p>
             <p>The source code can be found <a href="https://github.com/debkbanerji/big-o-cheat-sheet" target="_blank">here</a>
             </p>
-            <p>If you find an error, or think there's something I should add, please <a
+            <p>If you find an error, have any questions, or think there's<br> something I should add, please <a
                 href="mailto:debkbanerji@gmail.com">let me know</a></p>
             <em>v2017.11.19</em>
         </mat-expansion-panel>
@@ -711,11 +711,11 @@
                         </mat-select>
                     </mat-form-field>
                     <br>
-                    <mat-checkbox *ngIf="(heapType === heapTypes[2] || heapType === heapTypes[3])"
+                    <mat-checkbox
                                   [(ngModel)]="heapSizeStored">
                         Size Stored in Variable
                     </mat-checkbox>
-                    <br *ngIf="(heapType === heapTypes[2] || heapType === heapTypes[3])">
+                    <br>
                     <mat-form-field>
                         <mat-select placeholder="Ordering"
                                     [(ngModel)]="heapOrdering">
@@ -745,8 +745,11 @@
                         </tr>
                         <tr>
                             <td>Inserting an element</td>
-                            <td>
+                            <td *ngIf="!((heapType === heapTypes[0] || heapType === heapTypes[1]) && !heapSizeStored)">
                                 <span class="big-o">O(1)</span>
+                            </td>
+                            <td *ngIf="((heapType === heapTypes[0] || heapType === heapTypes[1]) && !heapSizeStored)">
+                                <span class="big-o">O(log(n))</span>
                             </td>
                             <td *ngIf="!(heapType === heapTypes[3])">
                                 <span
@@ -757,7 +760,7 @@
                                     O(log(n))
                                 </span>
                                 <span class="big-o" *ngIf="heapType === heapTypes[1]">
-                                    O(log(n)/log(d))
+                                    O(log(n)<span *ngIf="heapSizeStored">/log(d)</span>)
                                 </span>
                             </td>
                             <td *ngIf="heapType === heapTypes[3]">
@@ -774,11 +777,11 @@
                         <tr>
                             <td>Removing {{heapOrdering === heapOrderings[0] ? 'smallest' : 'largest'}} element</td>
                             <td *ngIf="!(heapType === heapTypes[1])"><span class="big-o">O(log(n))</span></td>
-                            <td *ngIf="(heapType === heapTypes[1])"><span class="big-o">O(d*log(n)/log(d))</span></td>
+                            <td *ngIf="(heapType === heapTypes[1])"><span class="big-o">O(<span *ngIf="!heapSizeStored">log(n)+</span>d*log(n)/log(d))</span></td>
                             <td *ngIf="!(heapType === heapTypes[1])"><span
                                 *ngIf="heapType === heapTypes[3]">Amortized </span><span class="big-o">O(log(n))</span>
                             </td>
-                            <td *ngIf="(heapType === heapTypes[1])"><span class="big-o">O(d*log(n)/log(d))</span></td>
+                            <td *ngIf="(heapType === heapTypes[1])"><span class="big-o">O(<span *ngIf="!heapSizeStored">log(n)+</span>d*log(n)/log(d))</span></td>
                         </tr>
                         <tr>
                             <td>{{heapOrdering === heapOrderings[0] ? 'Decreasing' : 'Increasing'}} the key of an
@@ -832,22 +835,24 @@
                                 <span class="big-o">O(log(n))</span>
                             </td>
                             <td *ngIf="(heapType === heapTypes[1])">
-                                <span class="big-o">O(d*log(n)/log(d))</span>
+                                <span class="big-o">O(<span *ngIf="!heapSizeStored">log(n)+</span>d*log(n)/log(d))</span>
                             </td>
                             <td *ngIf="!(heapType === heapTypes[1])">
                                 <span *ngIf="heapType === heapTypes[3]">Amortized </span>
                                 <span class="big-o">O(log(n))</span>
                             </td>
                             <td *ngIf="(heapType === heapTypes[1])">
-                                <span class="big-o">O(d*log(n)/log(d))</span>
+                                <span class="big-o">O(<span *ngIf="!heapSizeStored">log(n)+</span>d*log(n)/log(d))</span>
                             </td>
                         </tr>
                         <tr>
                             <td>Finding size</td>
-                            <td *ngIf="(heapSizeStored || heapType === heapTypes[0] || heapType === heapTypes[1])"><span class="big-o">O(1)</span></td>
-                            <td *ngIf="(heapSizeStored || heapType === heapTypes[0] || heapType === heapTypes[1])"><span class="big-o">O(1)</span></td>
-                            <td *ngIf="!(heapSizeStored || heapType === heapTypes[0] || heapType === heapTypes[1])"><span class="big-o">O(n)</span></td>
-                            <td *ngIf="!(heapSizeStored || heapType === heapTypes[0] || heapType === heapTypes[1])"><span class="big-o">O(n)</span></td>
+                            <td *ngIf="(heapSizeStored)"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="(heapSizeStored)"><span class="big-o">O(1)</span></td>
+                            <td *ngIf="!heapSizeStored && !(heapType === heapTypes[0] || heapType === heapTypes[1])"><span class="big-o">O(n)</span></td>
+                            <td *ngIf="!heapSizeStored && !(heapType === heapTypes[0] || heapType === heapTypes[1])"><span class="big-o">O(n)</span></td>
+                            <td *ngIf="!heapSizeStored && (heapType === heapTypes[0] || heapType === heapTypes[1])"><span class="big-o">O(log(n))</span></td>
+                            <td *ngIf="!heapSizeStored && (heapType === heapTypes[0] || heapType === heapTypes[1])"><span class="big-o">O(log(n))</span></td>
                         </tr>
                         <tr>
                             <td>Determining if the heap is empty</td>
