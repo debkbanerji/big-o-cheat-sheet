@@ -174,7 +174,7 @@
                     <mat-checkbox [(ngModel)]="linkedListCircular">Circular</mat-checkbox>
                     <br>
                     <mat-form-field [(hidden)]="arrayListSorted">
-                        <mat-select placeholder="Linked List Type"
+                        <mat-select [placeholder]="'Linked List Type'"
                                     [(ngModel)]="linkedListType">
                             <mat-option *ngFor="let type of linkedListTypes" [value]="type">
                                 {{type}}
@@ -289,7 +289,7 @@
                     </mat-expansion-panel-header>
                     <p>Number of elements: <span class="big-o">n</span></p>
                     <mat-form-field>
-                        <mat-select placeholder="Backing Structure"
+                        <mat-select [placeholder]="'Backing Structure'"
                                     [(ngModel)]="stackBackingStructure">
                             <mat-option *ngFor="let structure of stackBackingStructures" [value]="structure">
                                 {{structure}}
@@ -343,7 +343,7 @@
                     </mat-expansion-panel-header>
                     <p>Number of elements: <span class="big-o">n</span></p>
                     <mat-form-field>
-                        <mat-select placeholder="Backing Structure"
+                        <mat-select [placeholder]="'Backing Structure'"
                                     [(ngModel)]="queueBackingStructure">
                             <mat-option *ngFor="let structure of queueBackingStructures" [value]="structure">
                                 {{structure}}
@@ -399,7 +399,7 @@
                     <mat-checkbox [(ngModel)]="isBinarySearchTree">Binary Search Tree</mat-checkbox>
                     <br>
                     <mat-form-field [(hidden)]="!isBinarySearchTree">
-                        <mat-select placeholder="Type of BST"
+                        <mat-select [placeholder]="'Type of BST'"
                                     [(ngModel)]="bstType">
                             <mat-option *ngFor="let type of bstTypes" [value]="type">
                                 {{type}}
@@ -572,7 +572,7 @@
                     </mat-expansion-panel-header>
                     <p>Number of elements: <span class="big-o">n</span></p>
                     <mat-form-field>
-                        <mat-select placeholder="Collision Resolution Method"
+                        <mat-select [placeholder]="'Collision Resolution Method'"
                                     [(ngModel)]="collisionResolutionMethod">
                             <mat-option *ngFor="let method of collisionResolutionMethods" [value]="method">
                                 {{method}}
@@ -585,7 +585,7 @@
                     <br>
                     <mat-form-field
                         [hidden]="!(collisionResolutionMethod === collisionResolutionMethods[0] && comparableHashTableData)">
-                        <mat-select placeholder="External Chaining Method"
+                        <mat-select [placeholder]="'External Chaining Method'"
                                     [(ngModel)]="hashTableExternalStructure">
                             <mat-option *ngFor="let structure of hashTableExternalStructures" [value]="structure">
                                 {{structure}}
@@ -644,7 +644,7 @@
                     </mat-expansion-panel-header>
                     <p>Number of elements: <span class="big-o">n</span></p>
                     <mat-form-field>
-                        <mat-select placeholder="Maximum Height"
+                        <mat-select [placeholder]="'Maximum Height'"
                                     [(ngModel)]="skipListHeight">
                             <mat-option *ngFor="let height of skipListHeights" [value]="height">
                                 {{height}}
@@ -703,7 +703,7 @@
                     <p *ngIf="heapType === heapTypes[1]">Maximum number of children per node: <span
                         class="big-o">d</span></p>
                     <mat-form-field>
-                        <mat-select placeholder="Heap Type"
+                        <mat-select [placeholder]="'Heap Type'"
                                     [(ngModel)]="heapType">
                             <mat-option *ngFor="let type of heapTypes" [value]="type">
                                 {{type}}
@@ -712,12 +712,12 @@
                     </mat-form-field>
                     <br>
                     <mat-checkbox
-                                  [(ngModel)]="heapSizeStored">
+                        [(ngModel)]="heapSizeStored">
                         Size Stored in Variable
                     </mat-checkbox>
                     <br>
                     <mat-form-field>
-                        <mat-select placeholder="Ordering"
+                        <mat-select [placeholder]="'Ordering'"
                                     [(ngModel)]="heapOrdering">
                             <mat-option *ngFor="let ordering of heapOrderings" [value]="ordering">
                                 {{ordering}}
@@ -777,11 +777,13 @@
                         <tr>
                             <td>Removing {{heapOrdering === heapOrderings[0] ? 'smallest' : 'largest'}} element</td>
                             <td *ngIf="!(heapType === heapTypes[1])"><span class="big-o">O(log(n))</span></td>
-                            <td *ngIf="(heapType === heapTypes[1])"><span class="big-o">O(<span *ngIf="!heapSizeStored">log(n)+</span>d*log(n)/log(d))</span></td>
+                            <td *ngIf="(heapType === heapTypes[1])"><span class="big-o">O(<span *ngIf="!heapSizeStored">log(n)+</span>d*log(n)/log(d))</span>
+                            </td>
                             <td *ngIf="!(heapType === heapTypes[1])"><span
                                 *ngIf="heapType === heapTypes[3]">Amortized </span><span class="big-o">O(log(n))</span>
                             </td>
-                            <td *ngIf="(heapType === heapTypes[1])"><span class="big-o">O(<span *ngIf="!heapSizeStored">log(n)+</span>d*log(n)/log(d))</span></td>
+                            <td *ngIf="(heapType === heapTypes[1])"><span class="big-o">O(<span *ngIf="!heapSizeStored">log(n)+</span>d*log(n)/log(d))</span>
+                            </td>
                         </tr>
                         <tr>
                             <td>{{heapOrdering === heapOrderings[0] ? 'Decreasing' : 'Increasing'}} the key of an
@@ -835,24 +837,30 @@
                                 <span class="big-o">O(log(n))</span>
                             </td>
                             <td *ngIf="(heapType === heapTypes[1])">
-                                <span class="big-o">O(<span *ngIf="!heapSizeStored">log(n)+</span>d*log(n)/log(d))</span>
+                                <span class="big-o">O(<span
+                                    *ngIf="!heapSizeStored">log(n)+</span>d*log(n)/log(d))</span>
                             </td>
                             <td *ngIf="!(heapType === heapTypes[1])">
                                 <span *ngIf="heapType === heapTypes[3]">Amortized </span>
                                 <span class="big-o">O(log(n))</span>
                             </td>
                             <td *ngIf="(heapType === heapTypes[1])">
-                                <span class="big-o">O(<span *ngIf="!heapSizeStored">log(n)+</span>d*log(n)/log(d))</span>
+                                <span class="big-o">O(<span
+                                    *ngIf="!heapSizeStored">log(n)+</span>d*log(n)/log(d))</span>
                             </td>
                         </tr>
                         <tr>
                             <td>Finding size</td>
                             <td *ngIf="(heapSizeStored)"><span class="big-o">O(1)</span></td>
                             <td *ngIf="(heapSizeStored)"><span class="big-o">O(1)</span></td>
-                            <td *ngIf="!heapSizeStored && !(heapType === heapTypes[0] || heapType === heapTypes[1])"><span class="big-o">O(n)</span></td>
-                            <td *ngIf="!heapSizeStored && !(heapType === heapTypes[0] || heapType === heapTypes[1])"><span class="big-o">O(n)</span></td>
-                            <td *ngIf="!heapSizeStored && (heapType === heapTypes[0] || heapType === heapTypes[1])"><span class="big-o">O(log(n))</span></td>
-                            <td *ngIf="!heapSizeStored && (heapType === heapTypes[0] || heapType === heapTypes[1])"><span class="big-o">O(log(n))</span></td>
+                            <td *ngIf="!heapSizeStored && !(heapType === heapTypes[0] || heapType === heapTypes[1])">
+                                <span class="big-o">O(n)</span></td>
+                            <td *ngIf="!heapSizeStored && !(heapType === heapTypes[0] || heapType === heapTypes[1])">
+                                <span class="big-o">O(n)</span></td>
+                            <td *ngIf="!heapSizeStored && (heapType === heapTypes[0] || heapType === heapTypes[1])">
+                                <span class="big-o">O(log(n))</span></td>
+                            <td *ngIf="!heapSizeStored && (heapType === heapTypes[0] || heapType === heapTypes[1])">
+                                <span class="big-o">O(log(n))</span></td>
                         </tr>
                         <tr>
                             <td>Determining if the heap is empty</td>
@@ -868,8 +876,10 @@
                         </tr>
                         <tr>
                             <td>Merging two heaps</td>
-                            <td *ngIf="(heapType === heapTypes[0] || heapType === heapTypes[1])"><span class="big-o">O(n)</span></td>
-                            <td *ngIf="(heapType === heapTypes[0] || heapType === heapTypes[1])"><span class="big-o">O(n)</span></td>
+                            <td *ngIf="(heapType === heapTypes[0] || heapType === heapTypes[1])"><span class="big-o">O(n)</span>
+                            </td>
+                            <td *ngIf="(heapType === heapTypes[0] || heapType === heapTypes[1])"><span class="big-o">O(n)</span>
+                            </td>
                             <td *ngIf="(heapType === heapTypes[2])"><span class="big-o">O(log(n))</span></td>
                             <td *ngIf="(heapType === heapTypes[2])"><span class="big-o">O(log(n))</span></td>
                             <td *ngIf="(heapType === heapTypes[3])"><span class="big-o">O(1)</span></td>
@@ -895,7 +905,135 @@
     <div class="col-xs-12 col-md-12">
         <div class="table-section">
             <mat-accordion>
-                <em>TODO: Document sorting, string searching, graph, dynamic programming algorithms</em>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <span class="subsection-label">Sorting</span>
+                    </mat-expansion-panel-header>
+                    <p>Number of elements in list: <span class="big-o">n</span></p>
+                    <p>Size of radix (radix sorts): <span class="big-o">r</span></p>
+                    <p>Maximum element width (radix sorts): <span class="big-o">w</span></p>
+                    <table>
+                        <tr>
+                            <th>Algorithm</th>
+                            <th>Best Case Time Complexity</th>
+                            <th>Average Case Time Complexity</th>
+                            <th>Worst Case Time Complexity</th>
+                            <th>Stability</th>
+                            <th>In Place vs. Out of Place</th>
+                            <th>Average Case Auxillary Space Complexity</th>
+                            <th>Worst Case Auxillary Space Complexity</th>
+                            <th>Type of Data</th>
+                        </tr>
+                        <tr>
+                            <td>Bubble Sort<br>
+                                <mat-checkbox [(ngModel)]="bubbleSortSwappedFlag">Use 'swapped' flag</mat-checkbox>
+                            </td>
+                            <td><span class="big-o">O(n<sup *ngIf="!bubbleSortSwappedFlag">2</sup>)</span></td>
+                            <td><span class="big-o">O(n<sup>2</sup>)</span></td>
+                            <td><span class="big-o">O(n<sup>2</sup>)</span></td>
+                            <td>Stable</td>
+                            <td>In Place</td>
+                            <td><span class="big-o">O(1)</span></td>
+                            <td><span class="big-o">O(1)</span></td>
+                            <td>Comparable</td>
+                        </tr>
+                        <tr>
+                            <td>Cocktail Shaker Sort<br>
+                                <mat-checkbox [(ngModel)]="cocktailShakerSortSwappedFlag">Use 'swapped' flag
+                                </mat-checkbox>
+                            </td>
+                            <td><span class="big-o">O(n<sup *ngIf="!cocktailShakerSortSwappedFlag">2</sup>)</span></td>
+                            <td><span class="big-o">O(n<sup>2</sup>)</span></td>
+                            <td><span class="big-o">O(n<sup>2</sup>)</span></td>
+                            <td>Stable</td>
+                            <td>In Place</td>
+                            <td><span class="big-o">O(1)</span></td>
+                            <td><span class="big-o">O(1)</span></td>
+                            <td>Comparable</td>
+                        </tr>
+                        <tr>
+                            <td>Insertion Sort
+                            </td>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n<sup>2</sup>)</span></td>
+                            <td><span class="big-o">O(n<sup>2</sup>)</span></td>
+                            <td>Stable</td>
+                            <td>In Place</td>
+                            <td><span class="big-o">O(1)</span></td>
+                            <td><span class="big-o">O(1)</span></td>
+                            <td>Comparable</td>
+                        </tr>
+                        <tr>
+                            <td>Selection Sort
+                            </td>
+                            <td><span class="big-o">O(n<sup>2</sup>)</span></td>
+                            <td><span class="big-o">O(n<sup>2</sup>)</span></td>
+                            <td><span class="big-o">O(n<sup>2</sup>)</span></td>
+                            <td>Unstable</td>
+                            <td>In Place</td>
+                            <td><span class="big-o">O(1)</span></td>
+                            <td><span class="big-o">O(1)</span></td>
+                            <td>Comparable</td>
+                        </tr>
+                        <tr>
+                            <td>Merge Sort*
+                            </td>
+                            <td><span class="big-o">O(n*log(n))</span></td>
+                            <td><span class="big-o">O(n*log(n))</span></td>
+                            <td><span class="big-o">O(n*log(n))</span></td>
+                            <td>Stable</td>
+                            <td>Out of Place</td>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td>Comparable</td>
+                        </tr>
+                        <tr>
+                            <td>Quicksort*
+                                <br>
+                                <br>
+                                <mat-form-field>
+                                    <mat-select [placeholder]="'Type'"
+                                                [(ngModel)]="quicksortType">
+                                        <mat-option *ngFor="let type of quicksortTypes"
+                                                    [value]="type">
+                                            {{type}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <mat-form-field>
+                                    <mat-select [placeholder]="'Pivot Selection Method'"
+                                                [(ngModel)]="quicksortpivotSelectionAlgorithm">
+                                        <mat-option *ngFor="let algorithm of quicksortpivotSelectionAlgorithms"
+                                                    [value]="algorithm">
+                                            {{algorithm}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </td>
+                            <td><span class="big-o">O(n*log(n))</span></td>
+                            <td><span class="big-o">O(n*log(n))</span></td>
+                            <td *ngIf="quicksortpivotSelectionAlgorithm === quicksortpivotSelectionAlgorithms[0]">
+                                <span class="big-o">O(n<sup>2</sup>)</span></td>
+                            <td *ngIf="quicksortpivotSelectionAlgorithm === quicksortpivotSelectionAlgorithms[1]">
+                                <span class="big-o">O(n*log(n))</span></td>
+                            <td *ngIf="quicksortType === quicksortTypes[0]">Unstable</td>
+                            <td *ngIf="quicksortType === quicksortTypes[0]">In Place</td>
+                            <td *ngIf="quicksortType === quicksortTypes[0]"><span class="big-o">O(log(n))</span></td>
+                            <td *ngIf="quicksortType === quicksortTypes[0] && quicksortpivotSelectionAlgorithm === quicksortpivotSelectionAlgorithms[0]">
+                                <span class="big-o">O(n)</span></td>
+                            <td *ngIf="quicksortType === quicksortTypes[0] && quicksortpivotSelectionAlgorithm === quicksortpivotSelectionAlgorithms[1]">
+                                <span class="big-o">O(log(n))</span></td>
+                            <td *ngIf="quicksortType === quicksortTypes[1]">Stable</td>
+                            <td *ngIf="quicksortType === quicksortTypes[1]">Out of Place</td>
+                            <td *ngIf="quicksortType === quicksortTypes[1]"><span class="big-o">O(n)</span></td>
+                            <td *ngIf="quicksortType === quicksortTypes[1]"><span class="big-o">O(n)</span></td>
+                            <td>Comparable</td>
+                        </tr>
+                    </table>
+                    <small>*A single threaded implementation is assumed to be used.</small>
+                </mat-expansion-panel>
+                <em>TODO: Document sorting, string searching, graph, dynamic programming algorithms and disjoint
+                    forests</em>
             </mat-accordion>
         </div>
     </div>

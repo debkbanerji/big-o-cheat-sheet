@@ -102,6 +102,19 @@ export class HomeComponent implements OnInit {
     public heapOrdering = this.heapOrderings[0];
     public heapSizeStored = true;
 
+    // Sorting
+    public bubbleSortSwappedFlag = true;
+    public cocktailShakerSortSwappedFlag = true;
+    public quicksortTypes = [
+        'In Place',
+        'Out of Place'
+    ];
+    public quicksortType = this.quicksortTypes[0];
+    public quicksortpivotSelectionAlgorithms = [
+        'Random',
+        'Median of Medians'
+    ];
+    public quicksortpivotSelectionAlgorithm = this.quicksortpivotSelectionAlgorithms[0];
 
     constructor() {
     }
