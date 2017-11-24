@@ -919,6 +919,7 @@
                             <th>Average Case Time Complexity</th>
                             <th>Worst Case Time Complexity</th>
                             <th>Stability</th>
+                            <th>Adaptive vs. Non Adaptive</th>
                             <th>In Place vs. Out of Place</th>
                             <th>Average Case Auxillary Space Complexity</th>
                             <th>Worst Case Auxillary Space Complexity</th>
@@ -932,6 +933,7 @@
                             <td><span class="big-o">O(n<sup>2</sup>)</span></td>
                             <td><span class="big-o">O(n<sup>2</sup>)</span></td>
                             <td>Stable</td>
+                            <td><span *ngIf="!bubbleSortSwappedFlag">Non </span>Adaptive</td>
                             <td>In Place</td>
                             <td><span class="big-o">O(1)</span></td>
                             <td><span class="big-o">O(1)</span></td>
@@ -946,6 +948,7 @@
                             <td><span class="big-o">O(n<sup>2</sup>)</span></td>
                             <td><span class="big-o">O(n<sup>2</sup>)</span></td>
                             <td>Stable</td>
+                            <td><span *ngIf="!cocktailShakerSortSwappedFlag">Non </span>Adaptive</td>
                             <td>In Place</td>
                             <td><span class="big-o">O(1)</span></td>
                             <td><span class="big-o">O(1)</span></td>
@@ -958,6 +961,7 @@
                             <td><span class="big-o">O(n<sup>2</sup>)</span></td>
                             <td><span class="big-o">O(n<sup>2</sup>)</span></td>
                             <td>Stable</td>
+                            <td>Adaptive</td>
                             <td>In Place</td>
                             <td><span class="big-o">O(1)</span></td>
                             <td><span class="big-o">O(1)</span></td>
@@ -970,6 +974,7 @@
                             <td><span class="big-o">O(n<sup>2</sup>)</span></td>
                             <td><span class="big-o">O(n<sup>2</sup>)</span></td>
                             <td>Unstable</td>
+                            <td>Non Adaptive</td>
                             <td>In Place</td>
                             <td><span class="big-o">O(1)</span></td>
                             <td><span class="big-o">O(1)</span></td>
@@ -982,6 +987,7 @@
                             <td><span class="big-o">O(n*log(n))</span></td>
                             <td><span class="big-o">O(n*log(n))</span></td>
                             <td>Stable</td>
+                            <td>Non Adaptive</td>
                             <td>Out of Place</td>
                             <td><span class="big-o">O(n)</span></td>
                             <td><span class="big-o">O(n)</span></td>
@@ -1017,6 +1023,7 @@
                             <td *ngIf="quicksortpivotSelectionAlgorithm === quicksortpivotSelectionAlgorithms[1]">
                                 <span class="big-o">O(n*log(n))</span></td>
                             <td *ngIf="quicksortType === quicksortTypes[0]">Unstable</td>
+                            <td *ngIf="quicksortType === quicksortTypes[0]">Non Adaptive</td>
                             <td *ngIf="quicksortType === quicksortTypes[0]">In Place</td>
                             <td *ngIf="quicksortType === quicksortTypes[0]"><span class="big-o">O(log(n))</span></td>
                             <td *ngIf="quicksortType === quicksortTypes[0] && quicksortpivotSelectionAlgorithm === quicksortpivotSelectionAlgorithms[0]">
@@ -1024,6 +1031,7 @@
                             <td *ngIf="quicksortType === quicksortTypes[0] && quicksortpivotSelectionAlgorithm === quicksortpivotSelectionAlgorithms[1]">
                                 <span class="big-o">O(log(n))</span></td>
                             <td *ngIf="quicksortType === quicksortTypes[1]">Stable</td>
+                            <td *ngIf="quicksortType === quicksortTypes[1]">Non Adaptive</td>
                             <td *ngIf="quicksortType === quicksortTypes[1]">Out of Place</td>
                             <td *ngIf="quicksortType === quicksortTypes[1]"><span class="big-o">O(n)</span></td>
                             <td *ngIf="quicksortType === quicksortTypes[1]"><span class="big-o">O(n)</span></td>
@@ -1037,6 +1045,7 @@
                             <td><span class="big-o">O(n*log(n))</span></td>
                             <td><span class="big-o">O(n*log(n))</span></td>
                             <td>Unstable</td>
+                            <td>Non Adaptive</td>
                             <td>In Place</td>
                             <td><span class="big-o">O(1)</span></td>
                             <td><span class="big-o">O(1)</span></td>
