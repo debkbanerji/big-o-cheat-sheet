@@ -912,13 +912,18 @@
                     <span>Number of elements in list: <span class="big-o">n</span></span>
                     <br>
                     <br>
-                    <span><b>Variables specific to radix sort</b></span>
+                    <span><b>Variables specific to digital data</b></span>
                     <br>
                     <span>Maximum element width (number of digits): <span class="big-o">w</span></span>
                     <br>
                     <span>Size of radix: <span class="big-o">r</span></span>
                     <br>
                     <mat-checkbox [(ngModel)]="smallRadixSize">Assume small radix size</mat-checkbox>
+                    <br>
+                    <br>
+                    <span><b>Variables specific to integer data</b></span>
+                    <br>
+                    <span>Range of integers: <span class="big-o">k</span></span>
                     <br>
                     <br>
                     <table>
@@ -1062,7 +1067,20 @@
                             <td>Comparable</td>
                         </tr>
                         <tr>
-                            <td>Radix Sort
+                            <td>Counting Sort
+                            </td>
+                            <td><span class="big-o">O(n + k)</span></td>
+                            <td><span class="big-o">O(n + k)</span></td>
+                            <td><span class="big-o">O(n + k)</span></td>
+                            <td>Stable</td>
+                            <td>Non Adaptive</td>
+                            <td>Out of Place</td>
+                            <td><span class="big-o">O(n + k)</span></td>
+                            <td><span class="big-o">O(n + k)</span></td>
+                            <td>Integers</td>
+                        </tr>
+                        <tr>
+                            <td>Radix Sort<span *ngIf="radixSortType === radixSortTypes[1]">*</span>
                                 <br>
                                 <br>
                                 <mat-form-field>
@@ -1116,7 +1134,7 @@
                     </table>
                     <small>*A single threaded implementation is assumed to be used.</small>
                 </mat-expansion-panel>
-                <em>TODO: Document sorting, string searching, graph, dynamic programming algorithms and disjoint
+                <em>TODO: Document string searching, graph, dynamic programming algorithms and disjoint
                     forests</em>
             </mat-accordion>
         </div>
