@@ -1345,15 +1345,30 @@
                     <table>
                         <tr>
                             <th>Algorithm</th>
-                            <th>Best Case Time Complexity</th>
                             <th>Average Case Time Complexity</th>
                             <th>Worst Case Time Complexity</th>
                         </tr>
                         <tr>
                             <td>Depth-first search</td>
+                            <td>
+                                <span *ngIf="!useEEqualsVSquare" class="big-o">O(e + v)</span>
+                                <span *ngIf="useEEqualsVSquare" class="big-o">O(v<sup>2</sup>)</span>
+                            </td>
+                            <td>
+                                <span *ngIf="!useEEqualsVSquare" class="big-o">O(e + v)</span>
+                                <span *ngIf="useEEqualsVSquare" class="big-o">O(v<sup>2</sup>)</span>
+                            </td>
                         </tr>
                         <tr>
                             <td>Breadth-first search</td>
+                            <td>
+                                <span *ngIf="!useEEqualsVSquare" class="big-o">O(e + v)</span>
+                                <span *ngIf="useEEqualsVSquare" class="big-o">O(v<sup>2</sup>)</span>
+                            </td>
+                            <td>
+                                <span *ngIf="!useEEqualsVSquare" class="big-o">O(e + v)</span>
+                                <span *ngIf="useEEqualsVSquare" class="big-o">O(v<sup>2</sup>)</span>
+                            </td>
                         </tr>
                         <tr>
                             <td>Dijkstra's algorithm</td>
@@ -1363,12 +1378,30 @@
                         </tr>
                         <tr>
                             <td>Kruskal's algorithm</td>
+                            <td>
+                                <span *ngIf="!useEEqualsVSquare" class="big-o">O(e * log(e))</span>
+                                <span *ngIf="useEEqualsVSquare" class="big-o">O(v<sup>2</sup> * log(v))</span>
+                            </td>
+                            <td>
+                                <span *ngIf="!useEEqualsVSquare" class="big-o">O(e * log(e))</span>
+                                <span *ngIf="useEEqualsVSquare" class="big-o">O(v<sup>2</sup> * log(v))</span>
+                            </td>
                         </tr>
                         <tr>
                             <td>Bellman–Ford algorithm</td>
+                            <td>
+                                <span *ngIf="!useEEqualsVSquare" class="big-o">O(e * v)</span>
+                                <span *ngIf="useEEqualsVSquare" class="big-o">O(v<sup>3</sup>)</span>
+                            </td>
+                            <td>
+                                <span *ngIf="!useEEqualsVSquare" class="big-o">O(e * v)</span>
+                                <span *ngIf="useEEqualsVSquare" class="big-o">O(v<sup>3</sup>)</span>
+                            </td>
                         </tr>
                         <tr>
                             <td>Floyd–Warshall algorithm</td>
+                            <td><span class="big-o">O(v<sup>3</sup>)</span></td>
+                            <td><span class="big-o">O(v<sup>3</sup>)</span></td>
                         </tr>
                     </table>
                 </mat-expansion-panel>
