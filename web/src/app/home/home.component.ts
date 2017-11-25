@@ -115,6 +115,17 @@ export class HomeComponent implements OnInit {
         'Median of Medians'
     ];
     public quicksortpivotSelectionAlgorithm = this.quicksortpivotSelectionAlgorithms[0];
+    public smallRadixSize = true;
+    public radixSortTypes = [
+        'LSD',
+        'MSD'
+    ];
+    public radixSortType = this.radixSortTypes[0];
+    public msdRadixSortTypes = [
+        'Out of Place',
+        'In Place'
+    ];
+    public msdRadixSortType = this.msdRadixSortTypes[0];
 
     constructor() {
     }

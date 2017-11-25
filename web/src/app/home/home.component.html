@@ -909,9 +909,18 @@
                     <mat-expansion-panel-header>
                         <span class="subsection-label">Sorting</span>
                     </mat-expansion-panel-header>
-                    <p>Number of elements in list: <span class="big-o">n</span></p>
-                    <p>Size of radix (radix sorts): <span class="big-o">r</span></p>
-                    <p>Maximum element width (radix sorts): <span class="big-o">w</span></p>
+                    <span>Number of elements in list: <span class="big-o">n</span></span>
+                    <br>
+                    <br>
+                    <span><b>Variables specific to radix sort</b></span>
+                    <br>
+                    <span>Maximum element width (number of digits): <span class="big-o">w</span></span>
+                    <br>
+                    <span>Size of radix: <span class="big-o">r</span></span>
+                    <br>
+                    <mat-checkbox [(ngModel)]="smallRadixSize">Assume small radix size</mat-checkbox>
+                    <br>
+                    <br>
                     <table>
                         <tr>
                             <th>Algorithm</th>
@@ -927,6 +936,7 @@
                         </tr>
                         <tr>
                             <td>Bubble Sort<br>
+                                <br>
                                 <mat-checkbox [(ngModel)]="bubbleSortSwappedFlag">Use 'swapped' flag</mat-checkbox>
                             </td>
                             <td><span class="big-o">O(n<sup *ngIf="!bubbleSortSwappedFlag">2</sup>)</span></td>
@@ -941,6 +951,7 @@
                         </tr>
                         <tr>
                             <td>Cocktail Shaker Sort<br>
+                                <br>
                                 <mat-checkbox [(ngModel)]="cocktailShakerSortSwappedFlag">Use 'swapped' flag
                                 </mat-checkbox>
                             </td>
@@ -1037,7 +1048,6 @@
                             <td *ngIf="quicksortType === quicksortTypes[1]"><span class="big-o">O(n)</span></td>
                             <td>Comparable</td>
                         </tr>
-
                         <tr>
                             <td>Heapsort
                             </td>
@@ -1050,6 +1060,58 @@
                             <td><span class="big-o">O(1)</span></td>
                             <td><span class="big-o">O(1)</span></td>
                             <td>Comparable</td>
+                        </tr>
+                        <tr>
+                            <td>Radix Sort
+                                <br>
+                                <br>
+                                <mat-form-field>
+                                    <mat-select [placeholder]="'Type'"
+                                                [(ngModel)]="radixSortType">
+                                        <mat-option *ngFor="let type of radixSortTypes"
+                                                    [value]="type">
+                                            {{type}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <mat-form-field *ngIf="radixSortType === radixSortTypes[1]">
+                                    <mat-select [placeholder]="'Type'"
+                                                [(ngModel)]="msdRadixSortType">
+                                        <mat-option *ngFor="let type of msdRadixSortTypes"
+                                                    [value]="type">
+                                            {{type}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </td>
+                            <td *ngFor="let element of [undefined , undefined , undefined]">
+                                <span *ngIf="!smallRadixSize" class="big-o">O((n + r)*w)</span>
+                                <span *ngIf="smallRadixSize" class="big-o">O(n*w)</span>
+                            </td>
+                            <td *ngIf="!(radixSortType === radixSortTypes[1] && msdRadixSortType === msdRadixSortTypes[1])">
+                                Stable
+                            </td>
+                            <td *ngIf="radixSortType === radixSortTypes[1] && msdRadixSortType === msdRadixSortTypes[1]">
+                                Unstable
+                            </td>
+                            <td>Non Adaptive</td>
+                            <td *ngIf="!(radixSortType === radixSortTypes[1] && msdRadixSortType === msdRadixSortTypes[1])">
+                                Out of Place
+                            </td>
+                            <td *ngIf="radixSortType === radixSortTypes[1] && msdRadixSortType === msdRadixSortTypes[1]">
+                                In Place
+                            </td>
+                            <td *ngFor="let element of [undefined , undefined]">
+                                <span *ngIf="!(radixSortType === radixSortTypes[1] && msdRadixSortType === msdRadixSortTypes[1])">
+                                    <span *ngIf="!smallRadixSize" class="big-o">O(n + r)</span>
+                                    <span *ngIf="smallRadixSize" class="big-o">O(n)</span>
+                                </span>
+                                <span *ngIf="radixSortType === radixSortTypes[1] && msdRadixSortType === msdRadixSortTypes[1]">
+                                    <span *ngIf="!smallRadixSize" class="big-o">O(r)</span>
+                                    <span *ngIf="smallRadixSize" class="big-o">O(1)</span>
+                                </span>
+                            </td>
+                            <td>Digital</td>
                         </tr>
                     </table>
                     <small>*A single threaded implementation is assumed to be used.</small>
