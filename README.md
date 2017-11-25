@@ -1,5 +1,5 @@
 # Big-O Cheat Sheet
-This is repository for keeping track of my personal Big-O Cheat Sheet for some common data structures and algorithms.
+This is an electronic version of my Big-O Cheat Sheet for some common data structures and algorithms.
 
 My original document is from early 2016, when I was a student in a data structures and algorithms class at Georgia Tech. The information maintained here is based on the original document, but has been rewritten from scratch in order to cover more material and fix some errors that the original document had.
 
