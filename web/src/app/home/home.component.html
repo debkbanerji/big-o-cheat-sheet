@@ -890,6 +890,7 @@
                         maintaining a map from elements to their locations.
                     </small>
                 </mat-expansion-panel>
+                <!--TODO: disjoint forest-->
             </mat-accordion>
         </div>
     </div>
@@ -913,7 +914,9 @@
                     <!--<br>-->
                     <p class="variable-label">Range of integers (counting sort): <span class="big-o">k</span></p>
                     <p class="variable-label">Maximum element width (radix sort): <span class="big-o">w</span></p>
-                    <p class="variable-label">Size of radix (radix sort): <span *ngIf="!smallRadixSize" class="big-o">r</span><span *ngIf="smallRadixSize">constant</span></p>
+                    <p class="variable-label">Size of radix (radix sort): <span *ngIf="!smallRadixSize"
+                                                                                class="big-o">r</span><span
+                        *ngIf="smallRadixSize">constant</span></p>
                     <mat-checkbox [(ngModel)]="smallRadixSize">Assume negligible radix size</mat-checkbox>
                     <br>
                     <br>
@@ -1111,11 +1114,13 @@
                                 In Place
                             </td>
                             <td *ngFor="let element of [undefined , undefined]">
-                                <span *ngIf="!(radixSortType === radixSortTypes[1] && msdRadixSortType === msdRadixSortTypes[1])">
+                                <span
+                                    *ngIf="!(radixSortType === radixSortTypes[1] && msdRadixSortType === msdRadixSortTypes[1])">
                                     <span *ngIf="!smallRadixSize" class="big-o">O(n + r)</span>
                                     <span *ngIf="smallRadixSize" class="big-o">O(n)</span>
                                 </span>
-                                <span *ngIf="radixSortType === radixSortTypes[1] && msdRadixSortType === msdRadixSortTypes[1]">
+                                <span
+                                    *ngIf="radixSortType === radixSortTypes[1] && msdRadixSortType === msdRadixSortTypes[1]">
                                     <span *ngIf="!smallRadixSize" class="big-o">O(r)</span>
                                     <span *ngIf="smallRadixSize" class="big-o">O(1)</span>
                                 </span>
@@ -1125,8 +1130,7 @@
                     </table>
                     <small>*A single threaded implementation is assumed to be used.</small>
                 </mat-expansion-panel>
-                <em>TODO: Document string searching, graph, dynamic programming algorithms and disjoint
-                    forests</em>
+                <!--TODO: string searching, graphs, dynamic programming-->
             </mat-accordion>
         </div>
     </div>
