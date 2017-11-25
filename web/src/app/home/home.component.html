@@ -1374,8 +1374,8 @@
                                 <span *ngIf="useEEqualsVSquare" class="big-o">O(v<sup>2</sup>)</span>
                             </td>
                         </tr>
-                        <tr>
-                            <td>Dijkstra's algorithm</td>
+                        <tr *ngFor="let algorithm of ['Dijkstra', 'Prim']">
+                            <td>{{algorithm}}'s algorithm</td>
                             <td>
                                <span *ngIf="!useEEqualsVSquare">
                                    <span *ngIf="priorityQueueImplementation === priorityQueueImplementations[0]"
@@ -1452,9 +1452,6 @@
                                    </span>
                                </span>
                             </td>
-                        </tr>
-                        <tr>
-                            <td>Prim's algorithm</td>
                         </tr>
                         <tr>
                             <td>Kruskal's algorithm</td>
