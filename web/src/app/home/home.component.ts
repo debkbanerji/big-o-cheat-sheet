@@ -140,6 +140,15 @@ export class HomeComponent implements OnInit {
     public boyerMooreLastOcurrenceTableSize = this.boyerMooreLastOcurrenceTableSizes[0];
     public boyerMooreUseGalilOptimization = false;
 
+    public useEEqualsVSquare = false;
+    public priorityQueueImplementations = [
+        'Binary Heap',
+        'Fibonacci Heap',
+        'Array/Linked List',
+        'Unspecified'
+    ];
+    public priorityQueueImplementation = this.priorityQueueImplementations[0];
+
     constructor() {
     }
 

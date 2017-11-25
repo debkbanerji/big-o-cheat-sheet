@@ -1322,7 +1322,57 @@
                         </tr>
                     </table>
                 </mat-expansion-panel>
-                <!--TODO: string searching, graphs, dynamic programming-->
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <span class="subsection-label">Graphs</span>
+                    </mat-expansion-panel-header>
+                    <p class="variable-label">Number of Vertices: <span class="big-o">v</span></p>
+                    <p class="variable-label">Number of Edges: <span class="big-o">e</span></p>
+                    <mat-checkbox [(ngModel)]="useEEqualsVSquare">Use <span class="big-o">e = v<sup>2</sup></span>
+                    </mat-checkbox>
+                    <br>
+                    <mat-form-field>
+                        <mat-select [placeholder]="'Priority Queue Implementation'"
+                                    [(ngModel)]="priorityQueueImplementation">
+                            <mat-option *ngFor="let implementation of priorityQueueImplementations"
+                                        [value]="implementation">
+                                {{implementation}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <br>
+                    <br>
+                    <table>
+                        <tr>
+                            <th>Algorithm</th>
+                            <th>Best Case Time Complexity</th>
+                            <th>Average Case Time Complexity</th>
+                            <th>Worst Case Time Complexity</th>
+                        </tr>
+                        <tr>
+                            <td>Depth-first search</td>
+                        </tr>
+                        <tr>
+                            <td>Breadth-first search</td>
+                        </tr>
+                        <tr>
+                            <td>Dijkstra's algorithm</td>
+                        </tr>
+                        <tr>
+                            <td>Prim's algorithm</td>
+                        </tr>
+                        <tr>
+                            <td>Kruskal's algorithm</td>
+                        </tr>
+                        <tr>
+                            <td>Bellman–Ford algorithm</td>
+                        </tr>
+                        <tr>
+                            <td>Floyd–Warshall algorithm</td>
+                        </tr>
+                    </table>
+                </mat-expansion-panel>
+                <!--TODO: graphs, dynamic programming-->
             </mat-accordion>
         </div>
     </div>
