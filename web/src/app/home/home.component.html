@@ -1177,7 +1177,59 @@
                             <td><span class="big-o">O(1)</span></td>
                         </tr>
                         <tr>
-                            <td>Boyer–Moore</td>
+                            <td>Boyer–Moore
+                                <br>
+                                <br>
+                                <mat-form-field>
+                                    <mat-select [placeholder]="'Last Occurrence Table size'"
+                                                [(ngModel)]="boyerMooreLastOcurrenceTableSize">
+                                        <mat-option *ngFor="let size of boyerMooreLastOcurrenceTableSizes"
+                                                    [value]="size">
+                                            {{size}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <mat-checkbox [(ngModel)]="boyerMooreUseGalilOptimization">Use Galil Optimization
+                                </mat-checkbox>
+                            </td>
+                            <td>
+                                <span *ngIf="patternMatchingTargetNum === patternMatchingTargetNums[0]" class="big-o">O((n/m) + m<span
+                                    *ngIf="boyerMooreLastOcurrenceTableSize === boyerMooreLastOcurrenceTableSizes[1]"> + s</span>)
+                                </span>
+                                <span *ngIf="patternMatchingTargetNum === patternMatchingTargetNums[1]" class="big-o">O(m<span
+                                    *ngIf="boyerMooreLastOcurrenceTableSize === boyerMooreLastOcurrenceTableSizes[1]"> + s</span>)
+                                </span>
+                            </td>
+                            <td><span class="big-o">O(m + n<span
+                                *ngIf="boyerMooreLastOcurrenceTableSize === boyerMooreLastOcurrenceTableSizes[1]"> + s</span>)</span>
+                            </td>
+                            <td><span class="big-o"
+                                      *ngIf="patternMatchingTargetNum === patternMatchingTargetNums[1] || boyerMooreUseGalilOptimization">O(m + n<span
+                                *ngIf="boyerMooreLastOcurrenceTableSize === boyerMooreLastOcurrenceTableSizes[1]"> + s</span>)</span>
+                                <span class="big-o"
+                                      *ngIf="!(patternMatchingTargetNum === patternMatchingTargetNums[1] || boyerMooreUseGalilOptimization)">
+                                    <span
+                                        *ngIf="boyerMooreLastOcurrenceTableSize === boyerMooreLastOcurrenceTableSizes[1]">O((m*n) + s)</span>
+                                    <span
+                                        *ngIf="boyerMooreLastOcurrenceTableSize !== boyerMooreLastOcurrenceTableSizes[1]">O(m*n)</span>
+                                </span>
+                            </td>
+                            <td>
+                                <span class="big-o"
+                                      *ngIf="boyerMooreLastOcurrenceTableSize === boyerMooreLastOcurrenceTableSizes[0]">O(m)
+                                </span>
+                                <span class="big-o"
+                                      *ngIf="boyerMooreLastOcurrenceTableSize === boyerMooreLastOcurrenceTableSizes[1]">O(s)
+                                </span>
+                            </td>
+                            <td>
+                                <span class="big-o"
+                                      *ngIf="boyerMooreLastOcurrenceTableSize === boyerMooreLastOcurrenceTableSizes[0]">O(m)
+                                </span>
+                                <span class="big-o"
+                                      *ngIf="boyerMooreLastOcurrenceTableSize === boyerMooreLastOcurrenceTableSizes[1]">O(s)
+                                </span>
+                            </td>
                         </tr>
                         <tr>
                             <td>Knuth–Morris–Pratt</td>
@@ -1212,8 +1264,52 @@
                             <td><span class="big-o">O(1)</span></td>
                         </tr>
                         <tr>
-                            <td>Computing Last Occurrence Table</td>
-                            <td>Boyer–Moore</td>
+                            <td>Computing Last Occurrence Table
+                                <br>
+                                <br>
+                                <mat-form-field>
+                                    <mat-select [placeholder]="'Last Occurrence Table size'"
+                                                [(ngModel)]="boyerMooreLastOcurrenceTableSize">
+                                        <mat-option *ngFor="let size of boyerMooreLastOcurrenceTableSizes"
+                                                    [value]="size">
+                                            {{size}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </td>
+                            <td>Boyer–Moore
+                            </td>
+                            <td>
+                                <span class="big-o">O(m<span
+                                    *ngIf="boyerMooreLastOcurrenceTableSize === boyerMooreLastOcurrenceTableSizes[1]"> + s</span>)
+                                </span>
+                            </td>
+                            <td>
+                                <span class="big-o">O(m<span
+                                    *ngIf="boyerMooreLastOcurrenceTableSize === boyerMooreLastOcurrenceTableSizes[1]"> + s</span>)
+                                </span>
+                            </td>
+                            <td>
+                                <span class="big-o">O(m<span
+                                    *ngIf="boyerMooreLastOcurrenceTableSize === boyerMooreLastOcurrenceTableSizes[1]"> + s</span>)
+                                </span>
+                            </td>
+                            <td>
+                                <span class="big-o"
+                                      *ngIf="boyerMooreLastOcurrenceTableSize === boyerMooreLastOcurrenceTableSizes[0]">O(m)
+                                </span>
+                                <span class="big-o"
+                                      *ngIf="boyerMooreLastOcurrenceTableSize === boyerMooreLastOcurrenceTableSizes[1]">O(s)
+                                </span>
+                            </td>
+                            <td>
+                                <span class="big-o"
+                                      *ngIf="boyerMooreLastOcurrenceTableSize === boyerMooreLastOcurrenceTableSizes[0]">O(m)
+                                </span>
+                                <span class="big-o"
+                                      *ngIf="boyerMooreLastOcurrenceTableSize === boyerMooreLastOcurrenceTableSizes[1]">O(s)
+                                </span>
+                            </td>
                         </tr>
                         <tr>
                             <td>Computing Failure Table</td>
