@@ -911,7 +911,6 @@
                         <span class="subsection-label">Sorting</span>
                     </mat-expansion-panel-header>
                     <p class="variable-label">Number of elements in list: <span class="big-o">n</span></p>
-                    <!--<br>-->
                     <p class="variable-label">Range of integers (counting sort): <span class="big-o">k</span></p>
                     <p class="variable-label">Maximum element width (radix sort): <span class="big-o">w</span></p>
                     <p class="variable-label">Size of radix (radix sort): <span *ngIf="!smallRadixSize"
@@ -929,8 +928,8 @@
                             <th>Stability</th>
                             <th>Adaptive vs. Non Adaptive</th>
                             <th>In Place vs. Out of Place</th>
-                            <th>Average Case Auxillary Space Complexity</th>
-                            <th>Worst Case Auxillary Space Complexity</th>
+                            <th>Average Case Auxiliary Space Complexity</th>
+                            <th>Worst Case Auxiliary Space Complexity</th>
                             <th>Type of Data</th>
                         </tr>
                         <tr>
@@ -1129,6 +1128,103 @@
                         </tr>
                     </table>
                     <small>*A single threaded implementation is assumed to be used.</small>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <span class="subsection-label">Pattern Matching</span>
+                    </mat-expansion-panel-header>
+                    <p class="variable-label">Needle Length: <span class="big-o">m</span></p>
+                    <p class="variable-label">Haystack Length: <span class="big-o">n</span></p>
+                    <p class="variable-label">Alphabet Size: <span class="big-o">s</span></p>
+                    <mat-form-field>
+                        <mat-select [placeholder]="'Matches to Find'"
+                                    [(ngModel)]="patternMatchingTargetNum">
+                            <mat-option *ngFor="let num of patternMatchingTargetNums" [value]="num">
+                                {{num}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <p class="complexity-type">Pattern Matching Algorithms</p>
+                    <table>
+                        <tr>
+                            <th>Algorithm</th>
+                            <th>Best Case Time Complexity</th>
+                            <th>Average Case Time Complexity</th>
+                            <th>Worst Case Time Complexity</th>
+                            <th>Average Case Auxiliary Space Complexity</th>
+                            <th>Worst Case Auxiliary Space Complexity</th>
+                        </tr>
+                        <tr>
+                            <td>Brute Force</td>
+                            <td>
+                                <span *ngIf="patternMatchingTargetNum === patternMatchingTargetNums[0]" class="big-o">O(n)</span>
+                                <span *ngIf="patternMatchingTargetNum === patternMatchingTargetNums[1]" class="big-o">O(m)</span>
+                            </td>
+                            <td><span class="big-o">O(m*n)</span></td>
+                            <td><span class="big-o">O(m*n)</span></td>
+                            <td><span class="big-o">O(1)</span></td>
+                            <td><span class="big-o">O(1)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Rabin-Karp</td>
+                            <td>
+                                <span *ngIf="patternMatchingTargetNum === patternMatchingTargetNums[0]" class="big-o">O(m + n)</span>
+                                <span *ngIf="patternMatchingTargetNum === patternMatchingTargetNums[1]" class="big-o">O(m)</span>
+                            </td>
+                            <td><span class="big-o">O(m + n)</span></td>
+                            <td><span class="big-o">O(m*n)</span></td>
+                            <td><span class="big-o">O(1)</span></td>
+                            <td><span class="big-o">O(1)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Boyer–Moore</td>
+                        </tr>
+                        <tr>
+                            <td>Knuth–Morris–Pratt</td>
+                            <td>
+                                <span *ngIf="patternMatchingTargetNum === patternMatchingTargetNums[0]" class="big-o">O(m + n)</span>
+                                <span *ngIf="patternMatchingTargetNum === patternMatchingTargetNums[1]" class="big-o">O(m)</span>
+                            </td>
+                            <td><span class="big-o">O(m + n)</span></td>
+                            <td><span class="big-o">O(m + n)</span></td>
+                            <td><span class="big-o">O(m)</span></td>
+                            <td><span class="big-o">O(m)</span></td>
+                        </tr>
+                    </table>
+                    <p class="complexity-type">Preprocessing Steps</p>
+                    <table>
+                        <tr>
+                            <th>Preprocessing Step</th>
+                            <th>Corresponding Algorithm</th>
+                            <th>Best Case Time Complexity</th>
+                            <th>Average Case Time Complexity</th>
+                            <th>Worst Case Time Complexity</th>
+                            <th>Average Case Space Complexity</th>
+                            <th>Worst Case Space Complexity</th>
+                        </tr>
+                        <tr>
+                            <td>Computing Needle Hash</td>
+                            <td>Rabin-Karp</td>
+                            <td><span class="big-o">O(m)</span></td>
+                            <td><span class="big-o">O(m)</span></td>
+                            <td><span class="big-o">O(m)</span></td>
+                            <td><span class="big-o">O(1)</span></td>
+                            <td><span class="big-o">O(1)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Computing Last Occurrence Table</td>
+                            <td>Boyer–Moore</td>
+                        </tr>
+                        <tr>
+                            <td>Computing Failure Table</td>
+                            <td>Knuth–Morris–Pratt</td>
+                            <td><span class="big-o">O(m)</span></td>
+                            <td><span class="big-o">O(m)</span></td>
+                            <td><span class="big-o">O(m)</span></td>
+                            <td><span class="big-o">O(m)</span></td>
+                            <td><span class="big-o">O(m)</span></td>
+                        </tr>
+                    </table>
                 </mat-expansion-panel>
                 <!--TODO: string searching, graphs, dynamic programming-->
             </mat-accordion>

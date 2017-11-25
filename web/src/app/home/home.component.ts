@@ -127,6 +127,19 @@ export class HomeComponent implements OnInit {
     ];
     public msdRadixSortType = this.msdRadixSortTypes[0];
 
+    // Pattern Matching
+    public patternMatchingTargetNums = [
+        'All Matches',
+        'First Match'
+    ];
+    public patternMatchingTargetNum = this.patternMatchingTargetNums[0];
+    public boyerMooreLastOcurrenceTableSizes = [
+        'm',
+        's'
+    ];
+    public boyerMooreLastOcurrenceTableSize = this.boyerMooreLastOcurrenceTableSizes[0];
+    public boyerMooreUseGalilOptimization = false;
+
     constructor() {
     }
 
