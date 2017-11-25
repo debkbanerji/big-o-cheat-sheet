@@ -909,21 +909,12 @@
                     <mat-expansion-panel-header>
                         <span class="subsection-label">Sorting</span>
                     </mat-expansion-panel-header>
-                    <span>Number of elements in list: <span class="big-o">n</span></span>
-                    <br>
-                    <br>
-                    <span><b>Variables specific to digital data</b></span>
-                    <br>
-                    <span>Maximum element width (number of digits): <span class="big-o">w</span></span>
-                    <br>
-                    <span>Size of radix: <span class="big-o">r</span></span>
-                    <br>
-                    <mat-checkbox [(ngModel)]="smallRadixSize">Assume small radix size</mat-checkbox>
-                    <br>
-                    <br>
-                    <span><b>Variables specific to integer data</b></span>
-                    <br>
-                    <span>Range of integers: <span class="big-o">k</span></span>
+                    <p class="variable-label">Number of elements in list: <span class="big-o">n</span></p>
+                    <!--<br>-->
+                    <p class="variable-label">Range of integers (counting sort): <span class="big-o">k</span></p>
+                    <p class="variable-label">Maximum element width (radix sort): <span class="big-o">w</span></p>
+                    <p class="variable-label">Size of radix (radix sort): <span *ngIf="!smallRadixSize" class="big-o">r</span><span *ngIf="smallRadixSize">constant</span></p>
+                    <mat-checkbox [(ngModel)]="smallRadixSize">Assume negligible radix size</mat-checkbox>
                     <br>
                     <br>
                     <table>

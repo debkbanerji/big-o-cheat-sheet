@@ -52,6 +52,10 @@ table th {
     margin: 10px;
 }
 
+.variable-label {
+    margin-bottom: 5px;
+}
+
 .complexity-type {
     margin-top: 10px;
     margin-bottom: 0;
