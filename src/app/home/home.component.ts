@@ -162,6 +162,11 @@ export class HomeComponent implements OnInit {
         'Without Repetition (0/1)'
     ];
     public knapsackProblemType = this.knapsackProblemTypes[0];
+    public matrixChainMultiplicationAlgorithms = [
+        'Dynamic Programming',
+        'Polygon Partitioning'
+    ];
+    public matrixChainMultiplicationAlgorithm = this.matrixChainMultiplicationAlgorithms[0];
 
     constructor() {
     }

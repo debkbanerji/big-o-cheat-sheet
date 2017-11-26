@@ -1529,7 +1529,7 @@
                             </td>
                             <td>
                                 <p class="variable-label">Number of items: <span class="big-o">n</span></p>
-                                <span>maximum weight capacity: <span class="big-o">w</span></span>
+                                <span>Maximum weight capacity: <span class="big-o">w</span></span>
                             </td>
                             <td>
                                 Dynamic Programming
@@ -1538,9 +1538,41 @@
                                 <span class="big-o">O(n*w)</span>
                             </td>
                         </tr>
+                        <tr>
+                            <td>Rod Cutting
+                            </td>
+                            <td>
+                                <span>Length of rod: <span class="big-o">n</span></span>
+                            </td>
+                            <td>
+                                Dynamic Programming
+                            </td>
+                            <td *ngFor="let case of ['average', 'worst']">
+                                <span class="big-o">O(n<sup>2</sup>)</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Matrix Chain Multiplication
+                            </td>
+                            <td>
+                                <span>Number of Matrices: <span class="big-o">n</span></span>
+                            </td>
+                            <td>
+                                <mat-select [placeholder]="'Algorithm'"
+                                            [(ngModel)]="matrixChainMultiplicationAlgorithm">
+                                    <mat-option *ngFor="let algorithm of matrixChainMultiplicationAlgorithms"
+                                                [value]="algorithm">
+                                        {{algorithm}}
+                                    </mat-option>
+                                </mat-select>                            </td>
+                            <td *ngFor="let case of ['average', 'worst']">
+                                <span *ngIf="matrixChainMultiplicationAlgorithm === matrixChainMultiplicationAlgorithms[0]" class="big-o">O(n<sup>3</sup>)</span>
+                                <span *ngIf="matrixChainMultiplicationAlgorithm === matrixChainMultiplicationAlgorithms[1]" class="big-o">O(n*log(n))</span>
+                            </td>
+                        </tr>
                     </table>
                 </mat-expansion-panel>
-                <!--TODO: Rod Cutting, Matrix Chain Multiplication, LCS, LIS, DAG Paths -->
+                <!--TODO: LCS, LIS, DAG Paths -->
                 <!--TODO: Best case DP time complexity-->
                 <!--TODO: DP space complexity-->
             </mat-accordion>
