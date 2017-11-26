@@ -48,6 +48,10 @@ table th {
     color: black;
 }
 
+table td {
+    background-color: white;
+}
+
 .table-section {
     margin: 10px;
 }
