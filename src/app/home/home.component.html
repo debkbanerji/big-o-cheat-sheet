@@ -1520,11 +1520,11 @@
                         <tr>
                             <td>Knapsack
                                 <!--<mat-select [placeholder]="'Repetition'"-->
-                                            <!--[(ngModel)]="knapsackProblemType">-->
-                                    <!--<mat-option *ngFor="let type of knapsackProblemTypes"-->
-                                                <!--[value]="type">-->
-                                        <!--{{type}}-->
-                                    <!--</mat-option>-->
+                                <!--[(ngModel)]="knapsackProblemType">-->
+                                <!--<mat-option *ngFor="let type of knapsackProblemTypes"-->
+                                <!--[value]="type">-->
+                                <!--{{type}}-->
+                                <!--</mat-option>-->
                                 <!--</mat-select>-->
                             </td>
                             <td>
@@ -1564,15 +1564,35 @@
                                                 [value]="algorithm">
                                         {{algorithm}}
                                     </mat-option>
-                                </mat-select>                            </td>
+                                </mat-select>
+                            </td>
                             <td *ngFor="let case of ['average', 'worst']">
-                                <span *ngIf="matrixChainMultiplicationAlgorithm === matrixChainMultiplicationAlgorithms[0]" class="big-o">O(n<sup>3</sup>)</span>
-                                <span *ngIf="matrixChainMultiplicationAlgorithm === matrixChainMultiplicationAlgorithms[1]" class="big-o">O(n*log(n))</span>
+                                <span
+                                    *ngIf="matrixChainMultiplicationAlgorithm === matrixChainMultiplicationAlgorithms[0]"
+                                    class="big-o">O(n<sup>3</sup>)</span>
+                                <span
+                                    *ngIf="matrixChainMultiplicationAlgorithm === matrixChainMultiplicationAlgorithms[1]"
+                                    class="big-o">O(n*log(n))</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Longest Common Subsequence
+                            </td>
+                            <td>
+                                <p class="variable-label">Length of First Sequence: <span class="big-o">m</span></p>
+                                <span>Length of Second Sequence: <span class="big-o">n</span></span>
+                            </td>
+                            <td>
+                                Dynamic Programming
+                            </td>
+                            <td *ngFor="let case of ['average', 'worst']">
+                                <span class="big-o">O(m * n)</span>
+
                             </td>
                         </tr>
                     </table>
                 </mat-expansion-panel>
-                <!--TODO: LCS, LIS, DAG Paths -->
+                <!--TODO: LIS, DAG Paths -->
                 <!--TODO: Best case DP time complexity-->
                 <!--TODO: DP space complexity-->
             </mat-accordion>
