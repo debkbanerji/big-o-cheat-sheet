@@ -1587,12 +1587,36 @@
                             </td>
                             <td *ngFor="let case of ['average', 'worst']">
                                 <span class="big-o">O(m * n)</span>
+                            </td>
+                        </tr>
 
+                        <tr>
+                            <td>Longest Increasing Subsequence
+                            </td>
+                            <td>
+                                <span>Length of Sequence: <span class="big-o">n</span></span>
+                            </td>
+                            <td>
+                                <mat-select [placeholder]="'Algorithm'"
+                                            [(ngModel)]="lisAlgorithm">
+                                    <mat-option *ngFor="let algorithm of lisAlgorithms"
+                                                [value]="algorithm">
+                                        {{algorithm}}
+                                    </mat-option>
+                                </mat-select>
+                            </td>
+                            <td *ngFor="let case of ['average', 'worst']">
+                                <span
+                                    *ngIf="lisAlgorithm === lisAlgorithms[0]"
+                                    class="big-o">O(n<sup>2</sup>)</span>
+                                <span
+                                    *ngIf="lisAlgorithm === lisAlgorithms[1]"
+                                    class="big-o">O(n*log(n))</span>
                             </td>
                         </tr>
                     </table>
                 </mat-expansion-panel>
-                <!--TODO: LIS, DAG Paths -->
+                <!--TODO: DAG Paths -->
                 <!--TODO: Best case DP time complexity-->
                 <!--TODO: DP space complexity-->
             </mat-accordion>

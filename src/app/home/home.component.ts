@@ -167,6 +167,11 @@ export class HomeComponent implements OnInit {
         'Polygon Partitioning'
     ];
     public matrixChainMultiplicationAlgorithm = this.matrixChainMultiplicationAlgorithms[0];
+    public lisAlgorithms = [
+        'Dynamic Programming',
+        'Binary Search Based Method'
+    ];
+    public lisAlgorithm = this.lisAlgorithms[0];
 
     constructor() {
     }
