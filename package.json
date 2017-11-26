@@ -4,7 +4,9 @@
     "license": "MIT",
     "scripts": {
         "ng": "ng",
-        "start": "ng serve",
+        "develop": "ng serve",
+        "start": "cd dist && npm start",
+        "postinstall": "npm run build && cd dist && npm install",
         "build": "ng build -prod -aot=false && cp -r dist-utility-files/. dist",
         "messy-build": "ng build && cp -r dist-utility-files/. dist",
         "test": "ng test",
