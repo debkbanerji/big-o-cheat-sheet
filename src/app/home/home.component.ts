@@ -139,7 +139,6 @@ export class HomeComponent implements OnInit {
     ];
     public boyerMooreLastOcurrenceTableSize = this.boyerMooreLastOcurrenceTableSizes[0];
     public boyerMooreUseGalilOptimization = false;
-
     public useEEqualsVSquare = false;
     public priorityQueueImplementations = [
         'Binary Heap',
@@ -148,6 +147,17 @@ export class HomeComponent implements OnInit {
         'Unspecified'
     ];
     public priorityQueueImplementation = this.priorityQueueImplementations[0];
+
+
+    // Dynamic Programming
+    public fibonacciAlgorithms = [
+        'Naive Recursion',
+        'Bottom-Up Dynamic Programming',
+        'Top-Down Dynamic Programming',
+        'Recursive Matrix Multiplication',
+        'Binet\'s Formula'
+    ];
+    public fibonacciAlgorithm = this.fibonacciAlgorithms[1];
 
     constructor() {
     }

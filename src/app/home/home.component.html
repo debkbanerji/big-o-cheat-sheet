@@ -1482,6 +1482,38 @@
                         </tr>
                     </table>
                 </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <span class="subsection-label">Dynamic Programming</span>
+                    </mat-expansion-panel-header>
+                    <table>
+                        <tr>
+                            <th>Problem</th>
+                            <th>Variables</th>
+                            <th>Algorithm</th>
+                            <th>Average Case Time Complexity</th>
+                            <th>Worst Case Time Complexity</th>
+                        </tr>
+                        <tr>
+                            <td>Fibonacci Number</td>
+                            <td>Index of number to find</td>
+                            <td>
+                                <mat-select [placeholder]="'Algorithm'"
+                                            [(ngModel)]="fibonacciAlgorithm">
+                                    <mat-option *ngFor="let algorithm of fibonacciAlgorithms"
+                                                [value]="algorithm">
+                                        {{algorithm}}
+                                    </mat-option>
+                                </mat-select>
+                            </td>
+                            <td *ngFor="let case of ['average', 'worst']">
+                                <span *ngIf="fibonacciAlgorithm === fibonacciAlgorithms[0]" class="big-o">O(2<sup>n</sup>)</span>
+                                <span *ngIf="fibonacciAlgorithm === fibonacciAlgorithms[1] || fibonacciAlgorithm === fibonacciAlgorithms[2]" class="big-o">O(n)</span>
+                                <span *ngIf="fibonacciAlgorithm === fibonacciAlgorithms[3] || fibonacciAlgorithm === fibonacciAlgorithms[4]" class="big-o">O(log(n))</span>
+                            </td>
+                        </tr>
+                    </table>
+                </mat-expansion-panel>
                 <!--TODO: Fibonacci Numbers, Knapsack, Rod Cutting, Matrix Chain Multiplication, LCS, LIS, -->
             </mat-accordion>
         </div>
