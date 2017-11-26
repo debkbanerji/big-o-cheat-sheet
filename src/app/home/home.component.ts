@@ -152,12 +152,16 @@ export class HomeComponent implements OnInit {
     // Dynamic Programming
     public fibonacciAlgorithms = [
         'Naive Recursion',
-        'Bottom-Up Dynamic Programming',
-        'Top-Down Dynamic Programming',
+        'Dynamic Programming',
         'Recursive Matrix Multiplication',
         'Binet\'s Formula'
     ];
     public fibonacciAlgorithm = this.fibonacciAlgorithms[1];
+    public knapsackProblemTypes = [
+        'With Repetition',
+        'Without Repetition (0/1)'
+    ];
+    public knapsackProblemType = this.knapsackProblemTypes[0];
 
     constructor() {
     }

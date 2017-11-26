@@ -1326,8 +1326,8 @@
                     <mat-expansion-panel-header>
                         <span class="subsection-label">Graphs</span>
                     </mat-expansion-panel-header>
-                    <p class="variable-label">Number of Vertices: <span class="big-o">v</span></p>
-                    <p class="variable-label">Number of Edges: <span class="big-o">e</span></p>
+                    <p class="variable-label">Number of vertices: <span class="big-o">v</span></p>
+                    <p class="variable-label">Number of edges: <span class="big-o">e</span></p>
                     <mat-checkbox [(ngModel)]="useEEqualsVSquare">Use <span class="big-o">e = v<sup>2</sup></span>
                     </mat-checkbox>
                     <br>
@@ -1496,7 +1496,7 @@
                         </tr>
                         <tr>
                             <td>Fibonacci Number</td>
-                            <td>Index of number to find</td>
+                            <td><span>Index of number to find: <span class="big-o">n</span></span></td>
                             <td>
                                 <mat-select [placeholder]="'Algorithm'"
                                             [(ngModel)]="fibonacciAlgorithm">
@@ -1507,14 +1507,42 @@
                                 </mat-select>
                             </td>
                             <td *ngFor="let case of ['average', 'worst']">
-                                <span *ngIf="fibonacciAlgorithm === fibonacciAlgorithms[0]" class="big-o">O(2<sup>n</sup>)</span>
-                                <span *ngIf="fibonacciAlgorithm === fibonacciAlgorithms[1] || fibonacciAlgorithm === fibonacciAlgorithms[2]" class="big-o">O(n)</span>
-                                <span *ngIf="fibonacciAlgorithm === fibonacciAlgorithms[3] || fibonacciAlgorithm === fibonacciAlgorithms[4]" class="big-o">O(log(n))</span>
+                                <span *ngIf="fibonacciAlgorithm === fibonacciAlgorithms[0]"
+                                      class="big-o">O(2<sup>n</sup>)</span>
+                                <span
+                                    *ngIf="fibonacciAlgorithm === fibonacciAlgorithms[1]"
+                                    class="big-o">O(n)</span>
+                                <span
+                                    *ngIf="fibonacciAlgorithm === fibonacciAlgorithms[2] || fibonacciAlgorithm === fibonacciAlgorithms[3]"
+                                    class="big-o">O(log(n))</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Knapsack
+                                <!--<mat-select [placeholder]="'Repetition'"-->
+                                            <!--[(ngModel)]="knapsackProblemType">-->
+                                    <!--<mat-option *ngFor="let type of knapsackProblemTypes"-->
+                                                <!--[value]="type">-->
+                                        <!--{{type}}-->
+                                    <!--</mat-option>-->
+                                <!--</mat-select>-->
+                            </td>
+                            <td>
+                                <p class="variable-label">Number of items: <span class="big-o">n</span></p>
+                                <span>maximum weight capacity: <span class="big-o">w</span></span>
+                            </td>
+                            <td>
+                                Dynamic Programming
+                            </td>
+                            <td *ngFor="let case of ['average', 'worst']">
+                                <span class="big-o">O(n*w)</span>
                             </td>
                         </tr>
                     </table>
                 </mat-expansion-panel>
-                <!--TODO: Fibonacci Numbers, Knapsack, Rod Cutting, Matrix Chain Multiplication, LCS, LIS, -->
+                <!--TODO: Rod Cutting, Matrix Chain Multiplication, LCS, LIS, DAG Paths -->
+                <!--TODO: Best case DP time complexity-->
+                <!--TODO: DP space complexity-->
             </mat-accordion>
         </div>
     </div>
