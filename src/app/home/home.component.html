@@ -80,37 +80,51 @@
                             <td><span class="big-o">O(1)</span></td>
                             <td><span class="big-o">O(1)</span></td>
                         </tr>
-                        <tr>
+                        <tr *ngIf="!arrayListSorted">
                             <td>Adding to front</td>
                             <td><span class="big-o">O(n)</span></td>
                             <td><span class="big-o">O(n)</span></td>
                         </tr>
-                        <tr>
+                        <tr *ngIf="!arrayListSorted">
                             <td>Adding to back</td>
                             <td *ngIf="arrayListSizeStored"><span class="big-o">O(1)</span></td>
                             <td *ngIf="arrayListSizeStored">Amortized <span class="big-o">O(1)</span></td>
                             <td *ngIf="!arrayListSizeStored"><span class="big-o">O(log(n))</span></td>
                             <td *ngIf="!arrayListSizeStored">Amortized <span class="big-o">O(log(n))</span></td>
                         </tr>
-                        <tr>
+                        <tr *ngIf="!arrayListSorted">
                             <td>Adding at an arbitrary index</td>
                             <td><span class="big-o">O(n)</span></td>
                             <td><span class="big-o">O(n)</span></td>
                         </tr>
-                        <tr>
-                            <td>Removing from front</td>
+                        <tr *ngIf="arrayListSorted">
+                            <td>Adding an arbitrary element</td>
                             <td><span class="big-o">O(n)</span></td>
                             <td><span class="big-o">O(n)</span></td>
                         </tr>
                         <tr>
-                            <td>Removing from back</td>
+                            <td>
+                                <span *ngIf="!arrayListSorted">Removing from front</span>
+                                <span *ngIf="arrayListSorted">Removing smallest element</span>
+                            </td>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n)</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span *ngIf="!arrayListSorted">Removing from back</span>
+                                <span *ngIf="arrayListSorted">Removing largest element</span>
+                            </td>
                             <td *ngIf="arrayListSizeStored"><span class="big-o">O(1)</span></td>
                             <td *ngIf="arrayListSizeStored"><span class="big-o">O(1)</span></td>
                             <td *ngIf="!arrayListSizeStored"><span class="big-o">O(log(n))</span></td>
                             <td *ngIf="!arrayListSizeStored"><span class="big-o">O(log(n))</span></td>
                         </tr>
                         <tr>
-                            <td>Removing from an arbitrary index</td>
+                            <td>
+                                <span *ngIf="!arrayListSorted">Removing from an arbitrary index</span>
+                                <span *ngIf="arrayListSorted">Removing an arbitrary element</span>
+                            </td>
                             <td><span class="big-o">O(n)</span></td>
                             <td><span class="big-o">O(n)</span></td>
                         </tr>
@@ -129,8 +143,8 @@
                         <tr>
                             <td>
                                 Finding <em>K</em>th largest/smallest element
-                                <br>
-                                <br>
+                                <br [(hidden)]="arrayListSorted">
+                                <br [(hidden)]="arrayListSorted">
                                 <mat-form-field [(hidden)]="arrayListSorted">
                                     <mat-select [placeholder]="'Pivot Selection Method'"
                                                 [(ngModel)]="kthSelectionAlgorithm">
@@ -151,7 +165,7 @@
                                 class="big-o">O(n)</span></td>
                         </tr>
                         <tr>
-                            <td>Finding median (using <em>K</em>th selection)</td>
+                            <td>Finding median<span *ngIf="!arrayListSorted"> (using <em>K</em>th selection)</span></td>
                             <td *ngIf="arrayListSorted"><span class="big-o">O(1)</span></td>
                             <td *ngIf="arrayListSorted"><span class="big-o">O(1)</span></td>
                             <td *ngIf="!arrayListSorted"><span class="big-o">O(n)</span></td>
