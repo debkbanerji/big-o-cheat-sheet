@@ -43,3 +43,11 @@ Thumbs.db
 
 # package-lock
 package-lock.json
+
+# root build
+3rdpartylicenses.txt
+favicon.ico
+index.html
+*.bundle.js
+*.bundle.css
+/assets
