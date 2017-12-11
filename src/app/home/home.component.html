@@ -643,6 +643,16 @@
                             </td>
                         </tr>
                         <tr>
+                            <td>Resizing Table</td>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td *ngIf="!(collisionResolutionMethod === collisionResolutionMethods[0] && comparableHashTableData && hashTableExternalStructure !== hashTableExternalStructures[0])">
+                                <span class="big-o">O(n<sup>2</sup>)</span>
+                            </td>
+                            <td *ngIf="(collisionResolutionMethod === collisionResolutionMethods[0] && comparableHashTableData && hashTableExternalStructure !== hashTableExternalStructures[0])">
+                                <span class="big-o">O(n*log(n))</span>
+                            </td>
+                        </tr>
+                        <tr>
                             <td>Finding size</td>
                             <td *ngIf="hashTableSizeStored"><span class="big-o">O(1)</span></td>
                             <td *ngIf="hashTableSizeStored"><span class="big-o">O(1)</span></td>
@@ -909,7 +919,7 @@
                         maintaining a map from elements to their locations.
                     </small>
                 </mat-expansion-panel>
-                <!--TODO: disjoint forest-->
+                <!--TODO: Disjoint forest-->
             </mat-accordion>
         </div>
     </div>
