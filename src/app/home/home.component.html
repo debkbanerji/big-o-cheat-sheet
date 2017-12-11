@@ -103,6 +103,11 @@
                             <td><span class="big-o">O(n)</span></td>
                         </tr>
                         <tr>
+                            <td>Resizing backing array</td>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n)</span></td>
+                        </tr>
+                        <tr>
                             <td>
                                 <span *ngIf="!arrayListSorted">Removing from front</span>
                                 <span *ngIf="arrayListSorted">Removing smallest element</span>
@@ -1496,6 +1501,7 @@
                             <td><span class="big-o">O(v<sup>3</sup>)</span></td>
                         </tr>
                     </table>
+                    <!--TODO: Space complexity of graph representations-->
                 </mat-expansion-panel>
                 <mat-expansion-panel>
                     <mat-expansion-panel-header>
