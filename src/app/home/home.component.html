@@ -16,7 +16,7 @@
             </p>
             <p>If you find an error, have any questions, or think there's<br> anything I should add, please <a
                 href="mailto:debkbanerji@gmail.com">let me know</a></p>
-            <em>v2017.12.11</em>
+            <em>v2018.1.1</em>
         </mat-expansion-panel>
     </div>
 </div>
@@ -1143,14 +1143,19 @@
                             </td>
                             <td *ngFor="let element of [undefined , undefined]">
                                 <span
-                                    *ngIf="!(radixSortType === radixSortTypes[1] && msdRadixSortType === msdRadixSortTypes[1])">
+                                    *ngIf="radixSortType === radixSortTypes[0]">
                                     <span *ngIf="!smallRadixSize" class="big-o">O(n + r)</span>
                                     <span *ngIf="smallRadixSize" class="big-o">O(n)</span>
                                 </span>
                                 <span
                                     *ngIf="radixSortType === radixSortTypes[1] && msdRadixSortType === msdRadixSortTypes[1]">
-                                    <span *ngIf="!smallRadixSize" class="big-o">O(r)</span>
-                                    <span *ngIf="smallRadixSize" class="big-o">O(1)</span>
+                                    <span *ngIf="!smallRadixSize" class="big-o">O(r + w)</span>
+                                    <span *ngIf="smallRadixSize" class="big-o">O(w)</span>
+                                </span>
+                                <span
+                                    *ngIf="radixSortType === radixSortTypes[1] && msdRadixSortType !== msdRadixSortTypes[1]">
+                                    <span *ngIf="!smallRadixSize" class="big-o">O(n + r + w)</span>
+                                    <span *ngIf="smallRadixSize" class="big-o">O(n + w)</span>
                                 </span>
                             </td>
                             <td>Digital</td>
