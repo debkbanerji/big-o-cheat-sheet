@@ -16,7 +16,7 @@
             </p>
             <p>If you find an error, have any questions, or think there's<br> anything I should add, please <a
                 href="mailto:debkbanerji@gmail.com">let me know</a></p>
-            <em>v2018.1.2</em>
+            <em>v2018.1.5</em>
         </mat-expansion-panel>
     </div>
 </div>
@@ -1379,6 +1379,8 @@
                         Time Complexity of Decreasing Key: <span class="big-o">O(T<sub>dk</sub>)</span></p>
                     <p class="variable-label" *ngIf="priorityQueueImplementation === priorityQueueImplementations[3]">
                         Time Complexity of Extracting Minimum: <span class="big-o">O(T<sub>em</sub>)</span></p>
+                    <p class="variable-label" *ngIf="priorityQueueImplementation === priorityQueueImplementations[3]">
+                        Time Complexity of Insertion: <span class="big-o">O(T<sub>in</sub>)</span></p>
                     <br *ngIf="priorityQueueImplementation !== priorityQueueImplementations[3]">
                     <br>
                     <table>
@@ -1427,7 +1429,7 @@
                                    </span>
                                    <span *ngIf="priorityQueueImplementation === priorityQueueImplementations[3]"
                                          class="big-o">
-                                       O(v*log(e/v)*T<sub>dk</sub> + v*T<sub>em</sub>)
+                                       O(v*log(e/v)*T<sub>dk</sub> + v*(T<sub>in</sub> + T<sub>em</sub>))
                                    </span>
                                </span>
                                 <span *ngIf="useEEqualsVSquare">
@@ -1445,7 +1447,7 @@
                                    </span>
                                    <span *ngIf="priorityQueueImplementation === priorityQueueImplementations[3]"
                                          class="big-o">
-                                       O(v*log(v)*T<sub>dk</sub> + v*T<sub>em</sub>)
+                                       O(v*log(v)*T<sub>dk</sub> + v*(T<sub>in</sub> + T<sub>em</sub>))
                                    </span>
                                 </span>
                             </td>
@@ -1465,7 +1467,7 @@
                                    </span>
                                    <span *ngIf="priorityQueueImplementation === priorityQueueImplementations[3]"
                                          class="big-o">
-                                       O(e*T<sub>dk</sub> + v*T<sub>em</sub>)
+                                       O(e*T<sub>dk</sub> + v*(T<sub>in</sub> + T<sub>em</sub>))
                                    </span>
                                 </span>
                                 <span *ngIf="useEEqualsVSquare">
@@ -1483,7 +1485,7 @@
                                    </span>
                                    <span *ngIf="priorityQueueImplementation === priorityQueueImplementations[3]"
                                          class="big-o">
-                                       O(v<sup>2</sup>*T<sub>dk</sub> + v*T<sub>em</sub>)
+                                       O(v<sup>2</sup>*T<sub>dk</sub> + v*(T<sub>in</sub> + T<sub>em</sub>))
                                    </span>
                                </span>
                             </td>
