@@ -13,7 +13,7 @@ import {MatCheckboxModule, MatCardModule, MatSelectModule, MatExpansionModule} f
 
 
 const routes: Routes = [ // Array of all routes - modify when adding routes
-    {path: '', component: HomeComponent} // Default route
+    {path: '**', component: HomeComponent} // Default route
 ];
 
 @NgModule({
