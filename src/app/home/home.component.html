@@ -1422,11 +1422,11 @@
                                <span *ngIf="!useEEqualsVSquare">
                                    <span *ngIf="priorityQueueImplementation === priorityQueueImplementations[0]"
                                          class="big-o">
-                                        O(e + v*log(e/v)*log(v))
+                                        O(e + v * log(e/v) * log(v))
                                    </span>
                                    <span *ngIf="priorityQueueImplementation === priorityQueueImplementations[1]"
                                          class="big-o">
-                                        O(e + v*log(v))
+                                        O(e + v * log(v))
                                    </span>
                                    <span *ngIf="priorityQueueImplementation === priorityQueueImplementations[2]"
                                          class="big-o">
@@ -1434,7 +1434,7 @@
                                    </span>
                                    <span *ngIf="priorityQueueImplementation === priorityQueueImplementations[3]"
                                          class="big-o">
-                                       O(v*log(e/v)*T<sub>dk</sub> + v*(T<sub>in</sub> + T<sub>em</sub>))
+                                       O(v * log(e/v) * T<sub>dk</sub> + v * (T<sub>in</sub> + T<sub>em</sub>))
                                    </span>
                                </span>
                                 <span *ngIf="useEEqualsVSquare">
@@ -1452,7 +1452,7 @@
                                    </span>
                                    <span *ngIf="priorityQueueImplementation === priorityQueueImplementations[3]"
                                          class="big-o">
-                                       O(v*log(v)*T<sub>dk</sub> + v*(T<sub>in</sub> + T<sub>em</sub>))
+                                       O(v * log(v) * T<sub>dk</sub> + v * (T<sub>in</sub> + T<sub>em</sub>))
                                    </span>
                                 </span>
                             </td>
@@ -1460,11 +1460,11 @@
                                 <span *ngIf="!useEEqualsVSquare">
                                    <span *ngIf="priorityQueueImplementation === priorityQueueImplementations[0]"
                                          class="big-o">
-                                        O((e + v)*log(v))
+                                        O((e + v) * log(v))
                                    </span>
                                    <span *ngIf="priorityQueueImplementation === priorityQueueImplementations[1]"
                                          class="big-o">
-                                        O(e + v*log(v))
+                                        O(e + v * log(v))
                                    </span>
                                    <span *ngIf="priorityQueueImplementation === priorityQueueImplementations[2]"
                                          class="big-o">
@@ -1472,13 +1472,13 @@
                                    </span>
                                    <span *ngIf="priorityQueueImplementation === priorityQueueImplementations[3]"
                                          class="big-o">
-                                       O(e*T<sub>dk</sub> + v*(T<sub>in</sub> + T<sub>em</sub>))
+                                       O(e * T<sub>dk</sub> + v * (T<sub>in</sub> + T<sub>em</sub>))
                                    </span>
                                 </span>
                                 <span *ngIf="useEEqualsVSquare">
                                    <span *ngIf="priorityQueueImplementation === priorityQueueImplementations[0]"
                                          class="big-o">
-                                        O(v<sup>2</sup>*log(v))
+                                        O(v<sup>2</sup> * log(v))
                                    </span>
                                    <span *ngIf="priorityQueueImplementation === priorityQueueImplementations[1]"
                                          class="big-o">
@@ -1490,7 +1490,7 @@
                                    </span>
                                    <span *ngIf="priorityQueueImplementation === priorityQueueImplementations[3]"
                                          class="big-o">
-                                       O(v<sup>2</sup>*T<sub>dk</sub> + v*(T<sub>in</sub> + T<sub>em</sub>))
+                                       O(v<sup>2</sup> * T<sub>dk</sub> + v * (T<sub>in</sub> + T<sub>em</sub>))
                                    </span>
                                </span>
                             </td>
@@ -1498,11 +1498,11 @@
                         <tr>
                             <td>Kruskal's algorithm</td>
                             <td>
-                                <span *ngIf="!useEEqualsVSquare" class="big-o">O(e * log(e))</span>
+                                <span *ngIf="!useEEqualsVSquare" class="big-o">O(e * log(v))</span>
                                 <span *ngIf="useEEqualsVSquare" class="big-o">O(v<sup>2</sup> * log(v))</span>
                             </td>
                             <td>
-                                <span *ngIf="!useEEqualsVSquare" class="big-o">O(e * log(e))</span>
+                                <span *ngIf="!useEEqualsVSquare" class="big-o">O(e * log(v))</span>
                                 <span *ngIf="useEEqualsVSquare" class="big-o">O(v<sup>2</sup> * log(v))</span>
                             </td>
                         </tr>
