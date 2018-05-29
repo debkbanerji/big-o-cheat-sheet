@@ -1,6 +1,6 @@
 {
     "name": "big-o-cheat-sheet",
-    "version": "0.0.0",
+    "version": "2018.5.28",
     "license": "MIT",
     "scripts": {
         "ng": "ng",
