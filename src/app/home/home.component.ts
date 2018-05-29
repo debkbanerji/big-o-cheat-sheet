@@ -163,7 +163,7 @@ export class HomeComponent implements OnInit {
     public fibonacciAlgorithm = this.fibonacciAlgorithms[1];
     public knapsackProblemTypes = [
         'With Repetition',
-        'Without Repetition (0/1)'
+        'Without Repetition'
     ];
     public knapsackProblemType = this.knapsackProblemTypes[0];
     public matrixChainMultiplicationAlgorithms = [
