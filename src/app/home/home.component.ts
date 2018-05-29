@@ -68,7 +68,7 @@ export class HomeComponent implements OnInit {
         'External Chaining',
         'Probing'
     ];
-    public collisionResolutionMethod = this.collisionResolutionMethods[0];
+    public collisionResolutionMethod = this.collisionResolutionMethods[1];
     public hashTableExternalStructures = [
         'Linked List',
         'AVL Tree',
@@ -101,6 +101,10 @@ export class HomeComponent implements OnInit {
     ];
     public heapOrdering = this.heapOrderings[0];
     public heapSizeStored = true;
+
+    // Disjoint Set
+    public useUnionByRank = true;
+    public usePathCompression = true;
 
     // Sorting
     public bubbleSortSwappedFlag = true;

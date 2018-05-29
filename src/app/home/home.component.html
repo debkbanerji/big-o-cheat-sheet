@@ -927,7 +927,66 @@
                         maintaining a map from elements to their locations.
                     </small>
                 </mat-expansion-panel>
-                <!--TODO: Disjoint forest-->
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <span class="subsection-label">Disjoint Set</span>
+                    </mat-expansion-panel-header>
+                    <p>Number of elements (Number of Make Set operations): <span class="big-o">n</span></p>
+                    <p *ngIf="usePathCompression && !useUnionByRank">Number of find operations: <span
+                        class="big-o">f</span></p>
+                    <div>
+                        <mat-checkbox
+                            [(ngModel)]="useUnionByRank">
+                            Use Union by Rank
+                        </mat-checkbox>
+                        <br>
+                        <mat-checkbox
+                            [(ngModel)]="usePathCompression">
+                            Use Path Compression
+                        </mat-checkbox>
+                        <br>
+                    </div>
+                    <p class="complexity-type">Space Complexity</p>
+                    <table>
+                        <tr>
+                            <th>Average Case</th>
+                            <th>Worst Case</th>
+                        </tr>
+                        <tr>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n)</span></td>
+                        </tr>
+                    </table>
+                    <p class="complexity-type">Time Complexity</p>
+                    <table>
+                        <tr>
+                            <th>Operation</th>
+                            <th>Average Case</th>
+                            <th>Worst Case</th>
+                        </tr>
+                        <tr>
+                            <td>Make Set</td>
+                            <td><span class="big-o">O(1)</span></td>
+                            <td><span class="big-o">O(1)</span></td>
+                        </tr>
+                        <tr *ngFor="let operation of ['Union', 'Find']">
+                            <td>{{operation}}</td>
+                            <td>
+                                <span class="big-o" *ngIf="!usePathCompression && !useUnionByRank">O(log(n))</span>
+                                <span class="big-o" *ngIf="!usePathCompression && useUnionByRank">O(log(n))</span>
+                                <span class="big-o" *ngIf="usePathCompression && !useUnionByRank">O(log<sub>2+f/n</sub>(n))</span>
+                                <span class="big-o" *ngIf="usePathCompression && useUnionByRank">O(&alpha;(n))</span>
+                            </td>
+                            <td>
+                                <span class="big-o" *ngIf="!usePathCompression && !useUnionByRank">O(n)</span>
+                                <span *ngIf="!usePathCompression && useUnionByRank">Amortized <span class="big-o">O(log(n))</span></span>
+                                <span *ngIf="usePathCompression && !useUnionByRank">Amortized <span
+                                    class="big-o">O(log<sub>2+f/n</sub>(n))</span></span>
+                                <span *ngIf="usePathCompression && useUnionByRank">Amortized <span class="big-o">O(&alpha;(n))</span></span>
+                            </td>
+                        </tr>
+                    </table>
+                </mat-expansion-panel>
             </mat-accordion>
         </div>
     </div>
@@ -1675,7 +1734,6 @@
                         </tr>
                     </table>
                 </mat-expansion-panel>
-                <!--TODO: Best case DP time complexity-->
                 <!--TODO: DP space complexity-->
             </mat-accordion>
         </div>
