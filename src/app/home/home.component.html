@@ -3,27 +3,30 @@
         <h1>Big-O Cheat Sheet</h1>
     </div>
 </div>
-<div class="row">
-    <div class="col-xs-12 about-container">
-        <mat-expansion-panel>
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    About
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-            <p>This is an electronic version of my Big-O Cheat Sheet</p>
-            <p>The source code can be found <a href="https://github.com/debkbanerji/big-o-cheat-sheet" target="_blank">here</a>
-            </p>
-            <p><del>If you find an error, have any questions, or think there's<br> anything I should add, please <a
-                href="mailto:debkbanerji@gmail.com">let me know</a></del></p>
-            <p>Currently maintained by <a href="mailto:alexkdurso@gmail.com">Alexandra Durso</a></p>
-            <small>Made with ♥ by <a href="https://debkbanerji.com/" target="_blank"
-                                     style="color: #212529; text-decoration:none;">Deb Banerji</a>
-                <br>
-                <span>v2018.5.12</span>
-            </small>
-        </mat-expansion-panel>
-    </div>
+<div class="row header-row">
+    <mat-expansion-panel class="about-container">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                About
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>This is an electronic version of my Big-O Cheat Sheet</p>
+        <p>The source code can be found <a href="https://github.com/debkbanerji/big-o-cheat-sheet"
+                                           target="_blank">here</a>
+        </p>
+        <p>
+            <del>If you find an error, have any questions, or think there's<br> anything I should add, please <a
+                href="mailto:debkbanerji@gmail.com">let me know</a></del>
+        </p>
+        <p>Currently maintained by <a href="mailto:alexkdurso@gmail.com">Alexandra Durso</a></p>
+        <small>Made with <span class="glyphicon glyphicon-heart"></span> by <a href="https://debkbanerji.com/"
+                                                                               target="_blank"
+                                                                               style="color: #212529; text-decoration:none;">Deb
+        </a>
+            <br>
+            <span>Version {{version}}</span>
+        </small>
+    </mat-expansion-panel>
 </div>
 <br>
 <div class="row">
@@ -924,7 +927,66 @@
                         maintaining a map from elements to their locations.
                     </small>
                 </mat-expansion-panel>
-                <!--TODO: Disjoint forest-->
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <span class="subsection-label">Disjoint Set</span>
+                    </mat-expansion-panel-header>
+                    <p>Number of elements (Number of Make Set operations): <span class="big-o">n</span></p>
+                    <p *ngIf="usePathCompression && !useUnionByRank">Number of find operations: <span
+                        class="big-o">f</span></p>
+                    <div>
+                        <mat-checkbox
+                            [(ngModel)]="useUnionByRank">
+                            Use Union by Rank
+                        </mat-checkbox>
+                        <br>
+                        <mat-checkbox
+                            [(ngModel)]="usePathCompression">
+                            Use Path Compression
+                        </mat-checkbox>
+                        <br>
+                    </div>
+                    <p class="complexity-type">Space Complexity</p>
+                    <table>
+                        <tr>
+                            <th>Average Case</th>
+                            <th>Worst Case</th>
+                        </tr>
+                        <tr>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n)</span></td>
+                        </tr>
+                    </table>
+                    <p class="complexity-type">Time Complexity</p>
+                    <table>
+                        <tr>
+                            <th>Operation</th>
+                            <th>Average Case</th>
+                            <th>Worst Case</th>
+                        </tr>
+                        <tr>
+                            <td>Make Set</td>
+                            <td><span class="big-o">O(1)</span></td>
+                            <td><span class="big-o">O(1)</span></td>
+                        </tr>
+                        <tr *ngFor="let operation of ['Union', 'Find']">
+                            <td>{{operation}}</td>
+                            <td>
+                                <span class="big-o" *ngIf="!usePathCompression && !useUnionByRank">O(log(n))</span>
+                                <span class="big-o" *ngIf="!usePathCompression && useUnionByRank">O(log(n))</span>
+                                <span class="big-o" *ngIf="usePathCompression && !useUnionByRank">O(log<sub>2+f/n</sub>(n))</span>
+                                <span class="big-o" *ngIf="usePathCompression && useUnionByRank">O(&alpha;(n))</span>
+                            </td>
+                            <td>
+                                <span class="big-o" *ngIf="!usePathCompression && !useUnionByRank">O(n)</span>
+                                <span *ngIf="!usePathCompression && useUnionByRank">Amortized <span class="big-o">O(log(n))</span></span>
+                                <span *ngIf="usePathCompression && !useUnionByRank">Amortized <span
+                                    class="big-o">O(log<sub>2+f/n</sub>(n))</span></span>
+                                <span *ngIf="usePathCompression && useUnionByRank">Amortized <span class="big-o">O(&alpha;(n))</span></span>
+                            </td>
+                        </tr>
+                    </table>
+                </mat-expansion-panel>
             </mat-accordion>
         </div>
     </div>
@@ -1078,6 +1140,19 @@
                             <td *ngIf="quicksortType === quicksortTypes[1]">Out of Place</td>
                             <td *ngIf="quicksortType === quicksortTypes[1]"><span class="big-o">O(n)</span></td>
                             <td *ngIf="quicksortType === quicksortTypes[1]"><span class="big-o">O(n)</span></td>
+                            <td>Comparable</td>
+                        </tr>
+                        <tr>
+                            <td>Timsort
+                            </td>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n*log(n))</span></td>
+                            <td><span class="big-o">O(n*log(n))</span></td>
+                            <td>Stable</td>
+                            <td>Adaptive</td>
+                            <td>Out of Place</td>
+                            <td><span class="big-o">O(n)</span></td>
+                            <td><span class="big-o">O(n)</span></td>
                             <td>Comparable</td>
                         </tr>
                         <tr>
@@ -1434,7 +1509,7 @@
                                    </span>
                                    <span *ngIf="priorityQueueImplementation === priorityQueueImplementations[3]"
                                          class="big-o">
-                                       O(v * log(e/v) * T<sub>dk</sub> + v * (T<sub>in</sub> + T<sub>em</sub>))
+                                       O(e + v * log(e/v) * T<sub>dk</sub> + v * (T<sub>in</sub> + T<sub>em</sub>))
                                    </span>
                                </span>
                                 <span *ngIf="useEEqualsVSquare">
@@ -1549,7 +1624,7 @@
                                     </mat-option>
                                 </mat-select>
                             </td>
-                            <td *ngFor="let case of ['average', 'worst']">
+                            <td *ngFor="let complexityCase of ['average', 'worst']">
                                 <span *ngIf="fibonacciAlgorithm === fibonacciAlgorithms[0]"
                                       class="big-o">O(((1 + √5)/2)<sup>n</sup>)</span>
                                 <span
@@ -1659,7 +1734,6 @@
                         </tr>
                     </table>
                 </mat-expansion-panel>
-                <!--TODO: Best case DP time complexity-->
                 <!--TODO: DP space complexity-->
             </mat-accordion>
         </div>

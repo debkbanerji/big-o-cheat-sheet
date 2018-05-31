@@ -4,9 +4,13 @@
     padding-top: 10px;
 }
 
+.header-row {
+    text-align: center;
+}
+
 .about-container {
-    align-items: center;
-    margin: 0 auto;
+    width: fit-content;
+    margin: auto;
 }
 
 a {
@@ -18,7 +22,7 @@ a {
 }
 
 .subsection-label {
-    font-size: 1.25rem;
+    font-size: 2rem;
 }
 
 .row {

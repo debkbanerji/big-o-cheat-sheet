@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {environment} from '../../environments/environment';
 
 @Component({
     selector: 'app-home',
@@ -6,6 +7,8 @@ import {Component, OnInit} from '@angular/core';
     styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+    public version: string = environment.VERSION;
 
     public commonSetOperations = [
         'Accessing an element',
@@ -68,7 +71,7 @@ export class HomeComponent implements OnInit {
         'External Chaining',
         'Probing'
     ];
-    public collisionResolutionMethod = this.collisionResolutionMethods[0];
+    public collisionResolutionMethod = this.collisionResolutionMethods[1];
     public hashTableExternalStructures = [
         'Linked List',
         'AVL Tree',
@@ -101,6 +104,10 @@ export class HomeComponent implements OnInit {
     ];
     public heapOrdering = this.heapOrderings[0];
     public heapSizeStored = true;
+
+    // Disjoint Set
+    public useUnionByRank = true;
+    public usePathCompression = true;
 
     // Sorting
     public bubbleSortSwappedFlag = true;
@@ -159,7 +166,7 @@ export class HomeComponent implements OnInit {
     public fibonacciAlgorithm = this.fibonacciAlgorithms[1];
     public knapsackProblemTypes = [
         'With Repetition',
-        'Without Repetition (0/1)'
+        'Without Repetition'
     ];
     public knapsackProblemType = this.knapsackProblemTypes[0];
     public matrixChainMultiplicationAlgorithms = [
