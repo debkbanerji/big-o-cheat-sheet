@@ -52,7 +52,10 @@ app.use(bodyParser.json());
 //     res.redirect("/")
 // });
 
-app.use(express.static(path.join(__dirname)));
+const frontendFolder = path.join(__dirname, 'big-o-cheat-sheet');
+// Point static path to frontend folder
+app.use(express.static(frontendFolder));
+console.log("Serving static from " + frontendFolder);
 
 app.all('*', function (req, res) {
     res.redirect("/");
