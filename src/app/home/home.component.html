@@ -1652,7 +1652,7 @@
                             <td>
                                 Dynamic Programming
                             </td>
-                            <td *ngFor="let case of ['average', 'worst']">
+                            <td *ngFor="let complexityCase of ['average', 'worst']">
                                 <span class="big-o">O(n*w)</span>
                             </td>
                         </tr>
@@ -1665,7 +1665,7 @@
                             <td>
                                 Dynamic Programming
                             </td>
-                            <td *ngFor="let case of ['average', 'worst']">
+                            <td *ngFor="let complexityCase of ['average', 'worst']">
                                 <span class="big-o">O(n<sup>2</sup>)</span>
                             </td>
                         </tr>
@@ -1684,7 +1684,7 @@
                                     </mat-option>
                                 </mat-select>
                             </td>
-                            <td *ngFor="let case of ['average', 'worst']">
+                            <td *ngFor="let complexityCase of ['average', 'worst']">
                                 <span
                                     *ngIf="matrixChainMultiplicationAlgorithm === matrixChainMultiplicationAlgorithms[0]"
                                     class="big-o">O(n<sup>3</sup>)</span>
@@ -1703,7 +1703,7 @@
                             <td>
                                 Dynamic Programming
                             </td>
-                            <td *ngFor="let case of ['average', 'worst']">
+                            <td *ngFor="let complexityCase of ['average', 'worst']">
                                 <span class="big-o">O(m * n)</span>
                             </td>
                         </tr>
@@ -1723,7 +1723,7 @@
                                     </mat-option>
                                 </mat-select>
                             </td>
-                            <td *ngFor="let case of ['average', 'worst']">
+                            <td *ngFor="let complexityCase of ['average', 'worst']">
                                 <span
                                     *ngIf="lisAlgorithm === lisAlgorithms[0]"
                                     class="big-o">O(n<sup>2</sup>)</span>
