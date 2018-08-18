@@ -8,9 +8,14 @@
     text-align: center;
 }
 
-.about-container {
+.about-section {
     width: fit-content;
     margin: auto;
+}
+
+.about-container {
+    width: fit-content;
+    margin: 10px;
 }
 
 a {
