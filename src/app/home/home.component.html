@@ -202,6 +202,7 @@
                     <br>
                     <mat-checkbox [(ngModel)]="linkedListCircular">Circular</mat-checkbox>
                     <br>
+                    <br>
                     <mat-form-field>
                         <mat-select [placeholder]="'Linked List Type'"
                                     [(ngModel)]="linkedListType">
@@ -427,6 +428,7 @@
                     <p>Number of elements: <span class="big-o">n</span></p>
                     <mat-checkbox [(ngModel)]="isBinarySearchTree">Binary Search Tree</mat-checkbox>
                     <br>
+                    <br *ngIf="isBinarySearchTree">
                     <mat-form-field [(hidden)]="!isBinarySearchTree"
                                     *ngIf="isBinarySearchTree">
                         <mat-select [placeholder]="'Type of BST'"
@@ -756,6 +758,7 @@
                         [(ngModel)]="heapSizeStored">
                         Size Stored in Variable
                     </mat-checkbox>
+                    <br>
                     <br>
                     <mat-form-field>
                         <mat-select [placeholder]="'Ordering'"
@@ -1449,6 +1452,7 @@
                     <p class="variable-label">Number of edges: <span class="big-o">e</span></p>
                     <mat-checkbox [(ngModel)]="useEEqualsVSquare">Use <span class="big-o">e = v<sup>2</sup></span>
                     </mat-checkbox>
+                    <br>
                     <br>
                     <mat-form-field>
                         <mat-select [placeholder]="'Priority Queue Implementation'"
