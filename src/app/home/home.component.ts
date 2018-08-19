@@ -10,6 +10,8 @@ export class HomeComponent implements OnInit {
 
     public version: string = environment.VERSION;
 
+    public isDarkTheme: boolean = false;
+
     public commonSetOperations = [
         'Accessing an element',
         'Inserting an element',
