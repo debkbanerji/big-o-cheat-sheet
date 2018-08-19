@@ -55,9 +55,9 @@
                             <span class="subsection-label">Array List</span>
                         </mat-expansion-panel-header>
                         <p>Number of elements: <span class="big-o">n</span></p>
-                        <mat-checkbox [(ngModel)]="arrayListSizeStored">Size Stored in Variable</mat-checkbox>
+                        <mat-slide-toggle [(ngModel)]="arrayListSizeStored">Size Stored in Variable</mat-slide-toggle>
                         <br>
-                        <mat-checkbox [(ngModel)]="arrayListSorted">Sorted</mat-checkbox>
+                        <mat-slide-toggle [(ngModel)]="arrayListSorted">Sorted</mat-slide-toggle>
                         <p class="complexity-type">Space Complexity</p>
                         <table>
                             <tr>
@@ -205,11 +205,11 @@
                             <span class="subsection-label">Linked List</span>
                         </mat-expansion-panel-header>
                         <p>Number of elements: <span class="big-o">n</span></p>
-                        <mat-checkbox [(ngModel)]="linkedListSizeStored">Size Stored in Variable</mat-checkbox>
+                        <mat-slide-toggle [(ngModel)]="linkedListSizeStored">Size Stored in Variable</mat-slide-toggle>
                         <br>
-                        <mat-checkbox [(ngModel)]="linkedListHasTailPointer">Tail Pointer</mat-checkbox>
+                        <mat-slide-toggle [(ngModel)]="linkedListHasTailPointer">Tail Pointer</mat-slide-toggle>
                         <br>
-                        <mat-checkbox [(ngModel)]="linkedListCircular">Circular</mat-checkbox>
+                        <mat-slide-toggle [(ngModel)]="linkedListCircular">Circular</mat-slide-toggle>
                         <br>
                         <br>
                         <mat-form-field>
@@ -435,7 +435,7 @@
                             <span class="subsection-label">Binary Tree</span>
                         </mat-expansion-panel-header>
                         <p>Number of elements: <span class="big-o">n</span></p>
-                        <mat-checkbox [(ngModel)]="isBinarySearchTree">Binary Search Tree</mat-checkbox>
+                        <mat-slide-toggle [(ngModel)]="isBinarySearchTree">Binary Search Tree</mat-slide-toggle>
                         <br>
                         <br *ngIf="isBinarySearchTree">
                         <mat-form-field [(hidden)]="!isBinarySearchTree"
@@ -448,11 +448,11 @@
                             </mat-select>
                         </mat-form-field>
                         <br *ngIf="isBinarySearchTree">
-                        <mat-checkbox [(ngModel)]="binaryTreeSizeStored">Size Stored in Variable</mat-checkbox>
+                        <mat-slide-toggle [(ngModel)]="binaryTreeSizeStored">Size Stored in Variable</mat-slide-toggle>
                         <br>
-                        <mat-checkbox [(ngModel)]="binaryTreeNodeHeightStored">Heights of
+                        <mat-slide-toggle [(ngModel)]="binaryTreeNodeHeightStored">Heights of
                             Nodes Stored
-                        </mat-checkbox>
+                        </mat-slide-toggle>
                         <p class="complexity-type">Space Complexity</p>
                         <table>
                             <tr>
@@ -558,11 +558,11 @@
                             <span class="subsection-label">B-Tree</span>
                         </mat-expansion-panel-header>
                         <p>Number of elements: <span class="big-o">n</span></p>
-                        <mat-checkbox [(ngModel)]="bTreeSizeStored">Size Stored in Variable</mat-checkbox>
+                        <mat-slide-toggle [(ngModel)]="bTreeSizeStored">Size Stored in Variable</mat-slide-toggle>
                         <br>
-                        <mat-checkbox [(ngModel)]="bTreeNodeHeightStored">Heights of
+                        <mat-slide-toggle [(ngModel)]="bTreeNodeHeightStored">Heights of
                             Nodes Stored
-                        </mat-checkbox>
+                        </mat-slide-toggle>
                         <p class="complexity-type">Space Complexity</p>
                         <table>
                             <tr>
@@ -622,8 +622,8 @@
                             </mat-select>
                         </mat-form-field>
                         <br>
-                        <mat-checkbox [(ngModel)]="comparableHashTableData">Comparable Data
-                        </mat-checkbox>
+                        <mat-slide-toggle [(ngModel)]="comparableHashTableData">Comparable Data
+                        </mat-slide-toggle>
                         <br>
                         <mat-form-field
                             *ngIf="(collisionResolutionMethod === collisionResolutionMethods[0] && comparableHashTableData)"
@@ -636,7 +636,7 @@
                             </mat-select>
                         </mat-form-field>
                         <br *ngIf="collisionResolutionMethod === collisionResolutionMethods[0] && comparableHashTableData">
-                        <mat-checkbox [(ngModel)]="hashTableSizeStored">Size Stored in Variable</mat-checkbox>
+                        <mat-slide-toggle [(ngModel)]="hashTableSizeStored">Size Stored in Variable</mat-slide-toggle>
                         <br>
                         <p class="complexity-type">Space Complexity</p>
                         <table>
@@ -707,7 +707,7 @@
                             </mat-select>
                         </mat-form-field>
                         <br>
-                        <mat-checkbox [(ngModel)]="skipListSizeStored">Size Stored in Variable</mat-checkbox>
+                        <mat-slide-toggle [(ngModel)]="skipListSizeStored">Size Stored in Variable</mat-slide-toggle>
                         <br>
                         <p class="complexity-type">Space Complexity</p>
                         <table>
@@ -766,10 +766,10 @@
                             </mat-select>
                         </mat-form-field>
                         <br>
-                        <mat-checkbox
+                        <mat-slide-toggle
                             [(ngModel)]="heapSizeStored">
                             Size Stored in Variable
-                        </mat-checkbox>
+                        </mat-slide-toggle>
                         <br>
                         <br>
                         <mat-form-field>
@@ -962,15 +962,15 @@
                         <p *ngIf="usePathCompression && !useUnionByRank">Number of find operations: <span
                             class="big-o">f</span></p>
                         <div>
-                            <mat-checkbox
+                            <mat-slide-toggle
                                 [(ngModel)]="useUnionByRank">
                                 Use Union by Rank
-                            </mat-checkbox>
+                            </mat-slide-toggle>
                             <br>
-                            <mat-checkbox
+                            <mat-slide-toggle
                                 [(ngModel)]="usePathCompression">
                                 Use Path Compression
-                            </mat-checkbox>
+                            </mat-slide-toggle>
                             <br>
                         </div>
                         <p class="complexity-type">Space Complexity</p>
@@ -1041,7 +1041,7 @@
                         <p class="variable-label">Size of radix (radix sort): <span *ngIf="!smallRadixSize"
                                                                                     class="big-o">r</span><span
                             *ngIf="smallRadixSize">constant</span></p>
-                        <mat-checkbox [(ngModel)]="smallRadixSize">Assume negligible radix size</mat-checkbox>
+                        <mat-slide-toggle [(ngModel)]="smallRadixSize">Assume negligible radix size</mat-slide-toggle>
                         <br>
                         <br>
                         <table>
@@ -1060,7 +1060,7 @@
                             <tr>
                                 <td>Bubble Sort<br>
                                     <br>
-                                    <mat-checkbox [(ngModel)]="bubbleSortSwappedFlag">Use 'swapped' flag</mat-checkbox>
+                                    <mat-slide-toggle [(ngModel)]="bubbleSortSwappedFlag">Use 'swapped' flag</mat-slide-toggle>
                                 </td>
                                 <td><span class="big-o">O(n<sup *ngIf="!bubbleSortSwappedFlag">2</sup>)</span></td>
                                 <td><span class="big-o">O(n<sup>2</sup>)</span></td>
@@ -1075,8 +1075,8 @@
                             <tr>
                                 <td>Cocktail Shaker Sort<br>
                                     <br>
-                                    <mat-checkbox [(ngModel)]="cocktailShakerSortSwappedFlag">Use 'swapped' flag
-                                    </mat-checkbox>
+                                    <mat-slide-toggle [(ngModel)]="cocktailShakerSortSwappedFlag">Use 'swapped' flag
+                                    </mat-slide-toggle>
                                 </td>
                                 <td><span class="big-o">O(n<sup *ngIf="!cocktailShakerSortSwappedFlag">2</sup>)</span>
                                 </td>
@@ -1339,8 +1339,8 @@
                                         </mat-select>
                                     </mat-form-field>
                                     <br>
-                                    <mat-checkbox [(ngModel)]="boyerMooreUseGalilOptimization">Use Galil Optimization
-                                    </mat-checkbox>
+                                    <mat-slide-toggle [(ngModel)]="boyerMooreUseGalilOptimization">Use Galil Optimization
+                                    </mat-slide-toggle>
                                 </td>
                                 <td>
                                 <span *ngIf="patternMatchingTargetNum === patternMatchingTargetNums[0]" class="big-o">O((n/m) + m<span
@@ -1481,8 +1481,8 @@
                         </mat-expansion-panel-header>
                         <p class="variable-label">Number of vertices: <span class="big-o">v</span></p>
                         <p class="variable-label">Number of edges: <span class="big-o">e</span></p>
-                        <mat-checkbox [(ngModel)]="useEEqualsVSquare">Use <span class="big-o">e = v<sup>2</sup></span>
-                        </mat-checkbox>
+                        <mat-slide-toggle [(ngModel)]="useEEqualsVSquare">Use <span class="big-o">e = v<sup>2</sup></span>
+                        </mat-slide-toggle>
                         <br>
                         <br>
                         <mat-form-field>

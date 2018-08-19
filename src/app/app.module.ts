@@ -33,7 +33,6 @@ const routes: Routes = [ // Array of all routes - modify when adding routes
         BrowserAnimationsModule,
         MatCardModule,
         MatExpansionModule,
-        MatCheckboxModule,
         MatSlideToggleModule,
         MatSelectModule,
         RouterModule.forRoot(routes)
