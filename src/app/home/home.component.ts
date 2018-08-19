@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {environment} from '../../environments/environment';
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
     selector: 'app-home',
@@ -182,10 +183,20 @@ export class HomeComponent implements OnInit {
     ];
     public lisAlgorithm = this.lisAlgorithms[0];
 
-    constructor() {
+    constructor(
+        private router: Router,
+        private route: ActivatedRoute
+    ) {
     }
 
     ngOnInit() {
+        const component: HomeComponent = this;
+        component.route.queryParams.subscribe(params => {
+            component.isDarkTheme = (params['dark-mode'] == 'true');
+        });
     }
 
+    onDarkModeChange() {
+        this.router.navigate(['/'], {queryParams: {'dark-mode': this.isDarkTheme}});
+    }
 }
