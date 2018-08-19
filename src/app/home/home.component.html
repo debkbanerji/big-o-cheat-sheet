@@ -1611,8 +1611,8 @@
                             <th>Problem</th>
                             <th>Variables</th>
                             <th>Algorithm</th>
-                            <th>Average Case Time Complexity</th>
-                            <th>Worst Case Time Complexity</th>
+                            <th>Time Complexity*</th>
+                            <th>Table Size*</th>
                         </tr>
                         <tr>
                             <td>Fibonacci Number</td>
@@ -1626,7 +1626,7 @@
                                     </mat-option>
                                 </mat-select>
                             </td>
-                            <td *ngFor="let complexityCase of ['average', 'worst']">
+                            <td>
                                 <span *ngIf="fibonacciAlgorithm === fibonacciAlgorithms[0]"
                                       class="big-o">O(((1 + √5)/2)<sup>n</sup>)</span>
                                 <span
@@ -1636,16 +1636,22 @@
                                     *ngIf="fibonacciAlgorithm === fibonacciAlgorithms[2] || fibonacciAlgorithm === fibonacciAlgorithms[3]"
                                     class="big-o">O(log(n))</span>
                             </td>
+                            <td>
+                                <span
+                                    *ngIf="fibonacciAlgorithm === fibonacciAlgorithms[1]"
+                                    class="big-o">O(n)</span>
+                                <span *ngIf="fibonacciAlgorithm !== fibonacciAlgorithms[1]">N/A</span>
+                            </td>
                         </tr>
                         <tr>
                             <td>Knapsack
-                                <!--<mat-select [placeholder]="'Repetition'"-->
-                                <!--[(ngModel)]="knapsackProblemType">-->
-                                <!--<mat-option *ngFor="let type of knapsackProblemTypes"-->
-                                <!--[value]="type">-->
-                                <!--{{type}}-->
-                                <!--</mat-option>-->
-                                <!--</mat-select>-->
+                                <mat-select [placeholder]="'Repetition'"
+                                            [(ngModel)]="knapsackProblemType">
+                                    <mat-option *ngFor="let type of knapsackProblemTypes"
+                                                [value]="type">
+                                        {{type}}
+                                    </mat-option>
+                                </mat-select>
                             </td>
                             <td>
                                 <p class="variable-label">Number of items: <span class="big-o">n</span></p>
@@ -1654,8 +1660,12 @@
                             <td>
                                 Dynamic Programming
                             </td>
-                            <td *ngFor="let complexityCase of ['average', 'worst']">
+                            <td>
                                 <span class="big-o">O(n*w)</span>
+                            </td>
+                            <td>
+                                <span class="big-o" *ngIf="knapsackProblemType === knapsackProblemTypes[0]">O(w)</span>
+                                <span class="big-o" *ngIf="knapsackProblemType === knapsackProblemTypes[1]">O(n*w)</span>
                             </td>
                         </tr>
                         <tr>
@@ -1667,8 +1677,11 @@
                             <td>
                                 Dynamic Programming
                             </td>
-                            <td *ngFor="let complexityCase of ['average', 'worst']">
+                            <td>
                                 <span class="big-o">O(n<sup>2</sup>)</span>
+                            </td>
+                            <td>
+                                <span class="big-o">O(n)</span>
                             </td>
                         </tr>
                         <tr>
@@ -1686,13 +1699,20 @@
                                     </mat-option>
                                 </mat-select>
                             </td>
-                            <td *ngFor="let complexityCase of ['average', 'worst']">
+                            <td>
                                 <span
                                     *ngIf="matrixChainMultiplicationAlgorithm === matrixChainMultiplicationAlgorithms[0]"
                                     class="big-o">O(n<sup>3</sup>)</span>
                                 <span
                                     *ngIf="matrixChainMultiplicationAlgorithm === matrixChainMultiplicationAlgorithms[1]"
                                     class="big-o">O(n*log(n))</span>
+                            </td>
+                            <td>
+                                <span
+                                    *ngIf="matrixChainMultiplicationAlgorithm === matrixChainMultiplicationAlgorithms[0]"
+                                    class="big-o">O(n<sup>2</sup>)</span>
+                                <span
+                                    *ngIf="matrixChainMultiplicationAlgorithm === matrixChainMultiplicationAlgorithms[1]">N/A</span>
                             </td>
                         </tr>
                         <tr>
@@ -1705,11 +1725,13 @@
                             <td>
                                 Dynamic Programming
                             </td>
-                            <td *ngFor="let complexityCase of ['average', 'worst']">
+                            <td>
+                                <span class="big-o">O(m * n)</span>
+                            </td>
+                            <td>
                                 <span class="big-o">O(m * n)</span>
                             </td>
                         </tr>
-
                         <tr>
                             <td>Longest Increasing Subsequence
                             </td>
@@ -1725,7 +1747,7 @@
                                     </mat-option>
                                 </mat-select>
                             </td>
-                            <td *ngFor="let complexityCase of ['average', 'worst']">
+                            <td>
                                 <span
                                     *ngIf="lisAlgorithm === lisAlgorithms[0]"
                                     class="big-o">O(n<sup>2</sup>)</span>
@@ -1733,10 +1755,19 @@
                                     *ngIf="lisAlgorithm === lisAlgorithms[1]"
                                     class="big-o">O(n*log(n))</span>
                             </td>
+                            <td>
+                                <span
+                                    *ngIf="lisAlgorithm === lisAlgorithms[0]"
+                                    class="big-o">O(n)</span>
+                                <span
+                                    *ngIf="lisAlgorithm === lisAlgorithms[1]">N/A</span>
+                            </td>
                         </tr>
                     </table>
+                    <small>*Note that for these problems the time complexity as well as the table size (if applicable)
+                        is the same in both the average and the worst case.
+                    </small>
                 </mat-expansion-panel>
-                <!--TODO: DP space complexity-->
             </mat-accordion>
         </div>
     </div>
