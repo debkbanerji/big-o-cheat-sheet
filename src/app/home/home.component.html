@@ -158,9 +158,9 @@
                         <tr>
                             <td>
                                 Finding <em>K</em>th largest/smallest element
-                                <br [(hidden)]="arrayListSorted">
-                                <br [(hidden)]="arrayListSorted">
-                                <mat-form-field [(hidden)]="arrayListSorted">
+                                <br [(hidden)]="arrayListSorted" *ngIf="!arrayListSorted">
+                                <br [(hidden)]="arrayListSorted" *ngIf="!arrayListSorted">
+                                <mat-form-field [(hidden)]="arrayListSorted" *ngIf="!arrayListSorted">
                                     <mat-select [placeholder]="'Pivot Selection Method'"
                                                 [(ngModel)]="kthSelectionAlgorithm">
                                         <mat-option *ngFor="let algorithm of kthSelectionAlgorithms"
@@ -202,7 +202,7 @@
                     <br>
                     <mat-checkbox [(ngModel)]="linkedListCircular">Circular</mat-checkbox>
                     <br>
-                    <mat-form-field [(hidden)]="arrayListSorted">
+                    <mat-form-field>
                         <mat-select [placeholder]="'Linked List Type'"
                                     [(ngModel)]="linkedListType">
                             <mat-option *ngFor="let type of linkedListTypes" [value]="type">
@@ -427,7 +427,8 @@
                     <p>Number of elements: <span class="big-o">n</span></p>
                     <mat-checkbox [(ngModel)]="isBinarySearchTree">Binary Search Tree</mat-checkbox>
                     <br>
-                    <mat-form-field [(hidden)]="!isBinarySearchTree">
+                    <mat-form-field [(hidden)]="!isBinarySearchTree"
+                                    *ngIf="isBinarySearchTree">
                         <mat-select [placeholder]="'Type of BST'"
                                     [(ngModel)]="bstType">
                             <mat-option *ngFor="let type of bstTypes" [value]="type">
@@ -613,6 +614,7 @@
                     </mat-checkbox>
                     <br>
                     <mat-form-field
+                        *ngIf="(collisionResolutionMethod === collisionResolutionMethods[0] && comparableHashTableData)"
                         [hidden]="!(collisionResolutionMethod === collisionResolutionMethods[0] && comparableHashTableData)">
                         <mat-select [placeholder]="'External Chaining Method'"
                                     [(ngModel)]="hashTableExternalStructure">
