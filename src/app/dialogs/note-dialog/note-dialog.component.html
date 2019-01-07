@@ -1,0 +1,8 @@
+<div [ngClass]="{'dark-theme': data.isDarkTheme}" class="note-container">
+    <h1 mat-dialog-title>{{data.title}}</h1>
+    <div mat-dialog-content [innerHTML]="data.text">
+    </div>
+    <div mat-dialog-actions>
+        <button mat-raised-button class="cancel-button" [mat-dialog-close]="false">Close</button>
+    </div>
+</div>

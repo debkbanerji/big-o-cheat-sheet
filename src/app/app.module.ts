@@ -17,6 +17,7 @@ import {
     MatSlideToggleModule, MatDialogModule, MatButtonModule
 } from '@angular/material';
 import {AboutDialogComponent} from './dialogs/about-dialog/about-dialog.component';
+import { NoteDialogComponent } from './dialogs/note-dialog/note-dialog.component';
 
 
 const routes: Routes = [ // Array of all routes - modify when adding routes
@@ -27,7 +28,8 @@ const routes: Routes = [ // Array of all routes - modify when adding routes
     declarations: [
         AppComponent,
         HomeComponent,
-        AboutDialogComponent
+        AboutDialogComponent,
+        NoteDialogComponent
     ],
     imports: [
         FormsModule,
@@ -42,7 +44,8 @@ const routes: Routes = [ // Array of all routes - modify when adding routes
         RouterModule.forRoot(routes)
     ],
     entryComponents: [
-        AboutDialogComponent
+        AboutDialogComponent,
+        NoteDialogComponent
     ],
     providers: [],
     bootstrap: [AppComponent]

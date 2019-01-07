@@ -5,7 +5,7 @@
         </div>
     </div>
     <div class="row header-row">
-        <button mat-flat-button color="none" (click)="viewAboutDialog()">About</button>
+        <button mat-raised-button color="none" (click)="viewAboutDialog()">About</button>
         <span class="dark-mode-toggle">
             <mat-slide-toggle
                 [(ngModel)]="isDarkTheme"
@@ -1483,6 +1483,9 @@
                            *ngIf="priorityQueueImplementation === priorityQueueImplementations[3]">
                             Time Complexity of Insertion: <span class="big-o">O(T<sub>in</sub>)</span></p>
                         <br *ngIf="priorityQueueImplementation !== priorityQueueImplementations[3]">
+                        <button mat-raised-button color="none" (click)="viewGraphNoteDialog()">Note on sets and maps
+                        </button>
+                        <br>
                         <br>
                         <table>
                             <tr>
