@@ -1,0 +1,36 @@
+<div [ngClass]="{'dark-theme': data.isDarkTheme}" class="about-container">
+    <h2 class="main-header">About</h2>
+    <p>This is an electronic version of my Big-O Cheat Sheet</p>
+    <p>The source code can be found <a href="https://github.com/debkbanerji/big-o-cheat-sheet"
+                                       target="_blank">here</a>
+    </p>
+    <p>
+        <del>If you find an error, have any questions, or think there's anything I should add, please <a
+            href="mailto:debkbanerji@gmail.com">let me know</a></del>
+    </p>
+    <p>Currently maintained by <a href="mailto:alexkdurso@gmail.com">Alexandra Durso</a></p>
+    <div>
+        <small>Made with &#10084; by <a href="https://debkbanerji.com/"
+                                        target="_blank"
+                                        style="color: unset; text-decoration:none;">Deb
+        </a>
+        </small>
+    </div>
+    <div>
+        <small>
+            <span>Version {{data.version}}</span>
+        </small>
+    </div>
+    <hr>
+    <div>
+        <h4>Note about elementary operations</h4>
+        <small>Unless stated otherwise, elementary operations such as adding two numbers, multiplying two numbers, and
+            accessing a location in memory are assumed to run in constant time. Additionally, it is assumed that any
+            single number or address occupies constant space in memory. This assumption greatly simplifies the time
+            complexity analysis.
+        </small>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-raised-button class="cancel-button" [mat-dialog-close]="false">Close</button>
+    </div>
+</div>

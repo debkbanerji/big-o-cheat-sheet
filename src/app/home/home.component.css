@@ -6,20 +6,12 @@
 
 .header-row {
     text-align: center;
+    vertical-align: middle;
 }
 
-.about-section {
-    width: fit-content;
-    margin: auto;
-}
-
-.about-container {
-    width: fit-content;
-    margin: 10px;
-}
-
-a {
-    color: #ff4081;
+.dark-mode-toggle {
+    vertical-align: middle;
+    margin-left: 15px;
 }
 
 .section-header {

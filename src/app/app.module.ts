@@ -14,8 +14,10 @@ import {
     MatCardModule,
     MatSelectModule,
     MatExpansionModule,
-    MatSlideToggleModule
+    MatSlideToggleModule, MatDialogModule, MatButtonModule
 } from '@angular/material';
+import {AboutDialogComponent} from './dialogs/about-dialog/about-dialog.component';
+import { NoteDialogComponent } from './dialogs/note-dialog/note-dialog.component';
 
 
 const routes: Routes = [ // Array of all routes - modify when adding routes
@@ -25,17 +27,25 @@ const routes: Routes = [ // Array of all routes - modify when adding routes
 @NgModule({
     declarations: [
         AppComponent,
-        HomeComponent
+        HomeComponent,
+        AboutDialogComponent,
+        NoteDialogComponent
     ],
     imports: [
         FormsModule,
         BrowserModule,
         BrowserAnimationsModule,
+        MatButtonModule,
         MatCardModule,
+        MatDialogModule,
         MatExpansionModule,
         MatSlideToggleModule,
         MatSelectModule,
         RouterModule.forRoot(routes)
+    ],
+    entryComponents: [
+        AboutDialogComponent,
+        NoteDialogComponent
     ],
     providers: [],
     bootstrap: [AppComponent]

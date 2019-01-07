@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {ActivatedRoute, Router} from "@angular/router";
+import {MatDialog} from "@angular/material";
+import {AboutDialogComponent} from "../dialogs/about-dialog/about-dialog.component";
+import {NoteDialogComponent} from "../dialogs/note-dialog/note-dialog.component";
 
 @Component({
     selector: 'app-home',
@@ -149,6 +152,23 @@ export class HomeComponent implements OnInit {
     ];
     public boyerMooreLastOcurrenceTableSize = this.boyerMooreLastOcurrenceTableSizes[0];
     public boyerMooreUseGalilOptimization = false;
+
+    // Graphs
+    viewGraphNoteDialog(): void {
+        const component = this;
+        component.dialog.open(NoteDialogComponent, {
+            data: {
+                'isDarkTheme': component.isDarkTheme,
+                'title': 'Note on sets and maps',
+                'text': 'The worst case time complexities in this section are given assuming that when the vertices of' +
+                    ' the graphs are used as elements of sets or keys in maps, basic operations on these sets or maps' +
+                    ' occur in constant time. This can be achieved by implementing the set or map using a hash table' +
+                    ' with a perfect hash function, or an array, if it is possible for the vertices to be uniquely' +
+                    ' associated with the indices of a predetermined array.'
+            }
+        });
+    };
+
     public useEEqualsVSquare = false;
     public priorityQueueImplementations = [
         'Binary Heap',
@@ -185,7 +205,8 @@ export class HomeComponent implements OnInit {
 
     constructor(
         private router: Router,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        public dialog: MatDialog,
     ) {
     }
 
@@ -195,6 +216,16 @@ export class HomeComponent implements OnInit {
             component.isDarkTheme = (params['dark-mode'] == 'true');
         });
     }
+
+    viewAboutDialog(): void {
+        const component = this;
+        component.dialog.open(AboutDialogComponent, {
+            data: {
+                'isDarkTheme': component.isDarkTheme,
+                'version': component.version
+            }
+        });
+    };
 
     onDarkModeChange() {
         this.router.navigate(['/'], {queryParams: {'dark-mode': this.isDarkTheme}});
