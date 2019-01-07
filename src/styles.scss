@@ -19,8 +19,6 @@ $app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
     $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
 
     @include angular-material-theme($dark-theme);
-
-    background-color: #303030 !important;
 }
 
 .dark-background {
