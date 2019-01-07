@@ -1,6 +1,6 @@
 {
     "name": "big-o-cheat-sheet",
-    "version": "2018.8.19",
+    "version": "2019.1.6",
     "scripts": {
         "ng": "ng",
         "develop": "ng serve",

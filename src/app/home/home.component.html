@@ -2,41 +2,17 @@
     <div class="row">
         <div class="col-xs-12 main-title-container">
             <h1>Big-O Cheat Sheet</h1>
-            <span class="dark-mode-toggle">
-                <mat-slide-toggle
-                    [(ngModel)]="isDarkTheme"
-                    (change)="onDarkModeChange()">
-                    Dark Mode
-                </mat-slide-toggle>
-            </span>
         </div>
     </div>
     <div class="row header-row">
-        <div class="about-section">
-            <mat-expansion-panel class="about-container">
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        About
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <p>This is an electronic version of my Big-O Cheat Sheet</p>
-                <p>The source code can be found <a href="https://github.com/debkbanerji/big-o-cheat-sheet"
-                                                   target="_blank">here</a>
-                </p>
-                <p>
-                    <del>If you find an error, have any questions, or think there's<br> anything I should add, please <a
-                        href="mailto:debkbanerji@gmail.com">let me know</a></del>
-                </p>
-                <p>Currently maintained by <a href="mailto:alexkdurso@gmail.com">Alexandra Durso</a></p>
-                <small>Made with &#10084; by <a href="https://debkbanerji.com/"
-                                                                                       target="_blank"
-                                                                                       style="color: unset; text-decoration:none;">Deb
-                </a>
-                    <br>
-                    <span>Version {{version}}</span>
-                </small>
-            </mat-expansion-panel>
-        </div>
+        <button mat-flat-button color="none" (click)="viewAboutDialog()">About</button>
+        <span class="dark-mode-toggle">
+            <mat-slide-toggle
+                [(ngModel)]="isDarkTheme"
+                (change)="onDarkModeChange()">
+                Dark Mode
+            </mat-slide-toggle>
+        </span>
     </div>
     <br>
     <div class="row">
@@ -1060,7 +1036,8 @@
                             <tr>
                                 <td>Bubble Sort<br>
                                     <br>
-                                    <mat-slide-toggle [(ngModel)]="bubbleSortSwappedFlag">Use 'swapped' flag</mat-slide-toggle>
+                                    <mat-slide-toggle [(ngModel)]="bubbleSortSwappedFlag">Use 'swapped' flag
+                                    </mat-slide-toggle>
                                 </td>
                                 <td><span class="big-o">O(n<sup *ngIf="!bubbleSortSwappedFlag">2</sup>)</span></td>
                                 <td><span class="big-o">O(n<sup>2</sup>)</span></td>
@@ -1339,7 +1316,8 @@
                                         </mat-select>
                                     </mat-form-field>
                                     <br>
-                                    <mat-slide-toggle [(ngModel)]="boyerMooreUseGalilOptimization">Use Galil Optimization
+                                    <mat-slide-toggle [(ngModel)]="boyerMooreUseGalilOptimization">Use Galil
+                                        Optimization
                                     </mat-slide-toggle>
                                 </td>
                                 <td>
@@ -1481,7 +1459,8 @@
                         </mat-expansion-panel-header>
                         <p class="variable-label">Number of vertices: <span class="big-o">v</span></p>
                         <p class="variable-label">Number of edges: <span class="big-o">e</span></p>
-                        <mat-slide-toggle [(ngModel)]="useEEqualsVSquare">Use <span class="big-o">e = v<sup>2</sup></span>
+                        <mat-slide-toggle [(ngModel)]="useEEqualsVSquare">Use <span
+                            class="big-o">e = v<sup>2</sup></span>
                         </mat-slide-toggle>
                         <br>
                         <br>

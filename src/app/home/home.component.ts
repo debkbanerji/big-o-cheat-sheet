@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {ActivatedRoute, Router} from "@angular/router";
+import {MatDialog} from "@angular/material";
+import {AboutDialogComponent} from "../dialogs/about-dialog/about-dialog.component";
 
 @Component({
     selector: 'app-home',
@@ -185,7 +187,8 @@ export class HomeComponent implements OnInit {
 
     constructor(
         private router: Router,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        public dialog: MatDialog,
     ) {
     }
 
@@ -195,6 +198,16 @@ export class HomeComponent implements OnInit {
             component.isDarkTheme = (params['dark-mode'] == 'true');
         });
     }
+
+    viewAboutDialog(): void {
+        const component = this;
+        component.dialog.open(AboutDialogComponent, {
+            data: {
+                'isDarkTheme': component.isDarkTheme,
+                'version': component.version
+            }
+        });
+    };
 
     onDarkModeChange() {
         this.router.navigate(['/'], {queryParams: {'dark-mode': this.isDarkTheme}});
