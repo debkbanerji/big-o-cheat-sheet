@@ -1,5 +1,5 @@
 <div [ngClass]="{'dark-theme': data.isDarkTheme}" class="about-container">
-    <h1 mat-dialog-title>About</h1>
+    <h2 class="main-header">About</h2>
     <p>This is an electronic version of my Big-O Cheat Sheet</p>
     <p>The source code can be found <a href="https://github.com/debkbanerji/big-o-cheat-sheet"
                                        target="_blank">here</a>
@@ -19,6 +19,15 @@
     <div>
         <small>
             <span>Version {{data.version}}</span>
+        </small>
+    </div>
+    <hr>
+    <div>
+        <h4>Note about elementary operations</h4>
+        <small>Unless stated otherwise, elementary operations such as adding two numbers, multiplying two numbers, and
+            accessing a location in memory are assumed to run in constant time. Additionally, it is assumed that any
+            single number or address occupies constant space in memory. While this may not technically be the case, it
+            greatly simplifies the time complexity analysis.
         </small>
     </div>
     <div mat-dialog-actions>

@@ -2,6 +2,10 @@
     padding: 24px;
 }
 
+.main-header {
+    margin-top: 0;
+}
+
 a {
     color: #ff4081;
 }
