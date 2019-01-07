@@ -5,6 +5,8 @@ import {MatDialog} from "@angular/material";
 import {AboutDialogComponent} from "../dialogs/about-dialog/about-dialog.component";
 import {NoteDialogComponent} from "../dialogs/note-dialog/note-dialog.component";
 
+declare let particlesJS: any;
+
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
@@ -214,6 +216,8 @@ export class HomeComponent implements OnInit {
         const component: HomeComponent = this;
         component.route.queryParams.subscribe(params => {
             component.isDarkTheme = (params['dark-mode'] == 'true');
+        });
+        particlesJS.load('particles-js-target', 'assets/json/particles-js-config.json', function () {
         });
     }
 
