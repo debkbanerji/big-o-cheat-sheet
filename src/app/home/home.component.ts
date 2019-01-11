@@ -217,8 +217,8 @@ export class HomeComponent implements OnInit {
         component.route.queryParams.subscribe(params => {
             component.isDarkTheme = (params['dark-mode'] == 'true');
         });
-        particlesJS.load('particles-js-target', 'assets/json/particles-js-config.json', function () {
-        });
+        // particlesJS.load('particles-js-target', 'assets/json/particles-js-config.json', function () {
+        // });
     }
 
     viewAboutDialog(): void {
