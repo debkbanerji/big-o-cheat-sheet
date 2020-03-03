@@ -1,0 +1,16 @@
+[ignore]
+.*/node_modules/.*
+.*/src/index.*
+.*/src/serviceWorker/.*
+
+[include]
+.*/src/main/.*
+
+[libs]
+
+[lints]
+
+[options]
+all=true
+
+[strict]
