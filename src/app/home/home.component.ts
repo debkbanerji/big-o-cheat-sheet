@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {environment} from '../../environments/environment';
-import {ActivatedRoute, Router} from "@angular/router";
-import {MatDialog} from "@angular/material";
-import {AboutDialogComponent} from "../dialogs/about-dialog/about-dialog.component";
-import {NoteDialogComponent} from "../dialogs/note-dialog/note-dialog.component";
+import { Component, OnInit } from '@angular/core';
+import { environment } from '../../environments/environment';
+import { ActivatedRoute, Router } from "@angular/router";
+import { MatDialog } from "@angular/material/dialog";
+import { AboutDialogComponent } from "../dialogs/about-dialog/about-dialog.component";
+import { NoteDialogComponent } from "../dialogs/note-dialog/note-dialog.component";
 
 declare let particlesJS: any;
 
@@ -232,6 +232,6 @@ export class HomeComponent implements OnInit {
     };
 
     onDarkModeChange() {
-        this.router.navigate(['/'], {queryParams: {'dark-mode': this.isDarkTheme}});
+        this.router.navigate(['/'], { queryParams: { 'dark-mode': this.isDarkTheme } });
     }
 }
