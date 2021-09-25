@@ -1,7 +1,8 @@
-# Big-O Cheat Sheet
+# [BigOCheatSheet.io](https://bigocheatsheet.io)
+
 This is an electronic version of my Big-O Cheat Sheet for some data structures and algorithms.
 
-It's (probably) the most extensive big O cheat sheet on the web, since it captures more infomration by allowing users to vary the properties of the data structures and algorithms documented.
+It's (probably) the most extensive big O cheat sheet on the web, since it captures more information by allowing users to vary the properties of the data structures and algorithms documented.
 
 My original document is from early 2016, when I was a student in a data structures and algorithms class at Georgia Tech. The information maintained here is based on the original document, but has been rewritten from scratch in order to cover more material and fix some errors that the original document had.
 
